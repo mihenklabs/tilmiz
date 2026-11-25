@@ -1,7 +1,7 @@
 // Uygulamanın jsdom'da açılıp temel akışlarının hatasız çalışması
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { openApp, learnedState, readData } from "./helpers.mjs";
+import { openApp, learnedState, readData, standaloneHtml } from "./helpers.mjs";
 
 const W = readData("words");
 const ORDER = readData("order");
@@ -176,6 +176,18 @@ test("Gelişim: aylık takvim ve seviye ilerleme çubukları", () => {
   a.click('[data-cal="1"]'); a.click('[data-cal="1"]');
   assert.ok(a.$('[data-cal="1"][disabled]'), "gelecek aya gidilmemeli");
   noErrors(a); a.close();
+});
+
+test("Soru ve önerileriniz: e-posta tanımlıysa mailto bağlantısı, değilse gizli", () => {
+  const a = openApp({ hash: "ayarlar" });
+  assert.doesNotMatch(a.text(), /Soru ve önerileriniz/);
+  a.close();
+  const html = standaloneHtml().replace('const CONTACT = "";', 'const CONTACT = "destek@example.com";');
+  const b = openApp({ hash: "ayarlar", html });
+  const link = b.$('a[href^="mailto:destek@example.com"]');
+  assert.ok(link, "mailto bağlantısı yok");
+  assert.match(decodeURIComponent(link.href), /subject=.*soru \/ öneri/);
+  noErrors(b); b.close();
 });
 
 test("Play dışında destek paketleri görünmez", () => {

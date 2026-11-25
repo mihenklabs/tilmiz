@@ -525,6 +525,15 @@ function dictView(seg) {
   const op = dictOpen !== null && app.querySelector(`.list details[data-i="${dictOpen}"]`); if (op) bindCard(op, dictOpen);
 }
 
+// "Soru ve önerileriniz": e-posta uygulamasını açar; uygulama hiçbir şey göndermez
+const CONTACT = "{{CONTACT_EMAIL}}";
+function feedbackCard() {
+  if (!/@/.test(CONTACT)) return "";
+  const body = "\n\n\n---\n{{APP_NAME}} sürüm {{VERSION}} · " + (IN_CLAUDE ? "claude.ai" : "uygulama") + " · " + navigator.language;
+  const href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent("{{APP_NAME}}: soru / öneri") + "&body=" + encodeURIComponent(body);
+  return `<div class="set"><h3>Soru ve önerileriniz</h3><p>Hatalı bir çeviri, eksik bir konu ya da yeni bir fikir mi var? E-posta uygulaman açılır; mesajı sen gönderirsin.</p><a class="btn" href="${href}">✉️ E-posta yaz</a></div>`;
+}
+
 let fedit = null;
 function settings() {
   const nflag = Object.keys(S.flag).length;
@@ -559,6 +568,7 @@ function settings() {
     <div class="row"><button class="btn" id="bkSave">${IN_CLAUDE ? "Yedeği kopyala" : "Yedek dosyası indir"}</button><button class="btn" id="bkLoad">Yedekten yükle</button></div>
     <input type="file" id="bkFile" accept=".json,application/json,text/plain" hidden>
     <details class="bkp"><summary>Metin olarak yapıştırıp yükle</summary><textarea id="bkText" rows="3" placeholder="Yedek metnini buraya yapıştır" aria-label="Yedek metni"></textarea><div class="row"><button class="btn sm" id="bkApply">Yapıştırılanı yükle</button></div></details></div>
+  ${feedbackCard()}
   <details class="set about"><summary><h3 style="display:inline">Hakkında, kaynaklar ve lisanslar</h3></summary>
     <p><b>{{APP_NAME}}</b> Arapça kelime, dil bilgisi ve okuma çalışmaları için hazırlandı. Verilerin tamamı bu cihazda saklanır${IN_CLAUDE ? " (ve Claude hesabında eşitlenir)" : ""}; hiçbir kişisel veri toplanmaz.</p>
     <p>Geliştirici: {{DEV_NAME}}. Kaynak kodu (GPL-3.0-or-later): <a href="https://github.com/{{GITHUB_USER}}/{{REPO}}" target="_blank" rel="noopener">github.com/{{GITHUB_USER}}/{{REPO}}</a></p>

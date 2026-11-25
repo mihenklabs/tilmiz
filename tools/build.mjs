@@ -12,6 +12,7 @@ const r = p => path.join(root, p);
 const read = p => fs.readFileSync(r(p), "utf8");
 const hash = s => crypto.createHash("sha256").update(s).digest("hex").slice(0, 10);
 const cfg = JSON.parse(read("app.config.json"));
+const pkgVersion = JSON.parse(read("package.json")).version;
 
 export function loadParts() {
   const tpl = read("src/index.html");
@@ -25,7 +26,8 @@ export function loadParts() {
 
 const fill = (tpl, head, scripts) => tpl.replace("<!-- @head -->\n", head).replace("<!-- @scripts -->\n", scripts);
 const names = s => s.replaceAll("{{APP_NAME}}", cfg.name).replaceAll("{{APP_SHORT}}", cfg.shortName).replaceAll("{{DEV_NAME}}", cfg.developer)
-  .replaceAll("{{GITHUB_USER}}", cfg.githubUser).replaceAll("{{REPO}}", cfg.repo).replaceAll("{{PACKAGE_ID}}", cfg.packageId);
+  .replaceAll("{{GITHUB_USER}}", cfg.githubUser).replaceAll("{{REPO}}", cfg.repo).replaceAll("{{PACKAGE_ID}}", cfg.packageId)
+  .replaceAll("{{CONTACT_EMAIL}}", cfg.contactEmail || "").replaceAll("{{VERSION}}", pkgVersion);
 
 // JSON'u <script> içine güvenle koy
 const safe = s => s.replace(/<\/(script)/gi, "<\\/$1");
@@ -122,6 +124,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   fs.writeFileSync(r("dist/" + cfg.repo + ".html"), one);
   const s = buildSite();
   buildRoot();
+  if (!cfg.contactEmail) console.warn("UYARI: app.config.json contactEmail boş: gizlilik politikasında iletişim adresi yok, öneri düğmesi gizli. Yayından önce doldur.");
   const size = f => (fs.statSync(f).size / 1024).toFixed(0) + " KB";
   console.log("dist/" + cfg.repo + ".html", size(r("dist/" + cfg.repo + ".html")));
   console.log("dist/site/ ", s.files.length, "dosya, sürüm", s.version, "· index.html", size(path.join(s.out, "index.html")));

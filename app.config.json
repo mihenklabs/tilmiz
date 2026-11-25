@@ -6,5 +6,6 @@
   "repo": "tilmiz",
   "packageId": "io.github.mihenklabs.tilmiz",
   "tagline": "Arapça kelime, dil bilgisi, ayet ve hadis okuma pratiği.",
-  "themeColor": "#1F3A68"
+  "themeColor": "#1F3A68",
+  "contactEmail": ""
 }
