@@ -186,7 +186,7 @@ h3.sec{font-size:1rem;margin:16px 2px 8px}
 .done p{margin:6px 0 0;opacity:.88}
 
 /* lists */
-.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--soft);border-radius:14px;padding:4px;gap:4px;margin-bottom:12px}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);background:var(--soft);border-radius:14px;padding:4px;gap:4px;margin-bottom:12px}
 .seg button{border:none;background:none;border-radius:10px;padding:9px 4px;font-size:.88rem;font-weight:500;color:var(--muted);line-height:1.25}
 .seg button b{display:block;font-size:1.1rem;color:var(--ink)}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
@@ -255,3 +255,5 @@ nav.tabs a[aria-current="page"]{color:var(--tile)}
 .det .exs div{grid-column:1/-1;color:var(--muted);font-size:.88rem}
 .det .ex .src{font-size:.72rem;color:var(--muted);text-align:right}
 .saybtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--soft);font-size:.9rem;padding:0}
+.seg button{min-width:0;overflow-wrap:anywhere;hyphens:auto}
+@media (max-width:380px){.seg button{font-size:.76rem;padding:8px 2px}.seg button b{font-size:1rem}}
