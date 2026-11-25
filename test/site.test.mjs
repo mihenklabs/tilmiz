@@ -29,7 +29,9 @@ function openSite() {
             const code = fs.readFileSync(f, "utf8");
             const inline = w.document.createElement("script");
             inline.textContent = code;
-            return orig.call(this, inline);
+            const r = orig.call(this, inline);
+            if (el.onload) setTimeout(() => el.onload(), 0);
+            return r;
           }
           return orig.call(this, el);
         };
@@ -58,6 +60,10 @@ test("site sürümü açılır ve çalışır", async () => {
   assert.equal(a.ev("N"), 11719);
   assert.match(a.text(), /Yeni kelime|iyi biliyorum/);
   a.go("pratik"); assert.match(a.text(), /Pratik/);
+  // fiil çekimleri arka planda gelir ve pratik ekranı yenilenir
+  for (let i = 0; i < 200 && a.ev("Object.keys(CJ).length") === 0; i++) await new Promise(r => setTimeout(r, 20));
+  assert.ok(a.ev("Object.keys(CJ).length") > 1000, "çekim verisi gelmedi");
+  assert.doesNotMatch(fs.readFileSync(path.join(site, "index.html"), "utf8"), /rel="preload" href="data\/conj/);
   assert.deepEqual(a.errors, []);
   a.close();
 });

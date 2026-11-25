@@ -1,6 +1,6 @@
 "use strict";
 // Veri: tek dosya sürümünde <script type="application/json"> etiketlerinden, site sürümünde önceden indirilen JSON'lardan okunur.
-const DATA = id => { const D = window.__ELIFBA_DATA; if (D && D[id] !== undefined) return D[id]; return JSON.parse(document.getElementById(id).textContent); };
+const DATA = id => { const D = window.__ELIFBA_DATA; if (D) return D[id]; return JSON.parse(document.getElementById(id).textContent); };
 // ---------- data ----------
 // her kelime: [arapça, okunuş, türkçe, ingilizce, tür, çoğul / muzari]
 const W = DATA("words");
@@ -503,7 +503,7 @@ function settings() {
 }
 
 // ---------- fiil çekimi verisi ----------
-const CJ = DATA("conj"); // id -> [mazi[13], muzari[13], emir[5]]
+let CJ = DATA("conj") || {}; // id -> [mazi[13], muzari[13], emir[5]]; site sürümünde açılıştan sonra gelir (__elifbaLate)
 const AP = ["أَنَا","أَنْتَ","أَنْتِ","هُوَ","هِيَ","أَنْتُمَا","هُمَا","هُمَا","نَحْنُ","أَنْتُمْ","أَنْتُنَّ","هُمْ","هُنَّ"];
 const TP = [[0,"ben"],[1,"sen (erkek)"],[1,"sen (kadın)"],[2,"o (erkek)"],[2,"o (kadın)"],[4,"siz ikiniz"],[5,"o ikisi (erkek)"],[5,"o ikisi (kadın)"],[3,"biz"],[4,"siz (erkekler)"],[4,"siz (kadınlar)"],[5,"onlar (erkekler)"],[5,"onlar (kadınlar)"]];
 const TRP = ["ben","sen","o","biz","siz","onlar"];
@@ -1804,5 +1804,8 @@ function route(keep) {
 }
 addEventListener("hashchange", () => route());
 route(true);
+// Site sürümünde geç yüklenen veri geldiğinde: yalnızca etkilenen sakin ekranları yenile
+window.__elifbaLate = (k, v) => { if (k === "conj") { CJ = v; if ((view === "pratik" && !gq && ["hub", "verbs", "lessons"].includes(pv.mode))) render(); } };
+try { performance.mark("elifba-ready"); } catch (e) {}
 initSync();
 initBilling();

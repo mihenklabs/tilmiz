@@ -7,6 +7,7 @@ import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const LAZY = ["conj"]; // site sürümünde açılıştan sonra yüklenen veri
 const r = p => path.join(root, p);
 const read = p => fs.readFileSync(r(p), "utf8");
 const hash = s => crypto.createHash("sha256").update(s).digest("hex").slice(0, 10);
@@ -46,7 +47,7 @@ export function buildSite(out = r("dist/site"), p = loadParts()) {
 
   // Yazı tipleri yerelde (çevrimdışı, üçüncü tarafa istek yok)
   const fontCss = fs.existsSync(r("src/fonts/fonts.css")) ? read("src/fonts/fonts.css") : "";
-  if (fontCss) for (const f of fs.readdirSync(r("src/fonts"))) if (f.endsWith(".woff2")) emit("fonts/" + f, fs.readFileSync(r("src/fonts/" + f)));
+  if (fontCss) for (const f of fs.readdirSync(r("src/fonts"))) if (/.(woff2|txt)$/.test(f)) emit("fonts/" + f, fs.readFileSync(r("src/fonts/" + f)));
 
   // Pwa statik dosyaları
   const pwa = r("src/pwa");
@@ -61,15 +62,24 @@ export function buildSite(out = r("dist/site"), p = loadParts()) {
   const boot = `<script>
 (function () {
   var U = ${JSON.stringify(dataUrls)}, D = window.__ELIFBA_DATA = {};
+  var LAZY = ${JSON.stringify(LAZY)};
   var msg = function (t) { var a = document.getElementById("app"); if (a) a.innerHTML = '<p class="sub" style="padding-top:40px;text-align:center">' + t + "</p>"; };
-  Promise.all(Object.keys(U).map(function (k) { return fetch(U[k]).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (j) { D[k] = j; }); }))
-    .then(function () { var s = document.createElement("script"); s.src = ${JSON.stringify(jsName)}; document.body.appendChild(s); })
+  var get = function (k) { return fetch(U[k]).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); };
+  // Büyük ve ilk ekranda gerekmeyen veri (fiil çekimleri) arka planda gelir
+  var lazy = {}; LAZY.forEach(function (k) { lazy[k] = get(k); });
+  Promise.all(Object.keys(U).filter(function (k) { return LAZY.indexOf(k) < 0; }).map(function (k) { return get(k).then(function (j) { D[k] = j; }); }))
+    .then(function () {
+      try { performance.mark("elifba-data"); } catch (e) {}
+      var s = document.createElement("script"); s.src = ${JSON.stringify(jsName)};
+      s.onload = function () { LAZY.forEach(function (k) { lazy[k].then(function (j) { if (window.__elifbaLate) window.__elifbaLate(k, j); }); }); };
+      document.body.appendChild(s);
+    })
     .catch(function () { msg("Veriler yüklenemedi. İnternet bağlantını kontrol edip sayfayı yenile."); });
 })();
 if ("serviceWorker" in navigator) { window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); }); }
 </script>
 `;
-  const preload = Object.values(dataUrls).map(u => `<link rel="preload" href="${u}" as="fetch" crossorigin="anonymous">\n`).join("")
+  const preload = Object.entries(dataUrls).filter(([k]) => !LAZY.includes(k)).map(([, u]) => u).map(u => `<link rel="preload" href="${u}" as="fetch" crossorigin="anonymous">\n`).join("")
     + `<link rel="preload" href="${jsName}" as="script">\n`;
   const pwaHead = `<meta name="theme-color" content="${cfg.themeColor}">
 <meta name="description" content="${cfg.name}: ${cfg.tagline}">
