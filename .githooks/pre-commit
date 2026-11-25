@@ -1,3 +1,5 @@
 #!/bin/sh
 # Her commit'ten önce derle ve testleri çalıştır
-npm test --silent >/tmp/elifba-test.log 2>&1 || { tail -40 /tmp/elifba-test.log; echo "Testler geçmedi, commit durduruldu."; exit 1; }
+PATH="$PATH:/c/Program Files/nodejs"
+log="${TMPDIR:-/tmp}/tilmiz-test.log"
+npm test --silent >"$log" 2>&1 || { tail -40 "$log"; echo "Testler geçmedi, commit durduruldu."; exit 1; }
