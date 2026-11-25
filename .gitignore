@@ -5,3 +5,5 @@ _eski/
 *.jks
 signing*
 .env
+.venv*/
+samples/

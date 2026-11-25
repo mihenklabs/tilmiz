@@ -898,7 +898,7 @@ function logDay(f, n) {
   e[f] = (e[f] || 0) + n;
   const xp = (XPW[f] || 0) * n;
   if (xp) { e.xp = (e.xp || 0) + xp; S.xp = (S.xp || 0) + xp; const g = +S.set.goal || 100; if (!e.gh && e.xp >= g) { e.gh = 1; setTimeout(() => toast("🎯 Günlük hedefe ulaştın: " + g + " XP!"), 300); } }
-  const ks = Object.keys(S.log).sort(); while (ks.length > 120) delete S.log[ks.shift()];
+  const ks = Object.keys(S.log).sort(); while (ks.length > 400) delete S.log[ks.shift()];
 }
 function statsBlock() {
   const L = S.log || {}, days = [], names = ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"];
@@ -1397,13 +1397,47 @@ function growth() {
     <svg viewBox="0 0 310 100" role="img" aria-label="İyi bilinen kelime sayısının gelişimi"><path d="${path}" style="fill:none;stroke:var(--tile);stroke-width:2.5"/><text x="6" y="12" style="fill:var(--muted);font-size:10px">${fmt(mx)}</text></svg></div>
   <div class="statsbox"><div class="sh"><b>Becerilere göre doğru oranı</b></div>
     ${rows.map(([t, v]) => `<div class="covrow"><span>${t}</span><b>${v === null ? "—" : "%" + v}</b></div>`).join("")}</div>
-  <div class="statsbox"><div class="sh"><b>Seviye eşikleri</b><span>öğrenilmiş kelime</span></div>
-    ${LV.map(([l, n], i) => `<div class="covrow${i === k ? " cur" : ""}"><span>${l} · ${LVDESC[l]}</span><b>${fmt(n)}+</b></div>`).join("")}
+  ${calBlock()}
+  <div class="statsbox"><div class="sh"><b>Seviye ilerlemesi</b><span>kelime · dil bilgisi</span></div>
+    ${LV.map(([l, n], i) => { const lo = n, hi = LV[i + 1] ? LV[i + 1][1] : null, w = hi === null ? (learnedN >= lo ? 100 : 0) : Math.max(0, Math.min(100, 100 * (learnedN - lo) / (hi - lo)));
+      const g = GLV[l] || [], gd = g.filter(id => (S.gr[id] || 0) >= 6).length;
+      return `<div class="covrow${i === k ? " cur" : ""}"><span>${l} · ${LVDESC[l]}</span><b>${hi === null ? fmt(lo) + "+" : fmt(lo) + "–" + fmt(hi)}</b></div>
+      <div class="lvbars"><div class="meter" title="Kelime"><i style="width:${w}%"></i></div><div class="meter gram" title="Dil bilgisi"><i style="width:${g.length ? 100 * gd / g.length : 0}%"></i></div><small>${g.length ? gd + "/" + g.length + " ders" : ""}</small></div>`; }).join("")}
+    <p class="note mut"><span class="key"><i></i>kelime</span> <span class="key gram"><i></i>dil bilgisi (6/8 ile geçilen dersler)</span></p>
     <p class="note mut">Eşikler Modern Standart Arapça için yaklaşık değerlerdir. Dil bilgisi seviyesi, o seviyenin bütün derslerini 8 sorudan en az 6 doğruyla geçince yükselir.</p></div>
   <button class="hub" id="goTest"><span class="ar" lang="ar">اِخْتِبَار</span><div><strong>Seviye tespit sınavı</strong><span>${S.place ? `Son sonuç: ${S.place.lvl}, ~${fmt(S.place.est)} kelime` : "Arapça biliyorsan seviyeni ölç, uygun yerden başla"}</span></div></button>`;
   bindPlan();
   $("#goTest").onclick = () => { gv = { mode: "test" }; pt = null; growth(); window.scrollTo(0, 0); };
 }
+
+// --- Aylık çalışma takvimi ---
+let calM = null; // [yıl, ay] (0 tabanlı ay); null = bu ay
+const MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+function calBlock() {
+  const now = new Date(), [y, m] = calM || [now.getFullYear(), now.getMonth()];
+  const L = S.log || {}, goal = +S.set.goal || 100, days = new Date(y, m + 1, 0).getDate();
+  const lead = (new Date(y, m, 1).getDay() + 6) % 7; // pazartesiyle başla
+  const today = dayStr();
+  let act = 0, xp = 0, nw = 0, hit = 0, cells = "";
+  for (let i = 0; i < lead; i++) cells += `<i class="cd pad"></i>`;
+  for (let d = 1; d <= days; d++) {
+    const k = dayStr(new Date(y, m, d)), e = L[k] || {}, x = e.xp || 0, done = (e.r || 0) + (e.x || 0);
+    if (done || x) act++; xp += x; nw += e.n || 0; if (x >= goal) hit++;
+    const lv = !done && !x ? 0 : x >= goal ? 3 : x >= goal / 2 ? 2 : 1;
+    cells += `<i class="cd l${lv}${k === today ? " today" : ""}${k > today ? " fut" : ""}" title="${d} ${MONTHS[m]}: ${x} XP, ${done} cevap">${d}</i>`;
+  }
+  const first = Object.keys(L).sort()[0], minKey = first ? first.slice(0, 7) : today.slice(0, 7);
+  const thisKey = `${y}-${String(m + 1).padStart(2, "0")}`, canPrev = thisKey > minKey, canNext = thisKey < today.slice(0, 7);
+  return `<div class="statsbox cal"><div class="sh"><b>Çalışma takvimi</b><span class="calnav"><button class="linkbtn" data-cal="-1" ${canPrev ? "" : "disabled"} aria-label="Önceki ay">‹</button>${MONTHS[m]} ${y}<button class="linkbtn" data-cal="1" ${canNext ? "" : "disabled"} aria-label="Sonraki ay">›</button></span></div>
+    <div class="calgrid">${["Pt", "Sa", "Ça", "Pe", "Cu", "Ct", "Pz"].map(t => `<b>${t}</b>`).join("")}${cells}</div>
+    <div class="sf"><span><b>${act}</b> gün çalıştın</span><span><b>${hit}</b> gün hedef</span><span><b>${fmt(xp)}</b> XP</span><span><b>${fmt(nw)}</b> yeni</span></div>
+    <p class="note mut"><span class="key l1"><i></i>çalıştın</span> <span class="key l2"><i></i>hedefin yarısı</span> <span class="key l3"><i></i>günlük hedef</span></p></div>`;
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-cal]"); if (!b || b.disabled) return;
+  const now = new Date(), [y, m] = calM || [now.getFullYear(), now.getMonth()], d = new Date(y, m + +b.dataset.cal, 1);
+  calM = [d.getFullYear(), d.getMonth()]; if (view === "gelisim") growth();
+});
 
 // --- Seviye tespit sınavı ---
 const BANDS = [[0, 300], [300, 700], [700, 1200], [1200, 2000], [2000, 3000], [3000, 4500], [4500, 6500], [6500, 100000]];

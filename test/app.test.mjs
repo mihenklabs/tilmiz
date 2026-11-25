@@ -160,6 +160,24 @@ test("kayıtlı durum yeniden açılışta korunur", () => {
   noErrors(b); b.close();
 });
 
+test("Gelişim: aylık takvim ve seviye ilerleme çubukları", () => {
+  const st = learnedState(LEARNED);
+  const d = n => { const t = new Date(); t.setDate(t.getDate() - n); return t.getFullYear() + "-" + String(t.getMonth() + 1).padStart(2, "0") + "-" + String(t.getDate()).padStart(2, "0"); };
+  st.log = { [d(0)]: { xp: 150, r: 20 }, [d(1)]: { xp: 60, r: 8 }, [d(40)]: { xp: 10, r: 2 } };
+  st.set = { goal: 100 };
+  const a = openApp({ state: st, hash: "gelisim" });
+  assert.match(a.text(), /Çalışma takvimi/);
+  assert.ok(a.$(".calgrid .cd.today.l3"), "bugün hedef tamam görünmeli");
+  assert.equal(a.$$(".lvbars").length, 6);
+  // geçmiş aylara git, sonra geri gel
+  a.click('[data-cal="-1"]');
+  a.click('[data-cal="-1"]');
+  assert.ok(a.$$(".calgrid .cd.l1").length >= 1, "40 gün önceki kayıt görünmeli");
+  a.click('[data-cal="1"]'); a.click('[data-cal="1"]');
+  assert.ok(a.$('[data-cal="1"][disabled]'), "gelecek aya gidilmemeli");
+  noErrors(a); a.close();
+});
+
 test("Play dışında destek paketleri görünmez", () => {
   const a = openApp({ hash: "ayarlar" });
   assert.doesNotMatch(a.text(), /kahve ısmarla/i);
