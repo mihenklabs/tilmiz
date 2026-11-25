@@ -26,6 +26,13 @@ Adlar (`app.config.json`): uygulama **Tilmiz**, geliştirici **Mihenk Labs**, Gi
 3. İndir: `.aab`, imza anahtarı (`signing.keystore`), şifre notu ve `assetlinks.json` gelir.
 4. **İmza anahtarını ve şifreleri depoya koyma**; güvenli bir yerde (ör. parola yöneticisi + şifreli yedek) sakla. Kaybolursa uygulama güncellenemez. (`.gitignore` `*.keystore`, `signing*` dosyalarını zaten dışarıda tutar.)
 
+### Alternatif: Bubblewrap (yerelde, tekrarlanabilir)
+`npm run build` → `dist/twa/twa-manifest.json` (paket kimliği, Play Billing açık, simgeler). Gerekenler: JDK 17 ve Android SDK (Bubblewrap ilk çalıştırmada indirmeyi önerir).
+1. `npm i -g @bubblewrap/cli`
+2. İmza anahtarını **depo dışında** oluştur: `keytool -genkeypair -v -keystore D:\tilmiz-imza\tilmiz-upload.keystore -alias tilmiz -keyalg RSA -keysize 2048 -validity 10000` (şifreyi parola yöneticisine kaydet; dosyayı yedekle).
+3. Boş bir klasörde `twa-manifest.json`'u kopyala, `signingKey.path` değerini anahtarın yoluna göre düzelt, `bubblewrap update` ve `bubblewrap build` → `app-release-bundle.aab`.
+4. `bubblewrap fingerprint add <SHA-256>` ile Play imzalama parmak izini de ekleyip assetlinks'i üret.
+
 ## 3. assetlinks.json
 `src/pwa/.well-known/assetlinks.json` içindeki iki parmak izi yerini doldur: PWABuilder'ın verdiği SHA-256 ve Play Console → Kurulum → Uygulama imzalama → "Uygulama imzalama anahtarı sertifikası" SHA-256. Sonra `npm run build` ve `dist/root/` içeriğini `mihenklabs.github.io` deposuna gönder. Bu yapılmazsa uygulama üstte adres çubuğuyla açılır.
 

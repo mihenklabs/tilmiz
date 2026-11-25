@@ -118,12 +118,36 @@ export function buildRoot(out = r("dist/root")) {
   return out;
 }
 
+// Bubblewrap (Android TWA) yapılandırması: `bubblewrap init --manifest` yerine `bubblewrap build` ile kullanılır.
+// İmza anahtarı depoda tutulmaz (signingKey.path depo dışını gösterir).
+export function buildTwa(out = r("dist/twa/twa-manifest.json")) {
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  const host = `${cfg.githubUser}.github.io`, base = `https://${host}/${cfg.repo}/`;
+  const [maj, min = 0, pat = 0] = pkgVersion.split(".").map(Number);
+  const m = {
+    packageId: cfg.packageId, host, name: `${cfg.name} – Arapça öğren`, launcherName: cfg.shortName,
+    display: "standalone", orientation: "portrait", themeColor: cfg.themeColor, themeColorDark: "#10161D",
+    navigationColor: cfg.themeColor, navigationColorDark: "#10161D", navigationDividerColor: cfg.themeColor, navigationDividerColorDark: "#10161D",
+    backgroundColor: "#EEF2F1", enableNotifications: false, startUrl: `/${cfg.repo}/`,
+    iconUrl: base + "icons/icon-512.png", maskableIconUrl: base + "icons/maskable-512.png",
+    webManifestUrl: base + "manifest.webmanifest", fallbackType: "customtabs",
+    appVersionName: pkgVersion, appVersionCode: maj * 10000 + min * 100 + pat,
+    features: { playBilling: { enabled: true } },
+    enableSiteSettingsShortcut: false, isChromeOSOnly: false, isMetaQuest: false, minSdkVersion: 24,
+    signingKey: { path: "../../../tilmiz-imza/tilmiz-upload.keystore", alias: "tilmiz" },
+    generatorApp: "bubblewrap-cli", shortcuts: [], additionalTrustedOrigins: [], retainedBundles: [], fingerprints: [],
+  };
+  fs.writeFileSync(out, JSON.stringify(m, null, 2) + "\n");
+  return out;
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   fs.mkdirSync(r("dist"), { recursive: true });
   const one = buildStandalone();
   fs.writeFileSync(r("dist/" + cfg.repo + ".html"), one);
   const s = buildSite();
   buildRoot();
+  buildTwa();
   if (!cfg.contactEmail) console.warn("UYARI: app.config.json contactEmail boş: gizlilik politikasında iletişim adresi yok, öneri düğmesi gizli. Yayından önce doldur.");
   const size = f => (fs.statSync(f).size / 1024).toFixed(0) + " KB";
   console.log("dist/" + cfg.repo + ".html", size(r("dist/" + cfg.repo + ".html")));
