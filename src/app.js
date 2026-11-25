@@ -482,9 +482,14 @@ function dictCard(i) {
     <div>İng. ${esc(w[3])}</div>
     ${cogLine(i)}${rootLine(i)}
     ${fam.length ? `<div class="fam">${fam.slice(0, 8).map(j => `<button class="chip" data-dw="${j}"><span class="ar" lang="ar">${W[j][0]}</span> ${esc(W[j][2].split(/[,;]/)[0])}</button>`).join("")}</div>` : ""}
+    ${exampleBlock(i)}
     <div class="dmeta">${state}</div>
     <div class="acts">${listenBtn(w[0])}${CJ[i] ? `<button data-dact="conj">Çekim tablosu</button>` : ""}${!s && !queued && !OFF(i) ? `<button data-dact="learn">Öğrenmeye ekle</button>` : ""}</div>
   </div>`;
+}
+function exampleBlock(i) {
+  const ks = SENT && SENT.w[i]; if (!ks) return "";
+  return `<div class="ex"><div class="dmeta">Örnek cümleler</div>${ks.slice(0, 3).map(k => { const [ar, tr] = SENT.s[k]; return `<div class="exs"><span class="ar" lang="ar" dir="rtl">${esc(ar)}</span><button class="saybtn" data-say="${esc(ar)}" aria-label="Dinle">🔊</button><div>${esc(tr)}</div></div>`; }).join("")}<div class="src">Tatoeba · CC BY 2.0 FR</div></div>`;
 }
 function dictView(seg) {
   const ids = dictSearch(dictQ);
@@ -558,6 +563,7 @@ function settings() {
     <p><b>{{APP_NAME}}</b> Arapça kelime, dil bilgisi ve okuma çalışmaları için hazırlandı. Verilerin tamamı bu cihazda saklanır${IN_CLAUDE ? " (ve Claude hesabında eşitlenir)" : ""}; hiçbir kişisel veri toplanmaz.</p>
     <p>Geliştirici: {{DEV_NAME}}. Kaynak kodu (GPL-3.0-or-later): <a href="https://github.com/{{GITHUB_USER}}/{{REPO}}" target="_blank" rel="noopener">github.com/{{GITHUB_USER}}/{{REPO}}</a></p>
     <p>Kelime, çekim ve anlam verileri: Vikisözlük (Wiktionary) katkıcıları, kaikki.org üzerinden; lisans: CC BY-SA 4.0. Türkçe anlamlar bu veriler temel alınarak elle düzenlendi ve aynı lisansla paylaşılır.</p>
+    <p>Örnek cümleler: Tatoeba (<a href="https://tatoeba.org" target="_blank" rel="noopener">tatoeba.org</a>) katkıcıları; lisans: CC BY 2.0 FR.</p>
     <p>Kur’an metni, kök ve lemma bilgileri: Quranic Arabic Corpus (Kais Dukes, <a href="https://corpus.quran.com" target="_blank" rel="noopener">corpus.quran.com</a>) morfoloji verisi v0.4 ve furqan.co düzeltmeleri; lisans: GNU GPL.</p>
     <p>Kelime sıklığı: FrequencyWords (Hermit Dave), OpenSubtitles verisinden; lisans: CC BY-SA 4.0.</p>
     <p>Yazı tipleri: Amiri ve Rubik; lisans: SIL Open Font License.</p></details>
@@ -601,6 +607,7 @@ function settings() {
 }
 
 // ---------- fiil çekimi verisi ----------
+let SENT = DATA("sentences") || null; // Tatoeba örnek cümleleri {s:[[ar,tr,arId,trId]], w:{kelimeId:[cümle]}}; site sürümünde geç gelir
 let CJ = DATA("conj") || {}; // id -> [mazi[13], muzari[13], emir[5]]; site sürümünde açılıştan sonra gelir (__elifbaLate)
 const AP = ["أَنَا","أَنْتَ","أَنْتِ","هُوَ","هِيَ","أَنْتُمَا","هُمَا","هُمَا","نَحْنُ","أَنْتُمْ","أَنْتُنَّ","هُمْ","هُنَّ"];
 const TP = [[0,"ben"],[1,"sen (erkek)"],[1,"sen (kadın)"],[2,"o (erkek)"],[2,"o (kadın)"],[4,"siz ikiniz"],[5,"o ikisi (erkek)"],[5,"o ikisi (kadın)"],[3,"biz"],[4,"siz (erkekler)"],[4,"siz (kadınlar)"],[5,"onlar (erkekler)"],[5,"onlar (kadınlar)"]];
@@ -1924,7 +1931,7 @@ function route(keep) {
 addEventListener("hashchange", () => route());
 route(true);
 // Site sürümünde geç yüklenen veri geldiğinde: yalnızca etkilenen sakin ekranları yenile
-window.__elifbaLate = (k, v) => { if (k === "conj") { CJ = v; if ((view === "pratik" && !gq && ["hub", "verbs", "lessons"].includes(pv.mode))) render(); } };
+window.__elifbaLate = (k, v) => { if (k === "sentences") { SENT = v; return; } if (k === "conj") { CJ = v; if ((view === "pratik" && !gq && ["hub", "verbs", "lessons"].includes(pv.mode))) render(); } };
 try { performance.mark("elifba-ready"); } catch (e) {}
 initSync();
 initBilling();

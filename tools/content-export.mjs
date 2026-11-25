@@ -41,7 +41,7 @@ const info = wb.addWorksheet("Okuyun");
   "• “Not” sütunu: açıklama, soru, kaynak.",
   "Gri sütunları ve “Kimlik” sütununu değiştirmeyin; düzeltmeler bu kimliklerle uygulamaya geri aktarılır.",
   "",
-  "Sayfalar: Ayet-Hadis (metin çevirileri), Kelimeler (ayet/hadislerdeki kelime anlamları), Diyaloglar, Dersler (dil bilgisi anlatımı; örnek kelimeler rastgele seçildiği için yalnızca açıklama metinlerine bakın).",
+  "Sayfalar: Ayet-Hadis (metin çevirileri), Kelimeler (ayet/hadislerdeki kelime anlamları), Diyaloglar, Örnek cümleler (Tatoeba; uygunsuz ya da hatalı olanların “Kaldır” sütununa x koyun), Dersler (dil bilgisi anlatımı; örnek kelimeler rastgele seçildiği için yalnızca açıklama metinlerine bakın).",
 ].forEach(t => info.addRow([t]));
 info.getColumn(1).width = 120; info.getRow(1).font = { bold: true, size: 14 };
 
@@ -62,6 +62,12 @@ sheet("Kelimeler", [["Kimlik", "id", 12], ["Metin", "title", 24], ["Arapça", "a
 const dRows = [];
 DLG.forEach(([title, lines], di) => lines.forEach(([ar, tr], li) => dRows.push({ id: `dl:${di}:${li}`, title, ar, tr, fixAr: "", fixTr: "", note: "" })));
 sheet("Diyaloglar", [["Kimlik", "id", 9], ["Diyalog", "title", 18], ["Arapça", "ar", 45], ["Türkçe", "tr", 40], ["Düzeltme: Arapça", "fixAr", 40], ["Düzeltme: Türkçe", "fixTr", 36], ["Not", "note", 30]], dRows, ["ar", "fixAr"], ["fixAr", "fixTr", "note"]);
+
+// Tatoeba örnek cümleleri: 7+ yaşa uygun olmayan ya da hatalı olanlar işaretlenir
+const SN = read("sentences"), Wd = read("words"), used = {};
+for (const [id, ks] of Object.entries(SN.w)) for (const k of ks) (used[k] = used[k] || []).push(Wd[id][0]);
+const sRows = SN.s.map((s, k) => ({ id: "sn:" + s[2], ar: s[0], tr: s[1], words: (used[k] || []).join("، "), del: "", note: "" })).filter((r, k) => used[k]);
+sheet("Örnek cümleler", [["Kimlik", "id", 12], ["Arapça", "ar", 45], ["Türkçe", "tr", 45], ["Hangi kelimelerde", "words", 22], ["Kaldır (x)", "del", 10], ["Not", "note", 30]], sRows, ["ar", "words"], ["del", "note"]);
 
 // Dersler: uygulamada gösterilen metin (jsdom ile)
 const order = read("order");

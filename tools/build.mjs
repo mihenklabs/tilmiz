@@ -7,7 +7,7 @@ import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const LAZY = ["conj"]; // site sürümünde açılıştan sonra yüklenen veri
+const LAZY = ["conj", "sentences"]; // site sürümünde açılıştan sonra yüklenen veri
 const r = p => path.join(root, p);
 const read = p => fs.readFileSync(r(p), "utf8");
 const hash = s => crypto.createHash("sha256").update(s).digest("hex").slice(0, 10);

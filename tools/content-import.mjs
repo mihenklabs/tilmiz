@@ -47,6 +47,12 @@ for (const r of rows("Diyaloglar")) {
   if (ft && ft !== l[1]) { changes.push(`diyalog ${r["Kimlik"]} Türkçe: "${l[1]}" → "${ft}"`); l[1] = ft; }
   note("Diyaloglar", r);
 }
+const blockedF = dp("sentences-blocked"), blocked = new Set(JSON.parse(fs.readFileSync(blockedF, "utf8")));
+for (const r of rows("Örnek cümleler")) {
+  const id = +r["Kimlik"].split(":")[1];
+  if (/x/i.test(r["Kaldır (x)"] || "") && !blocked.has(id)) { blocked.add(id); changes.push("örnek cümle kaldırıldı: " + r["Arapça"]); }
+  note("Örnek cümleler", r);
+}
 for (const r of rows("Dersler")) { if (r["Düzeltme önerisi"] || r["Not"]) note("Dersler", r, r["Düzeltme önerisi"] ? "Öneri: " + r["Düzeltme önerisi"] : ""); }
 
 console.log(changes.length ? changes.join("\n") : "Otomatik uygulanacak düzeltme yok.");
@@ -54,6 +60,8 @@ console.log(`\n${changes.length} düzeltme, ${notes.length} not/öneri.`);
 if (dry) process.exit(0);
 fs.writeFileSync(dp("texts"), fmtJSON(TX));
 fs.writeFileSync(dp("dialogs"), fmtJSON(DLG));
+fs.writeFileSync(blockedF, JSON.stringify([...blocked].sort((a, b) => a - b)) + "\n");
+if (blocked.size) console.log("Kaldırılan cümleler data/sentences-blocked.json'a yazıldı; uygulamak için: node tools/tatoeba.mjs <tatoeba klasörü>");
 if (notes.length) {
   const f = path.join(root, "docs/icerik-notlari.md");
   const head = fs.existsSync(f) ? "" : "# Hoca notları ve ders önerileri\n\nDers metinleri kodda (src/app.js, LESSONS ve SUMS) olduğu için bu öneriler elle uygulanır.\n";

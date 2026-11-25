@@ -39,6 +39,16 @@ test("kök araması: كتب ailesi gelir", () => {
   for (const i of fam) assert.ok(r.includes(i), "eksik: " + W[i][0]);
 });
 
+test("örnek cümleler: kartta görünür, gizli kelime ve uygunsuz içerik yok", () => {
+  const S = readData("sentences");
+  assert.ok(S.s.length > 1000);
+  const id = idOf("هُوَ");
+  assert.ok(S.w[id] && S.w[id].length);
+  assert.match(a.ev(`exampleBlock(${id})`), /Örnek cümleler/);
+  for (const [, tr] of S.s) assert.doesNotMatch(tr.toLocaleLowerCase("tr"), /(^|\s)(öldür|intihar|şarap|bira|sarhoş|seks)/, tr);
+  for (const i of MAT) assert.ok(!S.w[i], "gizli kelimeye örnek bağlanmış: " + i);
+});
+
 test("gizli kelimeler sözlükte yok", () => {
   for (const i of MAT) {
     const r = search(W[i][0]);

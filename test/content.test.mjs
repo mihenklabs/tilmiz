@@ -13,7 +13,7 @@ test("tablo üretilir ve düzeltmeler doğru kimlikle okunur", async () => {
   const f = path.join(dir, "k.xlsx");
   execFileSync(process.execPath, [path.join(root, "tools/content-export.mjs"), f]);
   const wb = new ExcelJS.Workbook(); await wb.xlsx.readFile(f);
-  assert.deepEqual(wb.worksheets.map(w => w.name), ["Okuyun", "Ayet-Hadis", "Kelimeler", "Diyaloglar", "Dersler"]);
+  assert.deepEqual(wb.worksheets.map(w => w.name), ["Okuyun", "Ayet-Hadis", "Kelimeler", "Diyaloglar", "Örnek cümleler", "Dersler"]);
   assert.equal(wb.getWorksheet("Ayet-Hadis").rowCount, 72);
   wb.getWorksheet("Ayet-Hadis").getRow(2).getCell(7).value = "YENİ ÇEVİRİ";
   wb.getWorksheet("Diyaloglar").getRow(3).getCell(6).value = "Yeni Türkçe";

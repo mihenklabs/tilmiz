@@ -249,3 +249,9 @@ nav.tabs a[aria-current="page"]{color:var(--tile)}
 .lvbars{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:center;margin-bottom:6px}
 .lvbars .meter{margin:0}
 .lvbars small{color:var(--muted);font-size:.75rem;min-width:46px;text-align:right}
+.det .ex{margin:6px 0;border-top:1px solid var(--line);padding-top:6px}
+.det .exs{display:grid;grid-template-columns:1fr auto;gap:0 8px;align-items:center;margin:4px 0}
+.det .exs .ar{font-size:1.3rem;text-align:right;line-height:1.6}
+.det .exs div{grid-column:1/-1;color:var(--muted);font-size:.88rem}
+.det .ex .src{font-size:.72rem;color:var(--muted);text-align:right}
+.saybtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--soft);font-size:.9rem;padding:0}
