@@ -37,7 +37,7 @@ function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add
 
 // ---------- state ----------
 const KEY = "elifba-kelime-v1";
-const DEF = () => ({ v: 1, t: 0, next: 0, p: {}, flag: {}, set: { daily: 10, dir: "mix", auto: true, okSec: 2, badSec: 4, cjT: "mix", cjP: "basic", cjK: "form", hk: "on", lmix: true, triM: "mix", voice: "auto", vrate: 0.85, goal: 100, fx: true }, prio: [], cj: { r: 0, w: 0, s: {} }, sp: { r: 0, w: 0 }, log: {}, gr: {}, md: {}, ds: {}, tb: {}, place: null, cm: {}, welcomed: 0, day: { d: "", n: 0, r: 0, bonus: 0 }, streak: { last: "", c: 0 } });
+const DEF = () => ({ v: 1, t: 0, next: 0, p: {}, flag: {}, set: { daily: 10, dir: "mix", auto: true, okSec: 2, badSec: 4, cjT: "mix", cjP: "basic", cjK: "form", hk: "on", lmix: true, triM: "mix", voice: "auto", vrate: 0.85, goal: 100, fx: true, rem: "auto", remT: "19:00", qS: "21:00", qE: "08:00", remStreak: true }, prio: [], cj: { r: 0, w: 0, s: {} }, sp: { r: 0, w: 0 }, log: {}, gr: {}, md: {}, ds: {}, tb: {}, place: null, cm: {}, welcomed: 0, day: { d: "", n: 0, r: 0, bonus: 0 }, streak: { last: "", c: 0 } });
 function normalize(o) { const d = DEF(); o = o && typeof o === "object" ? o : {}; return Object.assign(d, o, { set: Object.assign(d.set, o.set || {}), day: Object.assign(d.day, o.day || {}), streak: Object.assign(d.streak, o.streak || {}), p: o.p || {}, flag: o.flag || {}, prio: o.prio || [], cj: Object.assign({ r: 0, w: 0, s: {} }, o.cj || {}), sp: Object.assign({ r: 0, w: 0 }, o.sp || {}), log: o.log || {}, gr: o.gr || {}, md: o.md || {}, ds: o.ds || {}, tb: o.tb || {}, place: o.place || null, cm: o.cm || {} }); }
 let S = DEF();
 try { const raw = localStorage.getItem(KEY); if (raw) S = normalize(JSON.parse(raw)); } catch (e) {}
@@ -543,6 +543,7 @@ function settings() {
     <div class="pills">${[5, 10, 15, 20, 30].map(n => pill("daily", n, n)).join("")}</div></div>
   <div class="set"><h3>Günlük XP hedefi</h3><p>Her doğru cevap 10, yanlış cevap 2, yeni kelime 5, geçilen ders 50 XP kazandırır.</p>
     <div class="pills">${pill("goal", 50, "50 · rahat")}${pill("goal", 100, "100 · normal")}${pill("goal", 200, "200 · yoğun")}</div></div>
+  ${remCard()}
   <div class="set"><h3>Soru yönü</h3><p>Karışıkta yeni kelimeler önce Arapçadan sorulur, oturdukça iki yönden de gelir.</p>
     <div class="pills">${pill("dir", "mix", "Karışık")}${pill("dir", "ar", "Arapça → Türkçe")}${pill("dir", "tr", "Türkçe → Arapça")}${pill("dir", "listen", "Dinleme")}</div>
     <p style="margin:12px 0 6px;color:var(--ink)">Karışığa dinleme soruları da girsin</p><div class="pills">${pill("lmix", true, "Evet")}${pill("lmix", false, "Hayır")}</div>
@@ -580,9 +581,10 @@ function settings() {
   <div class="set"><h3>İlerlemeyi sıfırla</h3><p>Tüm öğrenme geçmişin silinir.</p><button class="btn danger" id="reset">İlerlemeyi sıfırla</button></div>`;
   app.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
     const k = b.dataset.k; let v = b.dataset.v;
-    S.set[k] = ["daily", "okSec", "badSec", "vrate", "goal"].includes(k) ? +v : (k === "auto" || k === "lmix" || k === "fx") ? v === "true" : v;
-    save(); if (cur && cur.type !== "intro") cur = null; settings();
+    S.set[k] = ["daily", "okSec", "badSec", "vrate", "goal"].includes(k) ? +v : (k === "auto" || k === "lmix" || k === "fx" || k === "remStreak") ? v === "true" : v;
+    save(); if (cur && cur.type !== "intro") cur = null; if (/^rem|goal/.test(k)) schedulePlan(); settings();
   });
+  bindRemCard();
   const SAMPLE = "كَتَبَ الطَّالِبُ الدَّرْسَ";
   if ($("#vtC")) $("#vtC").onclick = () => { if (!ttsCap) { toast("Claude sesi bu ekranda kullanılamıyor."); return; } speak(SAMPLE, "claude"); };
   $("#vtD").onclick = () => deviceSpeak(spk(SAMPLE));
@@ -911,6 +913,7 @@ function spellDrill() {
 
 // ---------- istatistik ----------
 function logDay(f, n) {
+  try { habitPing(); } catch (e) {}
   const d = dayStr(); S.log = S.log || {}; const e = S.log[d] = S.log[d] || {};
   e[f] = (e[f] || 0) + n;
   const xp = (XPW[f] || 0) * n;

@@ -17,7 +17,8 @@ const pkgVersion = JSON.parse(read("package.json")).version;
 export function loadParts() {
   const tpl = read("src/index.html");
   const css = read("src/style.css");
-  const js = read("src/app.js");
+  // src/notify.js (hatırlatmalar) yönlendiriciden hemen önce eklenir
+  const js = read("src/app.js").replace("// ---------- router ----------\n", read("src/notify.js") + "\n// ---------- router ----------\n");
   const order = JSON.parse(read("data/_order.json"));
   const data = {};
   for (const k of order) data[k] = JSON.stringify(JSON.parse(read("data/" + k + ".json")));
@@ -128,7 +129,7 @@ export function buildTwa(out = r("dist/twa/twa-manifest.json")) {
     packageId: cfg.packageId, host, name: `${cfg.name} – Arapça öğren`, launcherName: cfg.shortName,
     display: "standalone", orientation: "portrait", themeColor: cfg.themeColor, themeColorDark: "#10161D",
     navigationColor: cfg.themeColor, navigationColorDark: "#10161D", navigationDividerColor: cfg.themeColor, navigationDividerColorDark: "#10161D",
-    backgroundColor: "#EEF2F1", enableNotifications: false, startUrl: `/${cfg.repo}/`,
+    backgroundColor: "#EEF2F1", enableNotifications: true, startUrl: `/${cfg.repo}/`,
     iconUrl: base + "icons/icon-512.png", maskableIconUrl: base + "icons/maskable-512.png",
     webManifestUrl: base + "manifest.webmanifest", fallbackType: "customtabs",
     appVersionName: pkgVersion, appVersionCode: maj * 10000 + min * 100 + pat,
