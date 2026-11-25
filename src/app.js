@@ -1842,20 +1842,7 @@ function alfPage() {
 }
 
 // --- Konuşma pratiği (günlük diyaloglar) ---
-const DLG = [
- ["Selamlaşma", [["السَّلَامُ عَلَيْكُمْ.", "Selamünaleyküm."], ["وَعَلَيْكُمُ السَّلَامُ.", "Aleykümselam."], ["كَيْفَ حَالُكَ؟", "Nasılsın?"], ["بِخَيْرٍ، الْحَمْدُ لِلّٰهِ. وَأَنْتَ؟", "İyiyim, elhamdülillah. Ya sen?"], ["أَنَا بِخَيْرٍ، شُكْرًا.", "Ben de iyiyim, teşekkürler."]]],
- ["Tanışma", [["مَا اسْمُكَ؟", "Adın ne?"], ["اِسْمِي أَحْمَدُ، وَأَنْتَ؟", "Adım Ahmed, ya sen?"], ["اِسْمِي يُوسُفُ.", "Adım Yusuf."], ["مِنْ أَيْنَ أَنْتَ؟", "Nerelisin?"], ["أَنَا مِنْ تُرْكِيَا.", "Türkiye’denim."], ["تَشَرَّفْنَا.", "Memnun oldum."]]],
- ["Aile", [["كَمْ أَخًا عِنْدَكَ؟", "Kaç erkek kardeşin var?"], ["عِنْدِي أَخَوَانِ وَأُخْتٌ وَاحِدَةٌ.", "İki erkek kardeşim ve bir kız kardeşim var."], ["أَيْنَ يَسْكُنُونَ؟", "Nerede oturuyorlar?"], ["يَسْكُنُونَ فِي إِسْطَنْبُولَ.", "İstanbul’da oturuyorlar."]]],
- ["Okulda", [["هَلْ عِنْدَكَ قَلَمٌ؟", "Kalemin var mı?"], ["نَعَمْ، تَفَضَّلْ.", "Evet, buyur."], ["مَتَى يَبْدَأُ الدَّرْسُ؟", "Ders ne zaman başlıyor?"], ["يَبْدَأُ فِي السَّاعَةِ التَّاسِعَةِ.", "Saat dokuzda başlıyor."], ["شُكْرًا لَكَ.", "Teşekkür ederim."]]],
- ["Saat kaç?", [["كَمِ السَّاعَةُ الْآنَ؟", "Saat şimdi kaç?"], ["السَّاعَةُ الثَّالِثَةُ وَالنِّصْفُ.", "Saat üç buçuk."], ["هَلْ تَأَخَّرْنَا؟", "Geç mi kaldık?"], ["لَا، عِنْدَنَا وَقْتٌ.", "Hayır, vaktimiz var."]]],
- ["Namaz vakti", [["هَلْ صَلَّيْتَ الظُّهْرَ؟", "Öğle namazını kıldın mı?"], ["لَا، لَمْ أُصَلِّ بَعْدُ.", "Hayır, henüz kılmadım."], ["هَيَّا بِنَا نُصَلِّي مَعًا.", "Haydi beraber kılalım."], ["إِنْ شَاءَ اللّٰهُ.", "İnşallah."]]],
- ["Yol sorma", [["مِنْ فَضْلِكَ، أَيْنَ الْمَسْجِدُ؟", "Affedersin, cami nerede?"], ["اِذْهَبْ مُسْتَقِيمًا ثُمَّ إِلَى الْيَمِينِ.", "Düz git, sonra sağa."], ["هَلْ هُوَ بَعِيدٌ؟", "Uzak mı?"], ["لَا، هُوَ قَرِيبٌ جِدًّا.", "Hayır, çok yakın."], ["جَزَاكَ اللّٰهُ خَيْرًا.", "Allah razı olsun."]]],
- ["Alışveriş", [["بِكَمْ هٰذَا؟", "Bu kaça?"], ["بِعِشْرِينَ رِيَالًا.", "Yirmi riyal."], ["هٰذَا غَالٍ جِدًّا.", "Bu çok pahalı."], ["خُذْهُ بِخَمْسَةَ عَشَرَ.", "On beşe al."], ["حَسَنًا، شُكْرًا.", "Tamam, teşekkürler."]]],
- ["Lokantada", [["مَاذَا تُرِيدُ أَنْ تَأْكُلَ؟", "Ne yemek istersin?"], ["أُرِيدُ دَجَاجًا وَأَرُزًّا.", "Tavuk ve pilav istiyorum."], ["وَمَاذَا تَشْرَبُ؟", "Ne içersin?"], ["كُوبَ شَايٍ، مِنْ فَضْلِكَ.", "Bir bardak çay, lütfen."], ["تَفَضَّلْ.", "Buyurun."]]],
- ["Doktorda", [["مَاذَا بِكَ؟", "Neyin var?"], ["عِنْدِي صُدَاعٌ.", "Başım ağrıyor."], ["مُنْذُ مَتَى؟", "Ne zamandan beri?"], ["مُنْذُ أَمْسِ.", "Dünden beri."], ["خُذْ هٰذَا الدَّوَاءَ، شَفَاكَ اللّٰهُ.", "Bu ilacı al, Allah şifa versin."]]],
- ["Telefonda", [["أَلُو، مَنْ يَتَكَلَّمُ؟", "Alo, kim konuşuyor?"], ["أَنَا خَالِدٌ. هَلْ مُحَمَّدٌ مَوْجُودٌ؟", "Ben Halid. Muhammed orada mı?"], ["لَا، هُوَ لَيْسَ هُنَا الْآنَ.", "Hayır, şu an burada değil."], ["سَأَتَّصِلُ لَاحِقًا. مَعَ السَّلَامَةِ.", "Sonra ararım. Hoşça kal."]]],
- ["Otelde", [["أُرِيدُ غُرْفَةً لِلَيْلَتَيْنِ.", "İki gecelik bir oda istiyorum."], ["هَلْ عِنْدَكَ حَجْزٌ؟", "Rezervasyonunuz var mı?"], ["لَا، لَيْسَ عِنْدِي.", "Hayır, yok."], ["لَا مُشْكِلَةَ، هٰذَا هُوَ الْمِفْتَاحُ.", "Sorun değil, işte anahtar."]]]
-];
+const DLG = DATA("dialogs"); // [başlık, [[arapça, türkçe], ...]]
 const ALL_LINES = DLG.flatMap(([, ls]) => ls);
 function dlgQ(d) {
   const ls = DLG[d][1], i = Math.floor(Math.random() * (ls.length - 1));

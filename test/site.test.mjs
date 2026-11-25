@@ -51,7 +51,7 @@ test("index.html küçük; veri ayrı dosyalarda ve içerik özetli adlarla", ()
   assert.ok(indexHtml.length < 120_000, "index.html " + indexHtml.length);
   assert.doesNotMatch(indexHtml, /type="application\/json"/);
   const data = fs.readdirSync(path.join(site, "data"));
-  assert.equal(data.length, 10);
+  assert.equal(data.length, 11);
   data.forEach(f => assert.match(f, /^[a-z]+\.[0-9a-f]{10}\.json$/));
 });
 

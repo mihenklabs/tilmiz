@@ -7,3 +7,4 @@ signing*
 .env
 .venv*/
 samples/
+icerik-kontrol*.xlsx
