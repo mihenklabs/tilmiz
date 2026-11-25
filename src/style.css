@@ -186,7 +186,7 @@ h3.sec{font-size:1rem;margin:16px 2px 8px}
 .done p{margin:6px 0 0;opacity:.88}
 
 /* lists */
-.seg{display:grid;grid-template-columns:repeat(3,1fr);background:var(--soft);border-radius:14px;padding:4px;gap:4px;margin-bottom:12px}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--soft);border-radius:14px;padding:4px;gap:4px;margin-bottom:12px}
 .seg button{border:none;background:none;border-radius:10px;padding:9px 4px;font-size:.88rem;font-weight:500;color:var(--muted);line-height:1.25}
 .seg button b{display:block;font-size:1.1rem;color:var(--ink)}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
@@ -224,3 +224,8 @@ nav.tabs a[aria-current="page"]{color:var(--tile)}
 .toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .2s;z-index:30;max-width:90%;text-align:center}
 .toast.on{opacity:1}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.det .dmeta{color:var(--muted);font-size:.84rem;margin:2px 0}
+.det .fam{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:999px;padding:3px 10px;font-size:.84rem}
+.chip .ar{font-size:1.15rem}
+.sub.small{font-size:.84rem;margin-top:-4px}

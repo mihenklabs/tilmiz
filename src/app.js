@@ -386,6 +386,13 @@ function listData(tab) {
 }
 function lists() {
   const L = listData("learn"), K = listData("known"), H = listData("hard");
+  const seg = `<div class="seg" role="group" aria-label="Liste">
+    <button data-t="learn" aria-pressed="${listTab === "learn"}"><b>${fmt(L.length)}</b>Öğreniyorum</button>
+    <button data-t="known" aria-pressed="${listTab === "known"}"><b>${fmt(K.length)}</b>İyi biliyorum</button>
+    <button data-t="hard" aria-pressed="${listTab === "hard"}"><b>${fmt(H.length)}</b>Zorlandıklarım</button>
+    <button data-t="dict" aria-pressed="${listTab === "dict"}"><b>${fmt(dictIds().length)}</b>Sözlük</button>
+  </div>`;
+  if (listTab === "dict") return dictView(seg);
   const all = listTab === "known" ? K : listTab === "hard" ? H : L;
   const q = listQ.trim().toLocaleLowerCase("tr"), qb = bare(listQ.trim());
   const ids = q ? all.filter(i => { const w = W[i]; return w[2].toLocaleLowerCase("tr").includes(q) || w[1].toLocaleLowerCase("tr").includes(q) || (qb && bare(w[0]).includes(qb)); }) : all;
@@ -393,11 +400,7 @@ function lists() {
   app.innerHTML = `<h2>Kelimelerim</h2>
   ${statsBlock()}
   <p class="sub">Bir kelimeyi farklı günlerde üst üste doğru bilince (önce 1, sonra 3 gün arayla) “iyi biliyorum” listesine geçer. Yanlış yaptığın kelime başa döner ve sık sorulur.</p>
-  <div class="seg" role="group" aria-label="Liste">
-    <button data-t="learn" aria-pressed="${listTab === "learn"}"><b>${fmt(L.length)}</b>Öğreniyorum</button>
-    <button data-t="known" aria-pressed="${listTab === "known"}"><b>${fmt(K.length)}</b>İyi biliyorum</button>
-    <button data-t="hard" aria-pressed="${listTab === "hard"}"><b>${fmt(H.length)}</b>Zorlandıklarım</button>
-  </div>
+  ${seg}
   ${all.length ? `<input class="search" id="q" type="search" placeholder="Türkçe ya da Arapça ara" value="${esc(listQ)}" aria-label="Listede ara">` : ""}
   <div class="list">${ids.length ? ids.slice(0, listShown).map(i => {
     const w = W[i], s = S.p[i];
@@ -421,6 +424,100 @@ function lists() {
     if (b.dataset.act === "flag") { S.flag[i] = 1; editing = null; toast("Bildirildi. Bu kelime artık sorulmayacak; Ayarlar’dan geri alabilirsin."); }
     save(); if (cur && cur.id === i) cur = null; lists();
   });
+}
+
+// ---------- sözlük (çevrimdışı, bütün kelimeler) ----------
+// Arapça arama: harekeler, tatvil ve elif/ye/te-i merbuta/hemze farkları yok sayılır
+const arNorm = s => bare(String(s)).replace(/[ۖ-ۭٕٓٔ]/g, "").replace(/[أإآٱ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").replace(/[ؤئ]/g, "ء").replace(/\s+/g, " ").trim();
+// Türkçe/okunuş arama: büyük-küçük harf, şapka ve kesme işaretleri yok sayılır
+const trNorm = s => String(s).toLocaleLowerCase("tr").replace(/[âä]/g, "a").replace(/[îï]/g, "i").replace(/[ûü]/g, "u").replace(/ô/g, "o").replace(/[’'ʼ`ʿʾ-]/g, "").replace(/\s+/g, " ").trim();
+let DIX = null, dictQ = "", dictShown = 40, dictOpen = null;
+const dictIds = () => (dictIds.c = dictIds.c || ORDER.filter(i => !MAT.has(i)));
+function dictIndex() {
+  if (DIX) return DIX;
+  DIX = { ar: [], tr: [], ro: [], root: [] };
+  for (let i = 0; i < N; i++) {
+    const w = W[i];
+    DIX.ar[i] = " " + arNorm(w[0] + (w[5] ? " " + w[5] : "")) + " ";
+    DIX.tr[i] = " " + trNorm(w[2] + " ; " + w[3]).replace(/[,;()]/g, " ") + " ";
+    DIX.ro[i] = " " + trNorm(w[1]) + " ";
+    DIX.root[i] = ROOT[i] ? arNorm(ROOT[i]) : "";
+  }
+  return DIX;
+}
+// Sonuçlar: tam eşleşme > aynı kökten > kelime başı > içinde geçen; her grupta sıklık sırası
+function dictSearch(q) {
+  q = String(q || "").trim();
+  if (!q) return dictIds();
+  const X = dictIndex(), isAr = /[؀-ۿ]/.test(q);
+  const n = isAr ? arNorm(q) : trNorm(q).replace(/[,;()]/g, " ").trim();
+  if (!n) return dictIds();
+  const rootQ = isAr ? n.replace(/ /g, "") : "";
+  const score = i => {
+    if (isAr) {
+      const a = X.ar[i];
+      if (a.includes(" " + n + " ")) return 0;
+      if (rootQ.length >= 2 && rootQ.length <= 4 && X.root[i] === rootQ) return 1;
+      if (a.includes(" " + n)) return 2;
+      if (a.includes(n)) return 3;
+      return -1;
+    }
+    const t = X.tr[i], r = X.ro[i];
+    if (t.includes(" " + n + " ") || r === " " + n + " ") return 0;
+    if (t.includes(" " + n) || r.includes(" " + n)) return 2;
+    if (t.includes(n) || r.includes(n)) return 3;
+    return -1;
+  };
+  const b = [[], [], [], []];
+  for (const i of dictIds()) { const s = score(i); if (s >= 0) b[s].push(i); }
+  return b.flat();
+}
+function dictCard(i) {
+  const w = W[i], s = S.p[i], g = GEN.g[i], fam = ROOT[i] ? FAM[ROOT[i]].filter(j => j !== i && !MAT.has(j)) : [];
+  const queued = (S.prio || []).includes(i);
+  const state = s ? (s[0] >= KNOWN ? "İyi biliyorsun" : "Öğreniyorsun") + ` · sonraki tekrar ${when(s[1])}` : queued ? "Öğrenme sırasında öne alındı" : "Henüz çalışılmadı";
+  return `<div class="det">
+    <div class="dmeta">${POS[w[4]] || ""}${g ? " · " + (g === "f" ? "dişil" : "eril") : ""} · sıklık #${fmt(POSI[i] + 1)}${RARE(i) ? " · seyrek" : ""}</div>
+    ${w[5] ? `<div>${extraLabel(w)}: <span class="ar" lang="ar" style="font-size:1.3rem">${w[5]}</span></div>` : ""}
+    <div>İng. ${esc(w[3])}</div>
+    ${cogLine(i)}${rootLine(i)}
+    ${fam.length ? `<div class="fam">${fam.slice(0, 8).map(j => `<button class="chip" data-dw="${j}"><span class="ar" lang="ar">${W[j][0]}</span> ${esc(W[j][2].split(/[,;]/)[0])}</button>`).join("")}</div>` : ""}
+    <div class="dmeta">${state}</div>
+    <div class="acts">${listenBtn(w[0])}${CJ[i] ? `<button data-dact="conj">Çekim tablosu</button>` : ""}${!s && !queued && !OFF(i) ? `<button data-dact="learn">Öğrenmeye ekle</button>` : ""}</div>
+  </div>`;
+}
+function dictView(seg) {
+  const ids = dictSearch(dictQ);
+  app.innerHTML = `<h2>Sözlük</h2>
+  ${seg}
+  <input class="search" id="dq" type="search" placeholder="Arapça, Türkçe, okunuş ya da kök (ör. كتب)" value="${esc(dictQ)}" aria-label="Sözlükte ara" autocomplete="off" spellcheck="false">
+  <p class="sub small">${dictQ.trim() ? `${fmt(ids.length)} sonuç` : `${fmt(ids.length)} kelime, sık kullanılandan seyreğe`} · internetsiz çalışır</p>
+  <div class="list">${ids.length ? ids.slice(0, dictShown).map(i => {
+    const w = W[i];
+    return `<details data-i="${i}"${dictOpen === i ? " open" : ""}><summary><div><div class="m">${esc(w[2])}</div><div class="t">${esc(w[1])}${S.p[i] ? lvl(S.p[i][0]) : ""}</div></div><span class="ar" lang="ar">${w[0]}</span></summary>${dictOpen === i ? dictCard(i) : ""}</details>`;
+  }).join("") : `<div class="empty">Aramana uyan kelime yok. Harekesiz yazmayı ya da kökün harflerini (ör. كتب) dene.</div>`}</div>
+  ${ids.length > dictShown ? `<button class="btn more" id="dmore">Daha fazla göster (${fmt(ids.length - dictShown)} kelime kaldı)</button>` : ""}`;
+  app.querySelectorAll(".seg button").forEach(b => b.onclick = () => { listTab = b.dataset.t; listShown = 60; listQ = ""; lists(); });
+  const qi = $("#dq");
+  qi.oninput = () => { dictQ = qi.value; dictShown = 40; dictOpen = null; const pos = qi.selectionStart; lists(); const n = $("#dq"); n.focus(); try { n.setSelectionRange(pos, pos); } catch (e) {} };
+  const mo = $("#dmore"); if (mo) mo.onclick = () => { dictShown += 100; lists(); };
+  const bindCard = (d, i) => {
+    d.querySelectorAll("[data-dact]").forEach(b => b.onclick = () => {
+      if (b.dataset.dact === "conj") { pv = { mode: "table", id: i, from: "list" }; location.hash = "#pratik"; return; }
+      if (b.dataset.dact === "learn") { S.prio = (S.prio || []).filter(x => x !== i); S.prio.unshift(i); save(); if (cur && cur.type === "intro") cur = null; toast("Eklendi: Çalış sekmesinde sıradaki yeni kelime bu olacak."); lists(); }
+    });
+    d.querySelectorAll("[data-dw]").forEach(b => b.onclick = () => { dictQ = W[+b.dataset.dw][0]; dictOpen = +b.dataset.dw; dictShown = 40; lists(); window.scrollTo(0, 0); });
+  };
+  app.querySelectorAll(".list details").forEach(d => d.addEventListener("toggle", () => {
+    const i = +d.dataset.i;
+    if (d.open && dictOpen !== i) {
+      dictOpen = i;
+      app.querySelectorAll(".list details[open]").forEach(o => { if (o !== d) { o.open = false; const c = o.querySelector(".det"); if (c) c.remove(); } });
+      if (!d.querySelector(".det")) d.insertAdjacentHTML("beforeend", dictCard(i));
+      bindCard(d, i);
+    } else if (!d.open && dictOpen === i) { dictOpen = null; const c = d.querySelector(".det"); if (c) c.remove(); }
+  }));
+  const op = dictOpen !== null && app.querySelector(`.list details[data-i="${dictOpen}"]`); if (op) bindCard(op, dictOpen);
 }
 
 let fedit = null;
