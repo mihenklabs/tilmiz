@@ -251,7 +251,7 @@ function header() {
   const c = counts(); ensureDay();
   const limit = S.set.daily + S.day.bonus, st = streakNow(), started = Object.keys(S.p).length;
   return `
-  <div class="top"><div class="brand"><span class="ar" lang="ar">ك</span>Elifbâ Kelime</div><div class="streak">${st ? "🔥 " + st + " gün üst üste" : "Bugün ilk çalışmanı yap"}</div></div>
+  <div class="top"><div class="brand"><span class="ar" lang="ar">ت</span>{{APP_NAME}}</div><div class="streak">${st ? "🔥 " + st + " gün üst üste" : "Bugün ilk çalışmanı yap"}</div></div>
   <div class="stats">
     <a class="stat" href="#kelimelerim" data-list="known"><b>${fmt(c.known)}</b><span>iyi biliyorum</span></a>
     <a class="stat" href="#kelimelerim" data-list="learn"><b>${fmt(c.learn)}</b><span>öğreniyorum</span></a>
@@ -451,14 +451,15 @@ function settings() {
   <div class="set"><h3>Kelime havuzu</h3><p>${fmt(N)} kelime, sık kullanılandan seyreğe sıralı. Bütün kelimelerin Türkçesi elle yazıldı ya da tek tek kontrol edildi. Günlük dilde nadir geçenler “(seyrek kullanılır)” diye işaretli. Yine de hatalı gördüğün bir kelimeyi bildirebilir ya da Kelimelerim’de anlamını kendin düzeltebilirsin.</p>
     ${nflag ? `<p style="margin:10px 0 6px;color:var(--ink)">Bildirdiğin kelimeler (${nflag})</p><div class="flist">${Object.keys(S.flag).slice(0, 100).map(k => `<div class="frow"><span class="ar" lang="ar">${W[k][0]}</span><span class="ft">${esc(W[k][2])}</span>${fedit === +k ? `<input id="fIn" value="${esc(W[k][2])}" aria-label="Doğru anlam"><button class="btn primary sm" data-fs="${k}">Kaydet</button>` : `<button class="btn sm" data-fe="${k}">Düzelt</button><button class="btn sm" data-fu="${k}">Geri al</button>`}</div>`).join("")}</div>
     <button class="btn" id="unflag" style="margin-top:8px">Hepsini geri al</button>` : ""}</div>
-  ${dgs && tipItems.length ? `<div class="set support"><h3>Destek ol</h3><p>Elifbâ reklamsız ve ücretsiz. Beğendiysen küçük bir destekle geliştirilmesine katkıda bulunabilirsin. Destekler yalnızca teşekkür amaçlıdır, uygulamada hiçbir şeyi değiştirmez.${S.tips ? ` <b>Desteğin için teşekkürler! 🌙</b>` : ""}</p>
+  ${dgs && tipItems.length ? `<div class="set support"><h3>Destek ol</h3><p>{{APP_NAME}} reklamsız ve ücretsiz. Beğendiysen küçük bir destekle geliştirilmesine katkıda bulunabilirsin. Destekler yalnızca teşekkür amaçlıdır, uygulamada hiçbir şeyi değiştirmez.${S.tips ? ` <b>Desteğin için teşekkürler! 🌙</b>` : ""}</p>
     ${gate ? `<div class="gate"><p><b>Ebeveyn onayı:</b> Ödemeye geçmeden önce bir yetişkin şu soruyu cevaplasın.</p><p class="gq">${gate.a} × ${gate.b} = ?</p><div class="row"><input id="gIn" inputmode="numeric" aria-label="Cevap"><button class="btn primary sm" id="gOk">Onayla</button><button class="btn sm" id="gNo">Vazgeç</button></div></div>` : `<div class="tips">${tipItems.map(d => `<button class="btn tip" data-tip="${esc(d.itemId)}"><span>${esc(TIP_LABEL[d.itemId] || d.title)}</span><b>${esc(fmtPrice(d.price))}</b></button>`).join("")}</div>`}</div>` : ""}
   <div class="set"><h3>Yedekle ve geri yükle</h3><p>İlerlemenin bir kopyasını al. Telefon değiştirdiğinde ya da uygulamayı yeniden yüklediğinde bu yedekle kaldığın yerden devam edersin.</p>
     <div class="row"><button class="btn" id="bkSave">${IN_CLAUDE ? "Yedeği kopyala" : "Yedek dosyası indir"}</button><button class="btn" id="bkLoad">Yedekten yükle</button></div>
     <input type="file" id="bkFile" accept=".json,application/json,text/plain" hidden>
     <details class="bkp"><summary>Metin olarak yapıştırıp yükle</summary><textarea id="bkText" rows="3" placeholder="Yedek metnini buraya yapıştır" aria-label="Yedek metni"></textarea><div class="row"><button class="btn sm" id="bkApply">Yapıştırılanı yükle</button></div></details></div>
   <details class="set about"><summary><h3 style="display:inline">Hakkında, kaynaklar ve lisanslar</h3></summary>
-    <p><b>Elifbâ Kelime</b> Arapça kelime, dil bilgisi ve okuma çalışmaları için hazırlandı. Verilerin tamamı bu cihazda saklanır${IN_CLAUDE ? " (ve Claude hesabında eşitlenir)" : ""}; hiçbir kişisel veri toplanmaz.</p>
+    <p><b>{{APP_NAME}}</b> Arapça kelime, dil bilgisi ve okuma çalışmaları için hazırlandı. Verilerin tamamı bu cihazda saklanır${IN_CLAUDE ? " (ve Claude hesabında eşitlenir)" : ""}; hiçbir kişisel veri toplanmaz.</p>
+    <p>Geliştirici: {{DEV_NAME}}. Kaynak kodu (GPL-3.0-or-later): <a href="https://github.com/{{GITHUB_USER}}/{{REPO}}" target="_blank" rel="noopener">github.com/{{GITHUB_USER}}/{{REPO}}</a></p>
     <p>Kelime, çekim ve anlam verileri: Vikisözlük (Wiktionary) katkıcıları, kaikki.org üzerinden; lisans: CC BY-SA 4.0. Türkçe anlamlar bu veriler temel alınarak elle düzenlendi ve aynı lisansla paylaşılır.</p>
     <p>Kur’an metni, kök ve lemma bilgileri: Quranic Arabic Corpus (Kais Dukes, <a href="https://corpus.quran.com" target="_blank" rel="noopener">corpus.quran.com</a>) morfoloji verisi v0.4 ve furqan.co düzeltmeleri; lisans: GNU GPL.</p>
     <p>Kelime sıklığı: FrequencyWords (Hermit Dave), OpenSubtitles verisinden; lisans: CC BY-SA 4.0.</p>
@@ -478,7 +479,7 @@ function settings() {
   $("#bkSave").onclick = () => {
     const txt = JSON.stringify({ app: "elifba-kelime", v: 1, date: dayStr(), data: S });
     if (!IN_CLAUDE) {
-      try { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([txt], { type: "application/json" })); a.download = "elifba-yedek-" + dayStr() + ".json"; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); toast("Yedek dosyası indirildi."); return; } catch (e) {}
+      try { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([txt], { type: "application/json" })); a.download = "tilmiz-yedek-" + dayStr() + ".json"; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); toast("Yedek dosyası indirildi."); return; } catch (e) {}
     }
     const done = () => toast("Yedek panoya kopyalandı. Bir nota yapıştırıp sakla.");
     const fallback = () => { const t = $("#bkText"); t.value = txt; t.closest("details").open = true; t.select(); toast("Yedek metni aşağıda; kopyalayıp sakla."); };
@@ -487,7 +488,7 @@ function settings() {
   const restore = txt => {
     let o; try { o = JSON.parse(txt); } catch (e) { toast("Yedek okunamadı."); return; }
     const d = o && o.data ? o.data : o;
-    if (!d || typeof d !== "object" || typeof d.p !== "object") { toast("Bu bir Elifbâ yedeği değil."); return; }
+    if (!d || typeof d !== "object" || typeof d.p !== "object") { toast("Bu bir {{APP_NAME}} yedeği değil."); return; }
     if (!confirm("Yedek, bu cihazdaki ilerlemenin yerine geçecek. Devam edilsin mi?")) return;
     S = normalize(d); applyCM(); save(); cur = null; recent = []; hist = [];
     toast("Yedek yüklendi: " + fmt(Object.keys(S.p).length) + " kelime."); settings();

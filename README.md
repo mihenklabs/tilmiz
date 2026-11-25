@@ -1,4 +1,4 @@
-# Elifbâ Kelime
+# Tilmiz
 
 Türkçe konuşanlar için ücretsiz, reklamsız Arapça öğrenme uygulaması: aralıklı tekrarla 11.719 kelime, dil bilgisi dersleri, fiil çekimi, ayet ve hadisler kelime kelime, günlük diyaloglar.
 

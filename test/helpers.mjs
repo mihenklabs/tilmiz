@@ -5,7 +5,8 @@ import { fileURLToPath } from "node:url";
 import { JSDOM, VirtualConsole } from "jsdom";
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const standalonePath = path.join(root, "dist/elifba-kelime.html");
+const cfg = JSON.parse(fs.readFileSync(path.join(root, "app.config.json"), "utf8"));
+const standalonePath = path.join(root, "dist", cfg.repo + ".html");
 let cachedHtml = null;
 export const standaloneHtml = () => (cachedHtml ??= fs.readFileSync(standalonePath, "utf8"));
 

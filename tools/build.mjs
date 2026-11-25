@@ -1,5 +1,5 @@
 // Derleme: src/ + data/ → dist/
-//   dist/elifba-kelime.html : tek dosya (claude.ai sürümü; her şey gömülü)
+//   dist/<repo>.html : tek dosya (claude.ai sürümü; her şey gömülü)
 //   dist/site/              : Play / GitHub Pages sürümü (PWA; veri ayrı dosyalarda, önbelleğe alınır)
 import fs from "node:fs";
 import path from "node:path";
@@ -24,7 +24,8 @@ export function loadParts() {
 }
 
 const fill = (tpl, head, scripts) => tpl.replace("<!-- @head -->\n", head).replace("<!-- @scripts -->\n", scripts);
-const names = s => s.replaceAll("{{APP_NAME}}", cfg.name).replaceAll("{{APP_SHORT}}", cfg.shortName).replaceAll("{{DEV_NAME}}", cfg.developer);
+const names = s => s.replaceAll("{{APP_NAME}}", cfg.name).replaceAll("{{APP_SHORT}}", cfg.shortName).replaceAll("{{DEV_NAME}}", cfg.developer)
+  .replaceAll("{{GITHUB_USER}}", cfg.githubUser).replaceAll("{{REPO}}", cfg.repo).replaceAll("{{PACKAGE_ID}}", cfg.packageId);
 
 // JSON'u <script> içine güvenle koy
 const safe = s => s.replace(/<\/(script)/gi, "<\\/$1");
@@ -94,17 +95,34 @@ ${preload}`;
 
   const version = hash(files.slice().sort().map(f => f + ":" + hash(fs.readFileSync(path.join(out, f)))).join("|"));
   const core = ["./", ...files.filter(f => !f.startsWith(".well-known") && !/\.(md)$/.test(f) && f !== "LICENSE" && f !== ".nojekyll")];
-  const sw = read("src/pwa/sw.js").replace("__VERSION__", version).replace("__CORE__", JSON.stringify(core));
+  const sw = names(read("src/pwa/sw.js")).replace("__VERSION__", version).replace("__CORE__", JSON.stringify(core));
   emit("sw.js", sw);
   return { out, files, version };
+}
+
+// Geliştirici kök sitesi (<githubUser>.github.io deposu): TWA doğrulaması için assetlinks.json
+// alan adının kökünde olmalı. Uygulamalar /<repo>/ altında yayınlanır.
+export function buildRoot(out = r("dist/root")) {
+  fs.rmSync(out, { recursive: true, force: true });
+  fs.mkdirSync(path.join(out, ".well-known"), { recursive: true });
+  fs.writeFileSync(path.join(out, ".nojekyll"), "");
+  fs.writeFileSync(path.join(out, ".well-known/assetlinks.json"), names(read("src/pwa/.well-known/assetlinks.json")));
+  fs.writeFileSync(path.join(out, "index.html"), `<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${cfg.developer}</title><style>body{font-family:system-ui,sans-serif;max-width:640px;margin:0 auto;padding:32px 18px;line-height:1.6;color:#18212B;background:#EEF2F1}a{color:#1F3A68}</style></head>
+<body><h1>${cfg.developer}</h1><p>Ücretsiz, reklamsız, açık kaynak uygulamalar.</p>
+<ul><li><a href="${cfg.repo}/">${cfg.name}</a> – ${cfg.tagline} (<a href="${cfg.repo}/privacy.html">gizlilik</a>, <a href="https://github.com/${cfg.githubUser}/${cfg.repo}">kaynak kodu</a>)</li></ul>
+</body></html>
+`);
+  return out;
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   fs.mkdirSync(r("dist"), { recursive: true });
   const one = buildStandalone();
-  fs.writeFileSync(r("dist/elifba-kelime.html"), one);
+  fs.writeFileSync(r("dist/" + cfg.repo + ".html"), one);
   const s = buildSite();
+  buildRoot();
   const size = f => (fs.statSync(f).size / 1024).toFixed(0) + " KB";
-  console.log("dist/elifba-kelime.html", size(r("dist/elifba-kelime.html")));
+  console.log("dist/" + cfg.repo + ".html", size(r("dist/" + cfg.repo + ".html")));
   console.log("dist/site/ ", s.files.length, "dosya, sürüm", s.version, "· index.html", size(path.join(s.out, "index.html")));
 }

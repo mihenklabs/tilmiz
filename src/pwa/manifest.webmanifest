@@ -1,6 +1,6 @@
 {
-  "name": "Elifbâ Kelime – Arapça öğren",
-  "short_name": "Elifbâ",
+  "name": "{{APP_NAME}} – Arapça öğren",
+  "short_name": "{{APP_SHORT}}",
   "description": "Arapça kelime, dil bilgisi, ayet ve hadis okuma pratiği.",
   "lang": "tr",
   "dir": "ltr",

@@ -83,3 +83,17 @@ test("PWA dosyaları: manifest, simgeler, gizlilik, lisans, assetlinks", () => {
   const m = JSON.parse(fs.readFileSync(path.join(site, "manifest.webmanifest"), "utf8"));
   assert.ok(m.name && m.short_name && m.icons.length === 3);
 });
+
+test("uygulama adı yer tutucuları çözülmüş, eski ad kalmamış", () => {
+  const cfg = JSON.parse(fs.readFileSync(path.join(root, "app.config.json"), "utf8"));
+  const files = ["index.html", "sw.js", "manifest.webmanifest", "privacy.html", ".well-known/assetlinks.json", ...fs.readdirSync(site).filter(f => /^app\..*\.js$/.test(f))];
+  for (const f of files) {
+    const t = fs.readFileSync(path.join(site, f), "utf8");
+    assert.doesNotMatch(t, /\{\{[A-Z_]+\}\}/, f);
+    assert.doesNotMatch(t, /Elifbâ Kelime/, f);
+  }
+  assert.match(indexHtml, new RegExp(`<title>${cfg.name} `));
+  const m = JSON.parse(fs.readFileSync(path.join(site, "manifest.webmanifest"), "utf8"));
+  assert.equal(m.short_name, cfg.shortName);
+  assert.match(fs.readFileSync(path.join(root, "dist/root/.well-known/assetlinks.json"), "utf8"), new RegExp(cfg.packageId.replace(/\./g, "\.")));
+});

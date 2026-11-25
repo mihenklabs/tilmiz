@@ -1,4 +1,4 @@
-# Elifbâ Kelime
+# {{APP_NAME}}
 
 Arapça kelime, dil bilgisi, ayet ve hadis okuma pratiği için ücretsiz, reklamsız bir uygulama.
 
