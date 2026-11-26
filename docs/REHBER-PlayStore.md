@@ -45,7 +45,7 @@ Sonra `npm run build` ve `dist/root/` içeriğini `mihenklabs.github.io` deposun
 ## 4. Google Play Console
 1. play.google.com/console → geliştirici hesabı (tek seferlik 25 USD, kimlik doğrulama). Geliştirici adı: **Mihenk Labs**.
 2. Uygulama oluştur: ad **Tilmiz – Arapça öğren**, varsayılan dil Türkçe, Uygulama, Ücretsiz.
-3. **Mağaza girişi**: kısa ve tam açıklama (`docs/magaza-metinleri.md`), `store/play-icon-512.png`, `store/feature-graphic-1024x500.png`, telefondan en az 2 ekran görüntüsü.
+3. **Mağaza girişi**: kısa ve tam açıklama (`docs/magaza-metinleri.md`), `store/play-icon-512.png`, `store/feature-graphic-1024x500.png`, telefon ekran görüntüleri `store/screenshots/` (5 adet, 1104×2207; emülatörde örnek ilerlemeyle çekildi).
 4. **Uygulama içeriği**:
    - Gizlilik politikası URL'si: `https://mihenklabs.github.io/tilmiz/privacy.html`
    - Reklam: Yok.
