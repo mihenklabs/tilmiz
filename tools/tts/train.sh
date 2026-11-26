@@ -6,13 +6,17 @@
 # Hazırlık (bir kez):
 #   python tools/tts/clartts_prep.py D:/tts-egitim/clartts D:/tts-egitim/data
 #   python tools/tts/patch_mas.py
+#   python tools/tts/convert_ckpt.py D:/tts-egitim/base/lj-med_1000.ckpt D:/tts-egitim/base/lj-med_1000.sd.ckpt
 # Çalıştırma:   bash tools/tts/train.sh            (kaldığı yerden devam: RESUME=1 bash tools/tts/train.sh)
+# Oturumdan bağımsız (PowerShell): Start-Process "C:Program FilesGitbinbash.exe" -ArgumentList '-lc','"cd /d/ElifBe && bash tools/tts/train.sh > /d/tts-egitim/train.log 2>&1"' -WindowStyle Hidden
+# Hız (GTX 1050 Ti, toplu 6): ~55 dk/dönem. İlerleme: D:/tts-egitim/train.log; kontrol noktaları her 5 dönemde D:/tts-egitim/out/lightning_logs/.
 set -euo pipefail
 ROOT=${ROOT:-/d/tts-egitim}
 PY="$ROOT/venv/Scripts/python.exe"
-BATCH=${BATCH:-12}
+BATCH=${BATCH:-6}
 EPOCHS=${EPOCHS:-400}
 export PYTHONIOENCODING=utf-8
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 ARGS=(
   --data.voice_name ar_tilmiz-medium
   --data.csv_path "$ROOT/data/metadata.csv"
@@ -36,5 +40,5 @@ if [ "${RESUME:-0}" = "1" ]; then
   CK=$(ls -t "$ROOT"/out/lightning_logs/version_*/checkpoints/last.ckpt | head -1)
   exec "$PY" -m piper.train fit "${ARGS[@]}" --ckpt_path "$CK"
 else
-  exec "$PY" -m piper.train fit "${ARGS[@]}" --model.warmstart_ckpt "$ROOT/base/lj-med_1000.ckpt"
+  exec "$PY" -m piper.train fit "${ARGS[@]}" --model.warmstart_ckpt "$ROOT/base/lj-med_1000.sd.ckpt"
 fi
