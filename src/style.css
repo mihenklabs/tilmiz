@@ -268,4 +268,8 @@ nav.tabs a[aria-current="page"]{color:var(--tile)}
 .vwave{width:100%;height:48px;display:block}
 .vwave rect{fill:var(--tile)}
 .alt{color:var(--muted);font-size:.82rem;font-style:italic;margin-top:2px}
-.bub small.alt{display:block;opacity:.85}
+.bub small.alt{display:block;color:inherit;opacity:.72}
+.vcard .btn:not(.primary):not(.rec){color:var(--ink)}
+.vcard .note,.vcard .vres .tl{color:inherit;opacity:.85}
+.vres{border-top-color:rgba(255,255,255,.25)}
+.vwave rect{fill:currentColor}
