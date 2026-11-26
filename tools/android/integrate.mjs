@@ -60,6 +60,10 @@ export function integrate(proj) {
   patch(path.join(app, "AndroidManifest.xml"), [
     ["android.permission.RECEIVE_BOOT_COMPLETED", '<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>',
       a => a + '\n    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>'],
+    ["androidx.browser.customtabs.PostMessageService", "    </application>",
+      a => `        <!-- Chrome postMessage kanalı için bağlandığı hizmet (PlanBridge) -->
+        <service android:name="androidx.browser.customtabs.PostMessageService" android:exported="true" />
+` + a],
     [".reminders.ReminderReceiver", "    </application>",
       a => `        <!-- Tilmiz hatırlatmaları (tools/android/integrate.mjs) -->
         <receiver android:name=".reminders.ReminderReceiver" android:exported="false" />

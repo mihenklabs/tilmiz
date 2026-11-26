@@ -117,12 +117,23 @@ test("Android köprüsü: yerel uygulamanın gönderdiği porta plan iletilir", 
   const a = openApp({ state: stateWith({}) });
   // yerel taraftaki MessagePort yerine sahte port
   let resolve; const got = new Promise(r => { resolve = r; });
-  const port = { onmessage: null, postMessage: d => resolve(JSON.parse(d)) };
-  const ev = new a.window.Event("message");
-  Object.defineProperty(ev, "data", { value: "tilmiz-native-hello" });
-  Object.defineProperty(ev, "ports", { value: [port] });
-  a.window.dispatchEvent(ev);
+  const sent = [];
+  const port = { onmessage: null, postMessage: d => { sent.push(d); resolve(JSON.parse(d)); } };
+  const msg = (data, origin, ports) => {
+    const ev = new a.window.Event("message");
+    Object.defineProperty(ev, "data", { value: data });
+    Object.defineProperty(ev, "origin", { value: origin });
+    Object.defineProperty(ev, "ports", { value: ports });
+    a.window.dispatchEvent(ev);
+  };
+  msg("", "https://kotu.example", [port]); // başka kaynaktan gelen port kabul edilmez
+  assert.equal(sent.length, 0);
+  // Chrome'un davranışı: android-app:// kaynaklı, boş veri ve port; uygulamanın mesajları porttan gelir
+  msg("", "android-app://mihenklabs.github.io/io.github.mihenklabs.tilmiz", [port]);
+  msg("", "android-app://mihenklabs.github.io/io.github.mihenklabs.tilmiz", [{ postMessage() { throw new Error("ikinci port"); } }]);
   const m = await got;
+  port.onmessage({ data: "tilmiz-native-hello" });
+  assert.equal(sent.length, 2, "merhaba mesajında plan yeniden gönderilir");
   assert.equal(m.type, "tilmiz-plan");
   assert.ok(m.plan.length >= 5);
   assert.match(m.plan[0].url, /\?n=rem-/);

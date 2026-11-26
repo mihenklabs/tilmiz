@@ -174,16 +174,17 @@ function sendPlan() {
   if (natPort) { try { natPort.postMessage(JSON.stringify(msg)); } catch (e) {} }
   if ("serviceWorker" in navigator && navigator.serviceWorker.controller) navigator.serviceWorker.controller.postMessage(msg);
 }
-// Android uygulaması (TWA) bağlantıyı başlatır: ilk mesajla bir MessagePort gönderir
+// Android uygulaması (TWA): Chrome kanalı açınca sayfaya android-app:// kaynaklı, boş veri taşıyan bir
+// mesajla MessagePort verir; uygulamanın mesajları ("tilmiz-native-hello", gösterilen bildirimler) bu porttan gelir.
 window.addEventListener("message", e => {
-  if (e.data === "tilmiz-native-hello" && e.ports && e.ports[0]) {
-    natPort = e.ports[0];
-    natPort.onmessage = m => { // yerel taraf hangi bildirimlerin gösterildiğini bildirir
-      try { const d = JSON.parse(m.data); if (d.type === "shown") remShown(d.tag, d.at); } catch (x) {}
-    };
-    sendPlan();
-    if (view === "ayarlar") render();
-  }
+  if (!e.ports || !e.ports[0] || natPort || !/^android-app:\/\//.test(e.origin || "")) return;
+  natPort = e.ports[0];
+  natPort.onmessage = m => {
+    if (m.data === "tilmiz-native-hello") { sendPlan(); if (view === "ayarlar") render(); return; }
+    try { const d = JSON.parse(m.data); if (d.type === "shown") remShown(d.tag, d.at); } catch (x) {}
+  };
+  sendPlan();
+  if (view === "ayarlar") render();
 });
 // Service worker gösterdiği bildirimleri bildirir
 if ("serviceWorker" in navigator) navigator.serviceWorker.addEventListener("message", e => { if (e.data && e.data.type === "shown") remShown(e.data.tag, e.data.at); });

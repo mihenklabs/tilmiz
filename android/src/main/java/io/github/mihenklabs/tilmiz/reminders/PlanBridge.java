@@ -3,15 +3,21 @@
 // getCustomTabsCallback() ile bu geri çağırma eklenir. Kaynak: Chrome "PostMessage for TWA".
 package io.github.mihenklabs.tilmiz.reminders;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.browser.customtabs.CustomTabsCallback;
+import androidx.browser.customtabs.CustomTabsClient;
+import androidx.browser.customtabs.CustomTabsServiceConnection;
 import androidx.browser.customtabs.CustomTabsSession;
+import static androidx.browser.customtabs.CustomTabsService.RELATION_USE_AS_ORIGIN;
 
 import org.json.JSONObject;
 
@@ -25,13 +31,34 @@ public class PlanBridge extends CustomTabsCallback {
     @Nullable private final CustomTabsCallback inner; // Bubblewrap'in kendi geri çağırması (kalite denetimi)
     private Object launcher; // TwaLauncher: oturum yalnızca onun içinde tutuluyor
     private boolean requested;
+    private boolean channelRequested;
 
     public PlanBridge(Context ctx, @Nullable CustomTabsCallback inner) {
         this.ctx = ctx.getApplicationContext();
         this.inner = inner;
     }
 
-    public void setLauncher(Object launcher) { this.launcher = launcher; }
+    public void setLauncher(Object launcher) { this.launcher = launcher; warmup(); }
+
+    // Chrome, validateRelationship ve postMessage kanalını yalnızca warmup() çağrılmışsa kabul eder;
+    // TwaLauncher bunu yapmadığı için kısa ömürlü ayrı bir bağlantıyla ısıtıyoruz.
+    private void warmup() {
+        String pkg = CustomTabsClient.getPackageName(ctx, null);
+        if (pkg == null) return;
+        try {
+            CustomTabsClient.bindCustomTabsService(ctx, pkg, new CustomTabsServiceConnection() {
+                @Override
+                public void onCustomTabsServiceConnected(@NonNull ComponentName name, @NonNull CustomTabsClient client) {
+                    client.warmup(0);
+                    try { ctx.unbindService(this); } catch (Exception ignored) { }
+                }
+                @Override
+                public void onServiceDisconnected(ComponentName name) { }
+            });
+        } catch (Exception e) {
+            Log.w(TAG, "Chrome ısıtılamadı", e);
+        }
+    }
 
     // androidbrowserhelper TwaLauncher oturumu dışarı vermiyor; alanı türüne göre bul (ad değişse de çalışır)
     @Nullable
@@ -64,12 +91,24 @@ public class PlanBridge extends CustomTabsCallback {
         CustomTabsSession s = session();
         if (s == null) return;
         requested = true;
+        // Chrome kanalı yalnızca bu oturum için "kaynak olarak kullan" ilişkisi doğrulandıktan sonra açar
+        boolean ok = s.validateRelationship(RELATION_USE_AS_ORIGIN, origin(), null);
+        if (!ok) { requested = false; Log.w(TAG, "assetlinks doğrulaması başlatılamadı"); }
+    }
+
+    private void openChannel() {
+        if (channelRequested) return;
+        CustomTabsSession s = session();
+        if (s == null) return;
         boolean ok = s.requestPostMessageChannel(origin(), origin(), new Bundle());
-        if (!ok) { requested = false; Log.w(TAG, "postMessage kanalı istenemedi (Chrome 115+ gerekir)"); }
+        if (!ok) ok = s.requestPostMessageChannel(origin()); // eski Chrome: yalnızca kaynak
+        if (!ok) Log.w(TAG, "postMessage kanalı istenemedi");
+        else channelRequested = true;
     }
 
     @Override
     public void onMessageChannelReady(@Nullable Bundle extras) {
+        Log.i(TAG, "postMessage kanalı hazır");
         if (inner != null) inner.onMessageChannelReady(extras);
         CustomTabsSession s = session();
         if (s == null) return;
@@ -92,7 +131,9 @@ public class PlanBridge extends CustomTabsCallback {
     @Override
     public void onRelationshipValidationResult(int relation, @NonNull Uri requestedOrigin, boolean result, @Nullable Bundle extras) {
         if (inner != null) inner.onRelationshipValidationResult(relation, requestedOrigin, result, extras);
-        if (!result) Log.w(TAG, "assetlinks doğrulanamadı: " + requestedOrigin + " (use_as_origin ilişkisi gerekli)");
+        if (relation != RELATION_USE_AS_ORIGIN) return;
+        if (result && !channelRequested) new Handler(Looper.getMainLooper()).postDelayed(this::openChannel, 300);
+        else { requested = false; Log.w(TAG, "assetlinks doğrulanamadı: " + requestedOrigin + " (use_as_origin ilişkisi gerekli)"); }
     }
 
     @Override
