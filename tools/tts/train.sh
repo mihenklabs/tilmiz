@@ -5,6 +5,7 @@
 #
 # Hazırlık (bir kez):
 #   python tools/tts/clartts_prep.py D:/tts-egitim/clartts D:/tts-egitim/data
+#   python tools/tts/filter_long.py D:/tts-egitim   (→ data/metadata-8s.csv)
 #   python tools/tts/patch_mas.py
 #   python tools/tts/convert_ckpt.py D:/tts-egitim/base/lj-med_1000.ckpt D:/tts-egitim/base/lj-med_1000.sd.ckpt
 # Çalıştırma:   bash tools/tts/train.sh            (kaldığı yerden devam: RESUME=1 bash tools/tts/train.sh)
@@ -15,11 +16,12 @@ ROOT=${ROOT:-/d/tts-egitim}
 PY="$ROOT/venv/Scripts/python.exe"
 BATCH=${BATCH:-6}
 EPOCHS=${EPOCHS:-400}
+CSV=${CSV:-$ROOT/data/metadata-8s.csv}  # 8 sn üstü 52 klip 4 GB GPU'da bellek taşırıyor (tools/tts/clartts_prep.py sonrası süzülür)
 export PYTHONIOENCODING=utf-8
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 ARGS=(
   --data.voice_name ar_tilmiz-medium
-  --data.csv_path "$ROOT/data/metadata.csv"
+  --data.csv_path "$CSV"
   --data.audio_dir "$ROOT/data/wav"
   --data.cache_dir "$ROOT/cache"
   --data.config_path "$ROOT/out/ar_tilmiz-medium.onnx.json"

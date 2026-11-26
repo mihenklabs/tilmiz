@@ -179,10 +179,10 @@ test("Gelişim: aylık takvim ve seviye ilerleme çubukları", () => {
 });
 
 test("Soru ve önerileriniz: e-posta tanımlıysa mailto bağlantısı, değilse gizli", () => {
-  const a = openApp({ hash: "ayarlar" });
+  const a = openApp({ hash: "ayarlar", html: standaloneHtml().replace(/const CONTACT = "[^"]*";/, 'const CONTACT = "";') });
   assert.doesNotMatch(a.text(), /Soru ve önerileriniz/);
   a.close();
-  const html = standaloneHtml().replace('const CONTACT = "";', 'const CONTACT = "destek@example.com";');
+  const html = standaloneHtml().replace(/const CONTACT = "[^"]*";/, 'const CONTACT = "destek@example.com";');
   const b = openApp({ hash: "ayarlar", html });
   const link = b.$('a[href^="mailto:destek@example.com"]');
   assert.ok(link, "mailto bağlantısı yok");
