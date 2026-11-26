@@ -6,6 +6,7 @@ import path from "node:path";
 import readline from "node:readline";
 import { fileURLToPath } from "node:url";
 import { fmtJSON } from "./jsonfmt.mjs";
+import { applySentenceFixes } from "./sentences-apply.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dir = process.argv[2];
@@ -59,7 +60,7 @@ for (const [a, t] of links) {
 // 7+ yaş: gizli kelimeleri içeren ya da uygunsuz konulu cümleler alınmaz; data/sentences-blocked.json elle/hoca tablosundan gelen çıkarmalar
 const MATFORM = new Set(); for (const i of MAT) for (const f of [W[i][0], W[i][5]].filter(Boolean)) MATFORM.add(arNorm(f));
 const hasMat = ar => arNorm(ar).replace(/[^ء-ي ]/g, " ").split(" ").some(t => MATFORM.has(t) || PRE.some(p => t.startsWith(p) && MATFORM.has(t.slice(p.length))));
-const BAD_RE = /(^|[^a-zçğıöşüâîû])(öl[üdmeaıs]|intihar|cinay|katil|öldür|silah|tabanca|bıçakla|kanlı|seks|çıplak|öpüş|öptü|sevgili|aşık|şarap|bira|içki|sarhoş|alkol|uyuşturucu|sigara|kumar|hapis|tecavüz|savaş|bomba|terör|nefret|aptal|salak|lanet|cehennem|intikam|vur(du|acağ)|dövdü)/;
+const BAD_RE = /(^|[^a-zçğıöşüâîû])(öl[üdmeaıs]|intihar|cinay|katil|öldür|silah|tabanca|bıçakla|kanlı|seks|çıplak|öpüş|öptü|sevgili|aşık|şarap|bira(?![a-zçğıöşü])|içki|sarhoş|alkol|uyuşturucu|sigara|kumar|hapis|tecavüz|savaş|bomba|terör|nefret|aptal|salak|lanet|cehennem|intikam|vur(du|acağ)|dövdü)/;
 const BAD_TR = { test: s => BAD_RE.test(s.toLocaleLowerCase("tr")) };
 let blocked = new Set();
 const bf = path.join(root, "data/sentences-blocked.json");
@@ -68,6 +69,8 @@ const S = [...byAr.values()].filter(([ar, tr, a]) => ar.length <= 120 && !hasMat
 const idx = {};
 S.forEach((s, k) => { for (const id of wordsIn(s[0])) (idx[id] = idx[id] || []).push(k); });
 for (const k in idx) idx[k] = idx[k].slice(0, 6); // kısa cümleler önce
-fs.writeFileSync(path.join(root, "data/sentences.json"), fmtJSON({ src: "Tatoeba (tatoeba.org), CC BY 2.0 FR", s: S, w: idx }));
-const covered = Object.keys(idx).length;
-console.log(`${S.length} cümle çifti, ${covered} kelimede en az bir örnek`);
+// kendi çeviri düzeltmelerimiz ve alternatiflerimiz (data/sentences-tr.json), çıkarılanlar
+const OUT = applySentenceFixes({ src: "Tatoeba (tatoeba.org), CC BY 2.0 FR", s: S, w: idx }, { blocked });
+fs.writeFileSync(path.join(root, "data/sentences.json"), fmtJSON(OUT));
+const covered = Object.keys(OUT.w).length;
+console.log(`${OUT.s.length} cümle çifti, ${covered} kelimede en az bir örnek`);

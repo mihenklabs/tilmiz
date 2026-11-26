@@ -212,3 +212,20 @@ test("ayet sayfasında kaynaklı meal ve atıf; zayıf rivayet listede yok", () 
   assert.deepEqual(a.errors, []);
   a.close();
 });
+
+test("diyalogda ve örnek cümlede alternatif çeviriler; alternatif yanlış şık olmaz", () => {
+  const a = openApp({ hash: "pratik" });
+  a.click("#goDlg"); a.click('[data-d="0"]');
+  assert.match(a.text(), /ya da: /);
+  for (let i = 0; i < 40; i++) {
+    const q = JSON.parse(a.ev(`(() => { const q = dlgQ(0); return JSON.stringify(q.opts ? q.opts.map(o => o.k || "") : []); })()`));
+    const ok = a.ev(`DLG[0][1].map(l => [l[1], ...(l[2] || [])])`);
+    // aynı cümlenin iki doğru çevirisi aynı soruda şık olarak yer almaz
+    for (const set of ok) assert.ok(set.filter(t => q.includes(t)).length <= 1, JSON.stringify(q));
+  }
+  const S = readData("sentences");
+  const k = S.s.findIndex(r => r[4]);
+  assert.ok(k >= 0 && S.s.some(r => r[3] === 0), "düzeltilmiş ve alternatifli cümle var");
+  assert.deepEqual(a.errors, []);
+  a.close();
+});

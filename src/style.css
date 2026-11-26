@@ -267,3 +267,5 @@ nav.tabs a[aria-current="page"]{color:var(--tile)}
 .vres{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
 .vwave{width:100%;height:48px;display:block}
 .vwave rect{fill:var(--tile)}
+.alt{color:var(--muted);font-size:.82rem;font-style:italic;margin-top:2px}
+.bub small.alt{display:block;opacity:.85}

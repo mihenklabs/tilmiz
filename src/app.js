@@ -163,6 +163,8 @@ function speak(text, force) {
   if (src === "claude" && !ttsCap) { toast("Claude sesi bu ekranda kullanılamıyor (Chrome’da açınca çalışır). Telefonun sesi kullanılıyor."); }
   deviceSpeak(t);
 }
+// Bir cümlenin diğer doğru çevirileri
+const altLine = alt => alt && alt.length ? `<div class="alt">ya da: ${alt.map(esc).join(" · ")}</div>` : "";
 const listenBtn = (t, label = "Dinle") => `<button class="listen" data-say="${esc(t)}">🔊 ${label}</button>`;
 document.addEventListener("click", e => { const b = e.target.closest("[data-say]"); if (b) { e.preventDefault(); e.stopPropagation(); speak(b.dataset.say); } });
 
@@ -489,7 +491,7 @@ function dictCard(i) {
 }
 function exampleBlock(i) {
   const ks = SENT && SENT.w[i]; if (!ks) return "";
-  return `<div class="ex"><div class="dmeta">Örnek cümleler</div>${ks.slice(0, 3).map(k => { const [ar, tr] = SENT.s[k]; return `<div class="exs"><span class="ar" lang="ar" dir="rtl">${esc(ar)}</span><button class="saybtn" data-say="${esc(ar)}" aria-label="Dinle">🔊</button><div>${esc(tr)}</div></div>`; }).join("")}<div class="src">Tatoeba · CC BY 2.0 FR</div></div>`;
+  return `<div class="ex"><div class="dmeta">Örnek cümleler</div>${ks.slice(0, 3).map(k => { const [ar, tr, , , alt] = SENT.s[k]; return `<div class="exs"><span class="ar" lang="ar" dir="rtl">${esc(ar)}</span><button class="saybtn" data-say="${esc(ar)}" aria-label="Dinle">🔊</button><div>${esc(tr)}</div>${altLine(alt)}</div>`; }).join("")}<div class="src">Tatoeba · CC BY 2.0 FR${ks.slice(0, 3).some(k => SENT.s[k][3] === 0) ? " · bazı çeviriler {{APP_NAME}} tarafından düzeltildi" : ""}</div></div>`;
 }
 function dictView(seg) {
   const ids = dictSearch(dictQ);
@@ -1886,8 +1888,8 @@ function dlgQ(d) {
   if (Math.random() < .55) { const ok = ls[i + 1], wr = shuffle(ALL_LINES.filter(l => !ls.includes(l))).slice(0, 3);
     return { badge: "Uygun cevap hangisi?", prompt: `<div class="big ar" lang="ar" style="font-size:2rem">${ls[i][0]}</div><div class="tl">${esc(ls[i][1])}</div>`, sayFirst: ls[i][0], one: true,
       opts: shuffle([ok, ...wr].map(l => ({ h: `${arS(l[0])}<br><small class="mut">${esc(l[1])}</small>`, ok: l === ok }))), fb: `${arS(ok[0])} = ${esc(ok[1])}`, say: ok[0] }; }
-  const l = pick1(ls), wr = shuffle(ALL_LINES.filter(x => x[1] !== l[1])).slice(0, 6).map(x => ({ k: x[1], h: esc(x[1]) }));
-  return { badge: "Anlamı ne?", prompt: `<div class="big ar" lang="ar" style="font-size:2rem">${l[0]}</div>`, sayFirst: l[0], one: true, opts: opts4({ k: l[1], h: esc(l[1]) }, wr), fb: `${arS(l[0])} = ${esc(l[1])}`, say: l[0] };
+  const l = pick1(ls), same = new Set([l[1], ...(l[2] || [])]), wr = shuffle(ALL_LINES.filter(x => !same.has(x[1]) && !(x[2] || []).includes(l[1]))).slice(0, 6).map(x => ({ k: x[1], h: esc(x[1]) }));
+  return { badge: "Anlamı ne?", prompt: `<div class="big ar" lang="ar" style="font-size:2rem">${l[0]}</div>`, sayFirst: l[0], one: true, opts: opts4({ k: l[1], h: esc(l[1]) }, wr), fb: `${arS(l[0])} = ${esc(l[1])}${altLine(l[2])}`, say: l[0] };
 }
 function dlgList() {
   app.innerHTML = `<div class="top"><button class="linkbtn" id="backHub">← Pratik</button></div><h2>Konuşma pratiği</h2>
@@ -1899,7 +1901,7 @@ function dlgList() {
 function dlgPage(k) {
   const [t, ls] = DLG[k];
   app.innerHTML = `<div class="top"><button class="linkbtn" id="backD">← Diyaloglar</button></div><h2>${esc(t)}</h2>
-  <div class="chat">${ls.map((l, i) => `<button class="bub ${i % 2 ? "b" : "a"}" data-say="${esc(l[0])}"><span class="ar" lang="ar">${l[0]}</span><small>${esc(l[1])}</small></button>`).join("")}</div>
+  <div class="chat">${ls.map((l, i) => `<button class="bub ${i % 2 ? "b" : "a"}" data-say="${esc(l[0])}"><span class="ar" lang="ar">${l[0]}</span><small>${esc(l[1])}</small>${l[2] ? `<small class="alt">ya da: ${l[2].map(esc).join(" · ")}</small>` : ""}</button>`).join("")}</div>
   <p class="note mut" style="margin:8px 2px">Bir cümleye dokununca okunur.</p>
   <div class="row"><button class="btn primary" id="dQ">Alıştırma (6 soru)</button></div>`;
   $("#backD").onclick = () => { pv = { mode: "dlgs" }; practice(); };
