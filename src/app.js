@@ -683,12 +683,14 @@ function practice() {
   if (pv.mode === "dlgs") return dlgList();
   if (pv.mode === "dlg") return dlgPage(pv.k);
   if (pv.mode === "text") return textPage(pv.k);
+  if (pv.mode === "voice") return vp ? voicePage() : voiceStart();
   const pool = verbPool(), st = S.cj;
   app.innerHTML = `<h2>Pratik</h2>
   <p class="sub">Bu alıştırmalarda yalnızca öğrendiğin kelimeler kullanılır: üst üste en az iki kez doğru bildiğin kelimeler.</p>
   <button class="hub" id="goLes"><span class="ar" lang="ar">قَوَاعِد</span><div><strong>Dil bilgisi dersleri</strong><span>${LESSONS.length} kısa ders, her birinde 8 soruluk alıştırma · ${Object.keys(S.gr).length} ders çalışıldı</span></div></button>
   <button class="hub" id="goAlf"><span class="ar" lang="ar">أ ب ت</span><div><strong>Elifbâ: Arap harfleri</strong><span>Harfler, harekeler ve okuma alıştırmaları; Arapça okumayı bilmiyorsan buradan başla</span></div></button>
   <button class="hub" id="goDlg"><span class="ar" lang="ar">حِوَار</span><div><strong>Konuşma pratiği</strong><span>${DLG.length} günlük diyalog, dinle ve doğru cevabı seç</span></div></button>
+  ${VOICE_OK ? `<button class="hub" id="goVoice"><span class="ar" lang="ar">نُطْق</span><div><strong>Sesli pratik</strong><span>Örneği dinle, kendin söyle, kaydını karşılaştır</span></div></button>` : ""}
   <button class="hub" id="goTx"><span class="ar" lang="ar">آيَة · حَدِيث</span><div><strong>Ayet ve hadisler</strong><span>${TXV.length} seçme metin, kelime kelime anlamlarıyla</span></div></button>
   <button class="hub" id="goSent"><span class="ar" lang="ar">جُمْلَة</span><div><strong>Cümle pratiği</strong><span>Öğrendiğin kelimelerle kurulmuş cümleler: anlamını bul, cümleyi kur</span></div></button>
   <button class="hub" id="goTri"><span class="ar" lang="ar">ع · T · E</span><div><strong>Üçlü çeviri</strong><span>Arapça, Türkçe ve İngilizce arasında</span></div></button>
@@ -698,6 +700,7 @@ function practice() {
   <button class="hub" id="goRoots"><span class="ar" lang="ar">ج ذ ر</span><div><strong>Kök aileleri</strong><span>Aynı kökten gelen kelimeler</span></div></button>`;
   $("#goAlf").onclick = () => { pv = { mode: "alf" }; practice(); window.scrollTo(0, 0); };
   $("#goDlg").onclick = () => { pv = { mode: "dlgs" }; practice(); window.scrollTo(0, 0); };
+  if (VOICE_OK) $("#goVoice").onclick = voiceStart;
   $("#goTx").onclick = () => { pv = { mode: "texts" }; practice(); window.scrollTo(0, 0); };
   $("#goLes").onclick = () => { pv = { mode: "lessons" }; practice(); window.scrollTo(0, 0); };
   $("#goRoots").onclick = () => { pv = { mode: "roots" }; practice(); window.scrollTo(0, 0); };
@@ -1904,7 +1907,7 @@ function dlgPage(k) {
 }
 
 // --- XP, günlük hedef ve rozetler ---
-const XPW = { r: 2, ok: 8, x: 2, xo: 8, n: 5, L: 50 };
+const XPW = { r: 2, ok: 8, x: 2, xo: 8, n: 5, L: 50, v: 5 };
 const BADGES = [
  ["ilk", "İlk adım", "İlk kelimene başla", () => Object.keys(S.p).length >= 1],
  ["k10", "10 kelime", "10 kelime öğren", () => learnedIds().length >= 10],
