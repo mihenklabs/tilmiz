@@ -72,6 +72,6 @@ Sonra `npm run build` ve `dist/root/` içeriğini `mihenklabs.github.io` deposun
 - Play sürümünde ilerleme yalnızca o telefonda saklanır (yedek dosyasıyla taşınabilir); claude.ai sürümüyle eşitlenmez.
 - Telaffuz telefonun Arapça sesiyle yapılır.
 - GPL kaynak kodun erişilebilir olmasını ister: `tilmiz` deposu public kalsın.
-- Vergi: GVK mükerrer 20/B istisnası (ayrı banka hesabı gerekir) — mali müşavire danış. İşveren sözleşmeni (yan faaliyet/fikri haklar maddeleri) kontrol et.
+- Vergi: GVK mükerrer 20/B istisnası (ayrı banka hesabı gerekir) — mali müşavire danış.
 - Lisanslar: Vikisözlük (CC BY-SA 4.0), Quranic Arabic Corpus (GNU GPL), FrequencyWords (CC BY-SA 4.0), Amiri/Rubik (OFL). Atıflar uygulamada Ayarlar → "Hakkında, kaynaklar ve lisanslar".
 - Marka: "Tilmiz" ve "Mihenk Labs" için TÜRKPATENT'te 9. ve 41. sınıflarda arama yap (bu kontrol edilemedi).

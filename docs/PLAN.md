@@ -1,6 +1,6 @@
 # Tilmiz – yayına kadar ve sonrası plan (26 Kasım 2026)
 
-Kurallar: çalışmalar yalnızca kişisel bilgisayarda ve mesai dışında yürütülür. Şifreler, anahtarlar ve ödemeler kullanıcıda kalır. Hiçbir dosyaya şifre yazılmaz.
+Kurallar: şifreler, anahtarlar ve ödemeler kullanıcıda kalır. Hiçbir dosyaya şifre yazılmaz.
 
 ## Aşama 1 – Yayına hazırlık (hazır olanlar)
 - Uygulama, testler (50), site derlemesi, gizlilik politikası, mağaza görselleri ve metinleri.
