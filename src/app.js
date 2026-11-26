@@ -1780,6 +1780,7 @@ function bindPlan() { const b = $("#suggest"); if (b) b.onclick = e => { e.preve
 
 // ---------- Google Play Billing (yalnızca Play Store sürümünde, Digital Goods API ile) ----------
 const PLAY = "https://play.google.com/billing";
+const BILLING_ON = "{{PLAY_BILLING}}" === "1"; // app.config.json playBilling (ilk sürümde kapalı)
 const TIP_SKUS = ["kahve_30", "destek_100", "destek_250"];
 const TIP_LABEL = { kahve_30: "Geliştiriciye bir kahve ısmarla", destek_100: "Projeye destek ol", destek_250: "Cömert destekçi ol" };
 let gate = null;
@@ -1787,7 +1788,7 @@ let dgs = null, tipItems = [];
 const fmtPrice = pr => { try { return new Intl.NumberFormat("tr-TR", { style: "currency", currency: pr.currency, maximumFractionDigits: 2 }).format(+pr.value); } catch (e) { return pr.value + " " + pr.currency; } };
 async function initBilling() {
   try {
-    if (!("getDigitalGoodsService" in window) || !window.PaymentRequest) return;
+    if (!BILLING_ON || !("getDigitalGoodsService" in window) || !window.PaymentRequest) return;
     dgs = await window.getDigitalGoodsService(PLAY);
     if (!dgs) return;
     const det = await dgs.getDetails(TIP_SKUS);

@@ -32,7 +32,7 @@ GİZLİLİK
 • Hiçbir kişisel veri toplanmaz; ilerlemen yalnızca telefonunda saklanır, istersen yedek dosyası alırsın.
 • İnternetsiz çalışır.
 
-Uygulama 7 yaş ve üzeri için uygundur. İsteğe bağlı destek paketleriyle geliştirmeye katkıda bulunabilirsin; satın almadan önce ebeveyn onayı istenir.
+Uygulama 7 yaş ve üzeri için uygundur. Tamamen ücretsizdir: reklam, abonelik ya da uygulama içi satın alma yoktur.
 
 Açık kaynak (GPL-3.0). Veri kaynakları: Vikisözlük (CC BY-SA 4.0), Quranic Arabic Corpus (GNU GPL, corpus.quran.com), FrequencyWords (CC BY-SA 4.0).
 Geliştirici: Mihenk Labs

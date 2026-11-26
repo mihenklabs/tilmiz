@@ -1,6 +1,6 @@
 # Tilmiz'i Google Play'e yükleme rehberi
 
-Uygulama bir web uygulaması (PWA) olarak GitHub Pages'te barındırılır ve Android'e "Trusted Web Activity" (TWA) olarak paketlenir. Destek paketleri Google Play Billing ile çalışır.
+Uygulama bir web uygulaması (PWA) olarak GitHub Pages'te barındırılır ve Android'e "Trusted Web Activity" (TWA) olarak paketlenir. Destek paketleri Google Play Billing ile çalışır; **ilk sürümde kapalıdır** (`app.config.json` → `playBilling: false`, hesap "satıcı değil" beyanıyla). Açmak için: satıcı beyanı, ödeme profili, vergi (20/B) ve iş sözleşmesi kontrolünden sonra `playBilling: true`, Android projesini yeniden üret, ürünleri tanımla.
 
 Adlar (`app.config.json`): uygulama **Tilmiz**, geliştirici **Mihenk Labs**, GitHub kullanıcı adı **mihenklabs**, paket kimliği **io.github.mihenklabs.tilmiz** (paket kimliği sonradan değiştirilemez).
 

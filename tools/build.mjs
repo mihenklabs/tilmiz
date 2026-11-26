@@ -29,6 +29,9 @@ const fill = (tpl, head, scripts) => tpl.replace("<!-- @head -->\n", head).repla
 const names = s => s.replaceAll("{{APP_NAME}}", cfg.name).replaceAll("{{APP_SHORT}}", cfg.shortName).replaceAll("{{DEV_NAME}}", cfg.developer)
   .replaceAll("{{GITHUB_USER}}", cfg.githubUser).replaceAll("{{REPO}}", cfg.repo).replaceAll("{{PACKAGE_ID}}", cfg.packageId)
   .replaceAll("{{FINGERPRINTS}}", JSON.stringify((cfg.fingerprints || []).map(f => f.sha256)))
+  .replaceAll("{{PLAY_BILLING}}", cfg.playBilling ? "1" : "0")
+  .replace(/<!--billing-->([\s\S]*?)<!--\/billing-->/g, (m, x) => cfg.playBilling ? x : "")
+  .replace(/<!--nobilling-->([\s\S]*?)<!--\/nobilling-->/g, (m, x) => cfg.playBilling ? "" : x)
   .replaceAll("{{CONTACT_EMAIL}}", cfg.contactEmail || "").replaceAll("{{VERSION}}", pkgVersion);
 
 // JSON'u <script> içine güvenle koy
@@ -134,7 +137,7 @@ export function buildTwa(out = r("dist/twa/twa-manifest.json")) {
     iconUrl: base + "icons/icon-512.png", maskableIconUrl: base + "icons/maskable-512.png", monochromeIconUrl: base + "icons/monochrome-192.png",
     webManifestUrl: base + "manifest.webmanifest", fallbackType: "customtabs",
     appVersion: pkgVersion, appVersionCode: maj * 10000 + min * 100 + pat,
-    features: { playBilling: { enabled: true } },
+    features: { playBilling: { enabled: !!cfg.playBilling } },
     enableSiteSettingsShortcut: true, isChromeOSOnly: false, isMetaQuest: false, minSdkVersion: 24,
     signingKey: { path: "../../../tilmiz-imza/tilmiz-upload.keystore", alias: "tilmiz" },
     generatorApp: "bubblewrap-cli", shortcuts: [], additionalTrustedOrigins: [], retainedBundles: [], fingerprints: [],

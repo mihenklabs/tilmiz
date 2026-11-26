@@ -24,7 +24,7 @@ Kurallar: şifreler, anahtarlar ve ödemeler kullanıcıda kalır. Hiçbir dosya
    - bildirim geliyor mu,
    - bildirime dokununca çalışma ekranı açılıyor mu,
    - yeniden başlatmadan sonra bildirim hâlâ kurulu mu.
-3. Destek paketleri Billing testi yalnızca Play'den yüklenen sürümde yapılabilir; bu Aşama 5'tedir.
+3. Destek paketleri ilk sürümde kapalı (`playBilling: false`); açılırsa Billing testi yalnızca Play'den yüklenen sürümde yapılabilir.
 
 ## Aşama 4 – İmza ve ilk paket
 1. Kullanıcı kendi PowerShell penceresinde `tools\android\release.ps1` dosyasını çalıştırır. Anahtar oluşturulur ve şifre parola yöneticisine kaydedilir.
@@ -40,13 +40,13 @@ Kurallar: şifreler, anahtarlar ve ödemeler kullanıcıda kalır. Hiçbir dosya
    - hedef kitle 7+ (Aileler Politikası),
    - içerik derecelendirmesi,
    - hükümet uygulaması değil, finansal özellik yok.
-4. Uygulama içi ürünler: `kahve_30`, `destek_100`, `destek_250` (tüketilebilir). Bunlar için ödeme profili gerekir.
+4. Uygulama içi ürün yok (ilk sürüm). Hesap: "satıcı değil" beyanı. Bağış ileride: `playBilling: true` + satıcı beyanı + ürünler `kahve_30`, `destek_100`, `destek_250`.
 5. Kapalı test:
    - `tilmiz.aab` yüklenir,
    - en az 12 testçi 14 gün boyunca katılır,
    - Play imzalama SHA-256 değeri `fingerprints` içine `play` adıyla eklenir,
    - `debug` kaydı silinir, kök site yeniden gönderilir.
-6. Testçilerle yapılacaklar: Billing testi (lisans test hesapları), gerçek telefonda 320–412 px ekran ve karanlık tema, bildirimler.
+6. Testçilerle yapılacaklar: gerçek telefonda 320–412 px ekran ve karanlık tema, bildirimler.
 7. Üretime başvuru. Bu aşamada Play'in sorularına yanıt verilir (test sırasında neler öğrenildi).
 
 ## Aşama 6 – Yayından sonra
