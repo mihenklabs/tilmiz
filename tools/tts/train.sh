@@ -8,7 +8,7 @@
 #   python tools/tts/patch_mas.py
 #   python tools/tts/convert_ckpt.py D:/tts-egitim/base/lj-med_1000.ckpt D:/tts-egitim/base/lj-med_1000.sd.ckpt
 # Çalıştırma:   bash tools/tts/train.sh            (kaldığı yerden devam: RESUME=1 bash tools/tts/train.sh)
-# Oturumdan bağımsız (PowerShell): Start-Process "C:Program FilesGitbinbash.exe" -ArgumentList '-lc','"cd /d/ElifBe && bash tools/tts/train.sh > /d/tts-egitim/train.log 2>&1"' -WindowStyle Hidden
+# Oturumdan bağımsız (PowerShell): Start-Process "C:\Program Files\Git\bin\bash.exe" -ArgumentList '-lc','"cd /d/ElifBe && bash tools/tts/train.sh > /d/tts-egitim/train.log 2>&1"' -WindowStyle Hidden
 # Hız (GTX 1050 Ti, toplu 6): ~55 dk/dönem. İlerleme: D:/tts-egitim/train.log; kontrol noktaları her 5 dönemde D:/tts-egitim/out/lightning_logs/.
 set -euo pipefail
 ROOT=${ROOT:-/d/tts-egitim}
