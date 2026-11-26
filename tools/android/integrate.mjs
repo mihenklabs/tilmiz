@@ -71,6 +71,23 @@ export function integrate(proj) {
         </receiver>
 ` + a],
   ]);
+
+  // 3) Yayın imzası: anahtar ve şifre depoda değil, ortam değişkenlerinde (tools/android/release.ps1 sorar)
+  patch(path.join(proj, "app/build.gradle"), [
+    ["TILMIZ_KEYSTORE", "    buildTypes {\n        release {\n",
+      a => `    signingConfigs {
+        release {
+            if (System.getenv("TILMIZ_KEYSTORE")) {
+                storeFile file(System.getenv("TILMIZ_KEYSTORE"))
+                storePassword System.getenv("TILMIZ_KS_PASS")
+                keyAlias System.getenv("TILMIZ_KEY_ALIAS") ?: "tilmiz"
+                keyPassword System.getenv("TILMIZ_KEY_PASS") ?: System.getenv("TILMIZ_KS_PASS")
+            }
+        }
+    }
+` + a + `            if (System.getenv("TILMIZ_KEYSTORE")) signingConfig signingConfigs.release
+`],
+  ]);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

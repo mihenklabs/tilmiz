@@ -7,5 +7,11 @@
   "packageId": "io.github.mihenklabs.tilmiz",
   "tagline": "Arapça kelime, dil bilgisi, ayet ve hadis okuma pratiği.",
   "themeColor": "#1F3A68",
-  "contactEmail": "mihenklabs@gmail.com"
+  "contactEmail": "mihenklabs@gmail.com",
+  "fingerprints": [
+    {
+      "name": "debug: yalnızca bu bilgisayardaki test anahtarı, Play yayınından önce sil",
+      "sha256": "1D:47:90:F9:7D:E9:DD:16:B7:64:5F:62:01:2B:80:6B:77:84:B2:D5:9B:EC:3A:76:D7:C1:E7:F0:56:37:D1:51"
+    }
+  ]
 }

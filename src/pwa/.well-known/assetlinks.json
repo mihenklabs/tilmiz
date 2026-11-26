@@ -3,6 +3,6 @@
   "target": {
     "namespace": "android_app",
     "package_name": "{{PACKAGE_ID}}",
-    "sha256_cert_fingerprints": ["[PWABUILDER'IN VERDIĞI SHA-256 PARMAK İZİ]", "[PLAY CONSOLE > UYGULAMA İMZALAMA SAYFASINDAKİ SHA-256 PARMAK İZİ]"]
+    "sha256_cert_fingerprints": {{FINGERPRINTS}}
   }
 }]

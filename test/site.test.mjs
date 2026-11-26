@@ -95,5 +95,7 @@ test("uygulama adı yer tutucuları çözülmüş, eski ad kalmamış", () => {
   assert.match(indexHtml, new RegExp(`<title>${cfg.name} `));
   const m = JSON.parse(fs.readFileSync(path.join(site, "manifest.webmanifest"), "utf8"));
   assert.equal(m.short_name, cfg.shortName);
-  assert.match(fs.readFileSync(path.join(root, "dist/root/.well-known/assetlinks.json"), "utf8"), new RegExp(cfg.packageId.replace(/\./g, "\.")));
+  const al = JSON.parse(fs.readFileSync(path.join(root, "dist/root/.well-known/assetlinks.json"), "utf8"));
+  assert.equal(al[0].target.package_name, cfg.packageId);
+  for (const f of al[0].target.sha256_cert_fingerprints) assert.match(f, /^([0-9A-F]{2}:){31}[0-9A-F]{2}$/);
 });
