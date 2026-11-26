@@ -8,3 +8,4 @@ signing*
 .venv*/
 samples/
 icerik-kontrol*.xlsx
+CLAUDE.md
