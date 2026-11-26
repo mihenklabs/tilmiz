@@ -12,6 +12,10 @@
     {
       "name": "debug: yalnızca bu bilgisayardaki test anahtarı, Play yayınından önce sil",
       "sha256": "1D:47:90:F9:7D:E9:DD:16:B7:64:5F:62:01:2B:80:6B:77:84:B2:D5:9B:EC:3A:76:D7:C1:E7:F0:56:37:D1:51"
+    },
+    {
+      "name": "upload: D:/tilmiz-imza/tilmiz-upload.keystore (tilmiz)",
+      "sha256": "9E:45:DC:7D:18:F3:66:8C:0E:12:9D:B0:57:CF:5F:C6:FA:2A:31:C8:E1:D0:74:BA:9D:53:95:B9:72:44:E4:E9"
     }
   ]
 }
