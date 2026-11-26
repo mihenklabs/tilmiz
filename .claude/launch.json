@@ -1,7 +1,32 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "site", "runtimeExecutable": "C:/Program Files/nodejs/node.exe", "runtimeArgs": ["tools/serve.mjs", "8080"], "port": 8080 },
-    { "name": "assets", "runtimeExecutable": "C:/Program Files/nodejs/node.exe", "runtimeArgs": ["tools/assets/server.mjs"], "port": 8091 }
+    {
+      "name": "site",
+      "runtimeExecutable": "C:/Program Files/nodejs/node.exe",
+      "runtimeArgs": [
+        "tools/serve.mjs",
+        "8080"
+      ],
+      "port": 8080
+    },
+    {
+      "name": "assets",
+      "runtimeExecutable": "C:/Program Files/nodejs/node.exe",
+      "runtimeArgs": [
+        "tools/assets/server.mjs"
+      ],
+      "port": 8091
+    },
+    {
+      "name": "pages",
+      "runtimeExecutable": "C:/Program Files/nodejs/node.exe",
+      "runtimeArgs": [
+        "tools/serve.mjs",
+        "8092",
+        "pages"
+      ],
+      "port": 8092
+    }
   ]
 }

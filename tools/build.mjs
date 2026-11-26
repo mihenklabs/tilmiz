@@ -114,12 +114,17 @@ export function buildRoot(out = r("dist/root")) {
   fs.mkdirSync(path.join(out, ".well-known"), { recursive: true });
   fs.writeFileSync(path.join(out, ".nojekyll"), "");
   fs.writeFileSync(path.join(out, ".well-known/assetlinks.json"), names(read("src/pwa/.well-known/assetlinks.json")));
-  fs.writeFileSync(path.join(out, "index.html"), `<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${cfg.developer}</title><style>body{font-family:system-ui,sans-serif;max-width:640px;margin:0 auto;padding:32px 18px;line-height:1.6;color:#18212B;background:#EEF2F1}a{color:#1F3A68}</style></head>
-<body><h1>${cfg.developer}</h1><p>Ücretsiz, reklamsız, açık kaynak uygulamalar.</p>
-<ul><li><a href="${cfg.repo}/">${cfg.name}</a> – ${cfg.tagline} (<a href="${cfg.repo}/privacy.html">gizlilik</a>, <a href="https://github.com/${cfg.githubUser}/${cfg.repo}">kaynak kodu</a>)</li></ul>
-</body></html>
-`);
+  // Tanıtım sayfası. Bağış bölümü yalnızca app.config.json donateUrl doluysa görünür (https bağlantısı).
+  const donate = /^https:\/\//.test(cfg.donateUrl || "");
+  const html = names(read("src/root/index.html"))
+    .replace(/<!--donate-->([\s\S]*?)<!--\/donate-->/g, (m, x) => donate ? x : "")
+    .replaceAll("{{DONATE_URL}}", donate ? cfg.donateUrl : "")
+    .replaceAll("{{PLAY_LINK}}", cfg.playUrl ? `href="${cfg.playUrl}"` : 'aria-disabled="true"')
+    .replaceAll("{{PLAY_TEXT}}", cfg.playUrl ? "Google Play’den indir" : "Google Play · yakında")
+    .replaceAll("{{YEAR}}", String(new Date().getFullYear()));
+  fs.writeFileSync(path.join(out, "index.html"), html);
+  fs.mkdirSync(path.join(out, "img"), { recursive: true });
+  for (const f of fs.readdirSync(r("src/root/img"))) fs.copyFileSync(r("src/root/img/" + f), path.join(out, "img", f));
   return out;
 }
 

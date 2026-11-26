@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP_NAME}} – ücretsiz Arapça öğrenme · {{DEV_NAME}}</title>
+<meta name="description" content="{{APP_NAME}}: Türkçe konuşanlar için ücretsiz, reklamsız Arapça öğrenme uygulaması. Kelime, dil bilgisi, ayet ve hadis okuma pratiği.">
+<meta name="google" content="notranslate">
+<meta name="theme-color" content="#1F3A68">
+<meta property="og:title" content="{{APP_NAME}} – ücretsiz Arapça öğrenme">
+<meta property="og:description" content="Kelime, dil bilgisi, ayet ve hadis okuma pratiği. Reklam yok, abonelik yok, veri toplanmaz.">
+<meta property="og:image" content="https://{{GITHUB_USER}}.github.io/img/1-calis.webp">
+<link rel="icon" href="/{{REPO}}/icons/icon-192.png">
+<style>
+@font-face{font-family:Rubik;font-weight:400;font-display:swap;src:url(/{{REPO}}/fonts/rubik-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:Rubik;font-weight:400;font-display:swap;src:url(/{{REPO}}/fonts/rubik-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F}
+@font-face{font-family:Rubik;font-weight:700;font-display:swap;src:url(/{{REPO}}/fonts/rubik-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:Rubik;font-weight:700;font-display:swap;src:url(/{{REPO}}/fonts/rubik-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F}
+@font-face{font-family:Amiri;font-weight:400;font-display:swap;src:url(/{{REPO}}/fonts/amiri-arabic-400-normal.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
+:root{--bg:#EEF2F1;--surface:#FFFFFF;--ink:#18212B;--muted:#5B6773;--line:#D5DDDB;--soft:#E2EAE8;--brand:#1F3A68;--acc:#1F7F72;--on-brand:#FFFFFF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161D;--surface:#18212B;--ink:#E9EEF2;--muted:#9AA7B3;--line:#2A3542;--soft:#202B37;--brand:#24426F;--acc:#2A9A8A}}
+:root[data-theme="dark"]{--bg:#10161D;--surface:#18212B;--ink:#E9EEF2;--muted:#9AA7B3;--line:#2A3542;--soft:#202B37;--brand:#24426F;--acc:#2A9A8A}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Rubik,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;font-size:17px}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none}
+.brand img{width:34px;height:34px;border-radius:9px}
+.top nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:.95rem}
+.top nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:28px 0 56px}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;margin:0 0 14px;letter-spacing:-.01em}
+.hero h1 .ar{font-family:Amiri,serif;font-weight:400;color:var(--acc);display:block;text-align:left;font-size:.8em;margin-bottom:6px}
+.hero p.lead{font-size:1.15rem;color:var(--muted);margin:0 0 24px;max-width:34em}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn.primary{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn[aria-disabled="true"]{opacity:.6;cursor:default}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.tags li{background:var(--soft);border-radius:999px;padding:4px 12px;font-size:.88rem;color:var(--muted)}
+.phone{justify-self:center;width:min(300px,80vw);aspect-ratio:1/2;border-radius:34px;padding:10px;background:#0E1621;box-shadow:0 24px 60px rgba(16,22,29,.25)}
+.phone img{width:100%;height:100%;object-fit:cover;border-radius:26px;display:block}
+section{padding:48px 0;border-top:1px solid var(--line)}
+section h2{font-size:1.7rem;margin:0 0 8px}
+section p.sub{color:var(--muted);margin:0 0 26px;max-width:40em}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.card h3{margin:0 0 6px;font-size:1.08rem}
+.card p{margin:0;color:var(--muted);font-size:.96rem}
+.card .ico{font-size:1.5rem;display:block;margin-bottom:8px}
+.shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;margin:0 -16px;padding-left:16px;padding-right:16px}
+.shots figure{margin:0;flex:0 0 auto;width:220px;scroll-snap-align:start}
+.shots img{width:220px;height:440px;object-fit:cover;border-radius:20px;border:1px solid var(--line);display:block;background:var(--soft)}
+.shots figcaption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:8px}
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.donate{background:var(--brand);color:var(--on-brand);border-radius:22px;padding:28px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.donate h2{margin:0 0 6px}
+.donate p{margin:0;opacity:.85;max-width:36em}
+.donate .btn{background:#fff;color:var(--brand);border-color:#fff}
+footer{padding:32px 0 48px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer a{color:var(--muted)}
+footer .links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:12px}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:28px;padding-top:12px}.grid{grid-template-columns:1fr 1fr}.top nav{display:none}}
+@media (max-width:560px){.grid,.trust{grid-template-columns:1fr}body{font-size:16px}.btn{flex:1 1 auto;justify-content:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/"><img src="/{{REPO}}/icons/icon-192.png" alt="" width="34" height="34">{{DEV_NAME}}</a>
+    <nav aria-label="Sayfa içi"><a href="#ozellikler">Özellikler</a><a href="#ekranlar">Ekranlar</a><a href="#ilkeler">İlkeler</a><!--donate--><a href="#destek">Destek ol</a><!--/donate--></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1><span class="ar" lang="ar" dir="rtl">تِلْمِيذ</span>{{APP_NAME}} ile Arapça öğren</h1>
+        <p class="lead">Türkçe konuşanlar için ücretsiz, reklamsız bir Arapça öğrenme uygulaması. Her gün birkaç kelime, kısa dil bilgisi dersleri ve ayet-hadis okuma pratiği.</p>
+        <div class="btns">
+          <a class="btn primary" href="/{{REPO}}/">Tarayıcıda hemen başla</a>
+          <a class="btn" {{PLAY_LINK}}>{{PLAY_TEXT}}</a>
+        </div>
+        <ul class="tags"><li>Reklam yok</li><li>Abonelik yok</li><li>Veri toplanmaz</li><li>7 yaş ve üzeri</li><li>Açık kaynak</li></ul>
+      </div>
+      <div class="phone"><img src="img/1-calis.webp" alt="Tilmiz kelime çalışması ekranı" width="540" height="1080"></div>
+    </div>
+
+    <section id="ozellikler">
+      <h2>Neler var?</h2>
+      <p class="sub">Alfabeden başlayıp Kur’an ve günlük dil metinlerini okuyabilecek seviyeye kadar.</p>
+      <div class="grid">
+        <div class="card"><span class="ico" aria-hidden="true">🗂️</span><h3>11.700+ kelime</h3><p>Sık kullanılandan seyreğe sıralı. Türkçe anlamların hepsi elle yazıldı ya da tek tek kontrol edildi.</p></div>
+        <div class="card"><span class="ico" aria-hidden="true">🔁</span><h3>Aralıklı tekrar</h3><p>Bilemediğin kelimeler sık, bildiklerin seyrek sorulur; unutmadan ilerlersin.</p></div>
+        <div class="card"><span class="ico" aria-hidden="true">✍️</span><h3>Elifbâ</h3><p>Harfler, harekeler ve okuma alıştırmalarıyla sıfırdan başlayanlar için.</p></div>
+        <div class="card"><span class="ico" aria-hidden="true">📘</span><h3>26 dil bilgisi dersi</h3><p>A1’den C2’ye adım adım anlatım; alıştırmalarda yalnızca öğrendiğin kelimeler kullanılır.</p></div>
+        <div class="card"><span class="ico" aria-hidden="true">📖</span><h3>Ayet ve hadisler</h3><p>Kelime kelime anlamlarıyla; mealler güvenilir kaynaklardan, kaynağı belirtilerek.</p></div>
+        <div class="card"><span class="ico" aria-hidden="true">🎙️</span><h3>Diyalog ve sesli pratik</h3><p>Günlük diyaloglar, fiil çekimleri ve kendi sesini örnekle karşılaştırarak telaffuz.</p></div>
+      </div>
+    </section>
+
+    <section id="ekranlar">
+      <h2>Ekranlar</h2>
+      <p class="sub">Telefonda uygulama gibi çalışır; ana ekrana eklenebilir, internet olmadan da açılır.</p>
+      <div class="shots" tabindex="0" aria-label="Ekran görüntüleri, yana kaydırılabilir">
+        <figure><img src="img/1-calis.webp" alt="Kelime sorusu" loading="lazy" width="540" height="1080"><figcaption>Kelime çalışması</figcaption></figure>
+        <figure><img src="img/2-pratik.webp" alt="Pratik bölümü" loading="lazy" width="540" height="1080"><figcaption>Pratik</figcaption></figure>
+        <figure><img src="img/3-ders.webp" alt="Dil bilgisi dersi" loading="lazy" width="540" height="1080"><figcaption>Dil bilgisi</figcaption></figure>
+        <figure><img src="img/4-ayet.webp" alt="Fâtiha suresi kelime kelime" loading="lazy" width="540" height="1080"><figcaption>Ayet okuma</figcaption></figure>
+        <figure><img src="img/5-gelisim.webp" alt="Gelişim ekranı" loading="lazy" width="540" height="1080"><figcaption>Gelişim</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="ilkeler">
+      <h2>İlkelerimiz</h2>
+      <p class="sub">Öğrenme uygulaması öğrenmeye hizmet etmeli; dikkatini satmaya değil.</p>
+      <div class="trust">
+        <div class="card"><h3>Verilerin sende kalır</h3><p>İlerlemen yalnızca cihazında saklanır. Hesap açmana gerek yok; hiçbir kişisel veri toplanmaz. <a href="/{{REPO}}/privacy.html">Gizlilik politikası</a></p></div>
+        <div class="card"><h3>Tamamen ücretsiz</h3><p>Reklam, abonelik ya da kilitli içerik yok. Bütün bölümler herkese açık.</p></div>
+        <div class="card"><h3>Açık kaynak</h3><p>Kaynak kodu GPL-3.0 lisansıyla <a href="https://github.com/{{GITHUB_USER}}/{{REPO}}">GitHub’da</a>. Hata bulursan bildirebilir, katkı verebilirsin.</p></div>
+        <div class="card"><h3>Kaynakları belli</h3><p>Kelime verileri Vikisözlük, Kur’an verisi Quranic Arabic Corpus, mealler QuranEnc ve HadeethEnc’ten; hepsi uygulamada belirtilir.</p></div>
+      </div>
+    </section>
+<!--donate-->
+    <section id="destek">
+      <div class="donate">
+        <div><h2>Destek ol</h2><p>{{APP_NAME}} ücretsiz kalacak. Geliştirmeye katkı vermek istersen buradan destek olabilirsin; bağış hiçbir içeriği açmaz ya da kapatmaz.</p></div>
+        <a class="btn" href="{{DONATE_URL}}" rel="noopener">Destek ol</a>
+      </div>
+    </section>
+<!--/donate-->
+  </main>
+
+  <footer>
+    <div class="links"><a href="/{{REPO}}/">{{APP_NAME}}’i aç</a><a href="/{{REPO}}/privacy.html">Gizlilik</a><a href="https://github.com/{{GITHUB_USER}}/{{REPO}}">Kaynak kodu</a><a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></div>
+    <div>© {{YEAR}} {{DEV_NAME}}. {{APP_NAME}} GPL-3.0-or-later lisanslıdır; veri ve metinler kendi lisanslarıyla kullanılır.</div>
+  </footer>
+</div>
+</body>
+</html>

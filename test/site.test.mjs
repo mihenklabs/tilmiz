@@ -99,3 +99,15 @@ test("uygulama adı yer tutucuları çözülmüş, eski ad kalmamış", () => {
   assert.equal(al[0].target.package_name, cfg.packageId);
   for (const f of al[0].target.sha256_cert_fingerprints) assert.match(f, /^([0-9A-F]{2}:){31}[0-9A-F]{2}$/);
 });
+
+test("tanıtım sitesi: bağlantılar ve görseller var, yer tutucu kalmamış, bağış yalnızca adres tanımlıysa", () => {
+  const dir = path.join(root, "dist/root");
+  const html = fs.readFileSync(path.join(dir, "index.html"), "utf8");
+  const cfg = JSON.parse(fs.readFileSync(path.join(root, "app.config.json"), "utf8"));
+  assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}|<!--\/?donate-->/);
+  assert.match(html, new RegExp(`href="/${cfg.repo}/"`));
+  assert.match(html, new RegExp(`/${cfg.repo}/privacy\.html`));
+  for (const m of html.matchAll(/src="(img\/[^"]+)"/g)) assert.ok(fs.existsSync(path.join(dir, m[1])), "eksik görsel: " + m[1]);
+  if (/^https:\/\//.test(cfg.donateUrl || "")) assert.match(html, /id="destek"/);
+  else assert.doesNotMatch(html, /id="destek"|Destek ol/);
+});
