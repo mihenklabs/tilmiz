@@ -49,3 +49,15 @@ test("ayet/hadis metinleri", () => {
   const tx = readData("texts");
   assert.equal(tx.length, 71);
 });
+
+test("kaynaklı ayet/hadis çevirileri", () => {
+  const tx = readData("texts"), src = readData("texts-src");
+  assert.ok(src.src.q.ver && src.src.h.name);
+  assert.ok(src.t.length >= 60);
+  for (const x of src.t) {
+    assert.ok(tx[x.i], "geçersiz sıra " + x.i);
+    assert.equal(x.s, tx[x.i].k === "a" ? "q" : "h", "kaynak türü: " + x.i);
+    assert.ok(x.tr && !/\s{2}/.test(x.tr));
+  }
+  assert.equal(new Set(src.t.map(x => x.i)).size, src.t.length);
+});

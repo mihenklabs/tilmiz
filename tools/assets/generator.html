@@ -30,9 +30,9 @@ function pattern(ctx, w, h, step) {
 function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
 
 // Noktasız ت gövdesi (ٮ) + iki nokta: biri beyaz, biri safran
-function teh(ctx, cx, cy, size) {
+function teh(ctx, cx, cy, size, mono) {
   ctx.save();
-  ctx.fillStyle = C.ink; ctx.font = `700 ${size}px Amiri`; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+  ctx.fillStyle = mono || C.ink; ctx.font = `700 ${size}px Amiri`; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
   const m = ctx.measureText("ٮ");
   const top = m.actualBoundingBoxAscent, bot = m.actualBoundingBoxDescent;
   // gövdeyi dikeyde ortala (noktalarla birlikte)
@@ -47,7 +47,7 @@ function teh(ctx, cx, cy, size) {
     ctx.fillStyle = col; ctx.save(); ctx.translate(x, dy); ctx.rotate(Math.PI / 4);
     roundRect(ctx, -dotR * 0.8, -dotR * 0.8, dotR * 1.6, dotR * 1.6, dotR * 0.35); ctx.fill(); ctx.restore();
   };
-  dot(cx + dx, C.ink); dot(cx - dx, C.saffron);
+  dot(cx + dx, mono || C.ink); dot(cx - dx, mono || C.saffron);
   ctx.restore();
 }
 
@@ -58,6 +58,13 @@ function icon(size, { rounded, safe }) {
   ctx.fillStyle = C.bg; ctx.fillRect(0, 0, size, size);
   pattern(ctx, size, size, size / 4);
   teh(ctx, size / 2, size / 2, size * (safe ? 0.62 : 0.8));
+  return cv;
+}
+
+// Android bildirim simgesi: saydam zemin üzerinde beyaz siluet (Bubblewrap ic_notification_icon üretir)
+function mono(size) {
+  const cv = document.createElement("canvas"); cv.width = cv.height = size;
+  teh(cv.getContext("2d"), size / 2, size / 2, size * 0.86, "#FFFFFF");
   return cv;
 }
 
@@ -83,6 +90,7 @@ async function make() {
     "icon-512": icon(512, { rounded: true }),
     "icon-192": icon(192, { rounded: true }),
     "maskable-512": icon(512, { safe: true }),
+    "monochrome-192": mono(192),
     "play-icon-512": icon(512, {}),
     "feature-graphic": feature(),
   };

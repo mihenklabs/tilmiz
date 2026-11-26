@@ -12,6 +12,7 @@ const TARGETS = {
   "icon-192": "src/pwa/icons/icon-192.png",
   "icon-512": "src/pwa/icons/icon-512.png",
   "maskable-512": "src/pwa/icons/maskable-512.png",
+  "monochrome-192": "src/pwa/icons/monochrome-192.png",
   "play-icon-512": "store/play-icon-512.png",
   "feature-graphic": "store/feature-graphic-1024x500.png",
 };

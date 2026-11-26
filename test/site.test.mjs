@@ -51,8 +51,8 @@ test("index.html küçük; veri ayrı dosyalarda ve içerik özetli adlarla", ()
   assert.ok(indexHtml.length < 120_000, "index.html " + indexHtml.length);
   assert.doesNotMatch(indexHtml, /type="application\/json"/);
   const data = fs.readdirSync(path.join(site, "data"));
-  assert.equal(data.length, 12);
-  data.forEach(f => assert.match(f, /^[a-z]+\.[0-9a-f]{10}\.json$/));
+  assert.equal(data.length, 13);
+  data.forEach(f => assert.match(f, /^[a-z-]+\.[0-9a-f]{10}\.json$/));
 });
 
 test("site sürümü açılır ve çalışır", async () => {
@@ -81,7 +81,7 @@ test("PWA dosyaları: manifest, simgeler, gizlilik, lisans, assetlinks", () => {
   for (const f of ["manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png", "privacy.html", "LICENSE", ".well-known/assetlinks.json", ".nojekyll"])
     assert.ok(fs.existsSync(path.join(site, f)), f);
   const m = JSON.parse(fs.readFileSync(path.join(site, "manifest.webmanifest"), "utf8"));
-  assert.ok(m.name && m.short_name && m.icons.length === 3);
+  assert.ok(m.name && m.short_name && m.icons.length === 4 && m.icons.some(i => i.purpose === "monochrome"));
 });
 
 test("uygulama adı yer tutucuları çözülmüş, eski ad kalmamış", () => {

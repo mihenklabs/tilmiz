@@ -30,7 +30,7 @@ const note = (sheet, r, extra) => { if (r["Not"] || extra) notes.push(`- **${she
 
 for (const r of rows("Ayet-Hadis")) {
   const [, i] = r["Kimlik"].split(":"), t = TX[+i]; if (!t) continue;
-  const fix = r["Düzeltme (yeni çeviri)"];
+  const fix = (r["Düzeltme (sadeleştirilmiş anlatım)"] ?? r["Düzeltme (yeni çeviri)"]);
   if (fix && fix !== t.tr) { changes.push(`çeviri ${r["Kimlik"]}: "${t.tr}" → "${fix}"`); t.tr = fix; }
   note("Ayet-Hadis", r);
 }

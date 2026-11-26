@@ -195,3 +195,20 @@ test("Play dışında destek paketleri görünmez", () => {
   assert.doesNotMatch(a.text(), /kahve ısmarla/i);
   noErrors(a); a.close();
 });
+
+test("ayet sayfasında kaynaklı meal ve atıf; zayıf rivayet listede yok", () => {
+  const a = openApp({ hash: "pratik" });
+  a.click("#goTx");
+  assert.doesNotMatch(a.text(), /Akıllı kişi, nefsini hesaba/);
+  a.click('[data-x="1"]');
+  assert.match(a.text(), /QuranEnc\.com/);
+  assert.match(a.text(), /turkish_rwwad v1\.0\.4/);
+  assert.match(a.text(), /Sadeleştirilmiş anlatım/);
+  a.click("#backX"); a.click('[data-x="18"]');
+  assert.match(a.text(), /HadeethEnc\.com/);
+  assert.match(a.text(), /Hüküm: Sahih/);
+  a.click("#backX"); a.click('[data-x="23"]');
+  assert.match(a.text(), /Tilmiz çevirisi \(kaynakta Türkçesi bulunamadı\)/);
+  assert.deepEqual(a.errors, []);
+  a.close();
+});

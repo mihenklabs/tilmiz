@@ -1,0 +1,7 @@
+{
+  "name": "tilmiz-android-tools",
+  "private": true,
+  "type": "module",
+  "description": "Bubblewrap ile TWA projesi üretimi (yalnızca Android paketi hazırlarken gerekir)",
+  "dependencies": { "@bubblewrap/core": "1.27.0" }
+}

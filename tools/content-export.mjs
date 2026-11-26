@@ -10,7 +10,8 @@ import { openApp, learnedState } from "../test/helpers.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const out = process.argv[2] || path.join(root, "icerik-kontrol.xlsx");
 const read = n => JSON.parse(fs.readFileSync(path.join(root, "data", n + ".json"), "utf8"));
-const TX = read("texts"), DLG = read("dialogs");
+const TX = read("texts"), DLG = read("dialogs"), TXS = read("texts-src");
+const TXSI = Object.fromEntries(TXS.t.map(x => [x.i, x]));
 
 const wb = new ExcelJS.Workbook();
 wb.creator = "Tilmiz";
@@ -41,7 +42,7 @@ const info = wb.addWorksheet("Okuyun");
   "• “Not” sütunu: açıklama, soru, kaynak.",
   "Gri sütunları ve “Kimlik” sütununu değiştirmeyin; düzeltmeler bu kimliklerle uygulamaya geri aktarılır.",
   "",
-  "Sayfalar: Ayet-Hadis (metin çevirileri), Kelimeler (ayet/hadislerdeki kelime anlamları), Diyaloglar, Örnek cümleler (Tatoeba; uygunsuz ya da hatalı olanların “Kaldır” sütununa x koyun), Dersler (dil bilgisi anlatımı; örnek kelimeler rastgele seçildiği için yalnızca açıklama metinlerine bakın).",
+  "Sayfalar: Ayet-Hadis (kaynak çeviriler QuranEnc/HadeethEnc’den aynen alınır ve değiştirilemez; hatalı görürseniz Not sütununa yazın. Düzeltme sütunu sadeleştirilmiş anlatım içindir), Kelimeler (ayet/hadislerdeki kelime anlamları), Diyaloglar, Örnek cümleler (Tatoeba; uygunsuz ya da hatalı olanların “Kaldır” sütununa x koyun), Dersler (dil bilgisi anlatımı; örnek kelimeler rastgele seçildiği için yalnızca açıklama metinlerine bakın).",
 ].forEach(t => info.addRow([t]));
 info.getColumn(1).width = 120; info.getRow(1).font = { bold: true, size: 14 };
 
@@ -49,9 +50,10 @@ info.getColumn(1).width = 120; info.getRow(1).font = { bold: true, size: 14 };
 const tRows = TX.map((t, i) => ({
   id: `tx:${i}`, kind: t.k === "a" ? "Ayet" : "Hadis", title: t.t, ref: t.ref,
   ar: t.v.map(([n, ws]) => ws.map(w => w[0]).join(" ") + (t.k === "a" && n ? ` (${n})` : "")).join(" "),
-  tr: t.tr || "", fix: "", note: "",
+  src: TXSI[i] ? TXSI[i].tr + ` [${TXS.src[TXSI[i].s].name.split(" –")[0]}${TXSI[i].g ? "; " + TXSI[i].g : ""}]` : "(kaynakta yok)",
+  tr: t.tr || "", sn: t.sn || "", fix: "", note: "",
 }));
-sheet("Ayet-Hadis", [["Kimlik", "id", 9], ["Tür", "kind", 7], ["Başlık", "title", 22], ["Kaynak", "ref", 22], ["Arapça", "ar", 60], ["Mevcut çeviri", "tr", 50], ["Düzeltme (yeni çeviri)", "fix", 45], ["Not", "note", 30]], tRows, ["ar"], ["fix", "note"]);
+sheet("Ayet-Hadis", [["Kimlik", "id", 9], ["Tür", "kind", 7], ["Başlık", "title", 22], ["Kaynak", "ref", 22], ["Arapça", "ar", 60], ["Kaynak çeviri (değiştirilemez)", "src", 50], ["Sadeleştirilmiş anlatım", "tr", 50], ["Sıhhat notu", "sn", 25], ["Düzeltme (sadeleştirilmiş anlatım)", "fix", 45], ["Not", "note", 30]], tRows, ["ar"], ["fix", "note"]);
 
 // Ayet ve hadislerdeki kelime kelime anlamlar
 const wRows = [];

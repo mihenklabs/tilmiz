@@ -577,6 +577,7 @@ function settings() {
     <p>Örnek cümleler: Tatoeba (<a href="https://tatoeba.org" target="_blank" rel="noopener">tatoeba.org</a>) katkıcıları; lisans: CC BY 2.0 FR.</p>
     <p>Kur’an metni, kök ve lemma bilgileri: Quranic Arabic Corpus (Kais Dukes, <a href="https://corpus.quran.com" target="_blank" rel="noopener">corpus.quran.com</a>) morfoloji verisi v0.4 ve furqan.co düzeltmeleri; lisans: GNU GPL.</p>
     <p>Kelime sıklığı: FrequencyWords (Hermit Dave), OpenSubtitles verisinden; lisans: CC BY-SA 4.0.</p>
+    <p>Ayet mealleri: QuranEnc.com, Rowwad Tercüme Merkezi Türkçe meali (turkish_rwwad v1.0.4). Hadis çevirileri: HadeethEnc.com, Tercüme Edilmiş Nebevî Hadisler Ansiklopedisi. Bu metinler kaynaklarının koşullarıyla, değiştirilmeden kullanılır; GPL kapsamında değildir.</p>
     <p>Yazı tipleri: Amiri ve Rubik; lisans: SIL Open Font License.</p></details>
   <div class="set"><h3>İlerlemeyi sıfırla</h3><p>Tüm öğrenme geçmişin silinir.</p><button class="btn danger" id="reset">İlerlemeyi sıfırla</button></div>`;
   app.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
@@ -688,7 +689,7 @@ function practice() {
   <button class="hub" id="goLes"><span class="ar" lang="ar">قَوَاعِد</span><div><strong>Dil bilgisi dersleri</strong><span>${LESSONS.length} kısa ders, her birinde 8 soruluk alıştırma · ${Object.keys(S.gr).length} ders çalışıldı</span></div></button>
   <button class="hub" id="goAlf"><span class="ar" lang="ar">أ ب ت</span><div><strong>Elifbâ: Arap harfleri</strong><span>Harfler, harekeler ve okuma alıştırmaları; Arapça okumayı bilmiyorsan buradan başla</span></div></button>
   <button class="hub" id="goDlg"><span class="ar" lang="ar">حِوَار</span><div><strong>Konuşma pratiği</strong><span>${DLG.length} günlük diyalog, dinle ve doğru cevabı seç</span></div></button>
-  <button class="hub" id="goTx"><span class="ar" lang="ar">آيَة · حَدِيث</span><div><strong>Ayet ve hadisler</strong><span>${TX.length} seçme metin, kelime kelime anlamlarıyla</span></div></button>
+  <button class="hub" id="goTx"><span class="ar" lang="ar">آيَة · حَدِيث</span><div><strong>Ayet ve hadisler</strong><span>${TXV.length} seçme metin, kelime kelime anlamlarıyla</span></div></button>
   <button class="hub" id="goSent"><span class="ar" lang="ar">جُمْلَة</span><div><strong>Cümle pratiği</strong><span>Öğrendiğin kelimelerle kurulmuş cümleler: anlamını bul, cümleyi kur</span></div></button>
   <button class="hub" id="goTri"><span class="ar" lang="ar">ع · T · E</span><div><strong>Üçlü çeviri</strong><span>Arapça, Türkçe ve İngilizce arasında</span></div></button>
   <button class="hub" id="goConj"><span class="ar" lang="ar">فَعَلَ</span><div><strong>Fiil çekimi</strong><span>Mazi ve muzari, ${fmt(pool.length)} öğrenilmiş fiille${st.r + st.w ? ` · başarı %${Math.round(100 * st.r / (st.r + st.w))}` : ""}</span></div></button>
@@ -1366,6 +1367,10 @@ document.addEventListener("click", e => { const b = e.target.closest("[data-root
 // ================= GELİŞİM, SEVİYE TESPİT, AYET VE HADİSLER =================
 const COV = DATA("cover"); // {s:{id:n}, q:{id:n}, ts, tq}
 const TX = DATA("texts");
+// Kaynaklı çeviriler (QuranEnc / HadeethEnc). GPL dışı: metin değiştirilmeden, kaynak ve sürümle gösterilir (data/LICENSE-texts-src.md)
+const TXS = DATA("texts-src") || { src: {}, t: [] };
+const TXSI = Object.fromEntries(TXS.t.map(x => [x.i, x]));
+const TXV = TX.map((o, k) => k).filter(k => !TX[k].hid); // zayıf rivayetler listede gösterilmez
 const COVS = Object.values(COV.s).reduce((a, b) => a + b, 0), COVQ = Object.values(COV.q).reduce((a, b) => a + b, 0);
 let POOLX = null;
 const LV = [["A1", 0], ["A2", 500], ["B1", 1000], ["B2", 2000], ["C1", 4000], ["C2", 8000]];
@@ -1549,11 +1554,20 @@ function textKnown(o) { let t = 0, k = 0; for (const [, it] of o.v) for (const [
 function textList() {
   const row = (o, k) => { const [kn, t] = textKnown(o); return `<button class="vrow" data-x="${k}"><div><div class="m">${esc(o.t)}</div><div class="t">${esc(o.ref)} · ${t} kelime · bildiğin ${kn}${S.tb && S.tb[k] !== undefined ? " · en iyi " + S.tb[k] : ""}</div></div><span class="ar" lang="ar" style="font-size:1.25rem">${o.v[0][1].slice(0, 2).map(x => x[0]).join(" ")}…</span></button>`; };
   app.innerHTML = `<div class="top"><button class="linkbtn" id="backHub">← Pratik</button></div><h2>Ayet ve hadisler</h2>
-  <p class="sub">Meşhur ayet ve hadislerden seçmeler, kelime kelime anlamlarıyla. Metne dokunarak anlamları gör, sonra alıştırmayla pekiştir. Türkçe çeviriler anlamaya yardım için sadeleştirilmiştir.</p>
-  <h3 class="sec">Ayetler</h3><div class="list">${TX.map((o, k) => o.k === "a" ? row(o, k) : "").join("")}</div>
-  <h3 class="sec">Hadisler</h3><div class="list">${TX.map((o, k) => o.k === "h" ? row(o, k) : "").join("")}</div>`;
+  <p class="sub">Meşhur ayet ve hadislerden seçmeler, kelime kelime anlamlarıyla. Metne dokunarak anlamları gör, sonra alıştırmayla pekiştir. Türkçe meal ve çeviriler QuranEnc.com ve HadeethEnc.com’dan aynen alınmıştır; yanında sadeleştirilmiş anlatım da vardır.</p>
+  <h3 class="sec">Ayetler</h3><div class="list">${TXV.map(k => TX[k].k === "a" ? row(TX[k], k) : "").join("")}</div>
+  <h3 class="sec">Hadisler</h3><div class="list">${TXV.map(k => TX[k].k === "h" ? row(TX[k], k) : "").join("")}</div>`;
   $("#backHub").onclick = () => { pv = { mode: "hub" }; practice(); };
   app.querySelectorAll("[data-x]").forEach(b => b.onclick = () => { pv = { mode: "text", k: +b.dataset.x, hide: false }; practice(); window.scrollTo(0, 0); });
+}
+function mealBlock(o, k) {
+  const x = TXSI[k], src = x && TXS.src[x.s];
+  const own = `<p>${esc(o.tr)}</p>`;
+  const sn = o.sn ? `<p class="note mut">Sıhhat notu: ${esc(o.sn)}</p>` : "";
+  if (!src) return `<details class="meal"><summary>Türkçe anlamı</summary>${own}<p class="src">{{APP_NAME}} çevirisi (kaynakta Türkçesi bulunamadı)</p>${sn}</details>`;
+  return `<details class="meal" open><summary>${o.k === "a" ? "Meal" : "Türkçe çevirisi"}</summary><p>${esc(x.tr)}</p>
+    <p class="src">${esc(src.name)} · ${esc(src.ver)}${x.g ? " · Hüküm: " + esc(x.g) : ""}</p>${sn}</details>
+  <details class="meal"><summary>Sadeleştirilmiş anlatım</summary>${own}<p class="src">{{APP_NAME}} çevirisi</p></details>`;
 }
 function textPage(k) {
   const o = TX[k], [kn, t] = textKnown(o), full = o.v.map(([, it]) => it.map(x => x[0]).join(" ")).join(" ");
@@ -1562,7 +1576,7 @@ function textPage(k) {
   <div class="pills small" style="margin-top:12px"><button data-h="0" aria-pressed="${!pv.hide}">Anlamları göster</button><button data-h="1" aria-pressed="${!!pv.hide}">Gizle, dokununca göster</button></div>
   <div class="interlin">${o.v.map(([vn, it]) => it.map((x, j) => `<button class="wchip${x[2] >= 0 && learned(x[2]) ? " known" : ""}${pv.hide ? " hid" : ""}" data-w="${esc(x[0])}"><span class="ar" lang="ar">${x[0]}</span><small>${esc(x[1])}</small></button>`).join("") + (o.k === "a" ? `<span class="vend ar" lang="ar">﴿${String(vn).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d])}﴾</span>` : "")).join("")}</div>
   <p class="note mut" style="margin:6px 2px">Yeşil çerçeveli kelimeleri zaten öğrendin.</p>
-  <details class="meal"><summary>Türkçe anlamı</summary><p>${esc(o.tr)}</p></details>
+  ${mealBlock(o, k)}
   <div class="row"><button class="btn primary" id="txQ">Kelime alıştırması</button></div>`;
   $("#backX").onclick = () => { pv = { mode: "texts" }; practice(); };
   app.querySelectorAll("[data-h]").forEach(b => b.onclick = () => { pv.hide = b.dataset.h === "1"; practice(); });
