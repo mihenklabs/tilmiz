@@ -11,9 +11,11 @@ const PRON = [
   { id: "z", a: "ظ", b: "ذ", t: "ظ ile ذ", tip: "İkisinde de dil ucu üst dişlerin ucuna değer (İngilizce “this”teki ses). ذ ince, ظ ise dilin arkası yükseltilerek kalın söylenir. İkisini de Türkçe “z” gibi okumamaya dikkat et.", p: [["ظِلّ", "ذِلّ"]] },
   { id: "th", a: "ث", b: "س", t: "ث ile س", tip: "ث peltek bir “s”dir: dil ucu üst dişlerin ucuna değer (İngilizce “think”teki ses). س ise dil dişlerin arkasında kalarak çıkan Türkçe “s”dir.", p: [["ثَارَ", "سَارَ"], ["ثَمَن", "سِمَن"]] },
   { id: "kh", a: "خ", b: "ح", t: "خ ile ح", tip: "خ, damağın arkasından hırıltılı çıkan bir “h”dir (Almanca “Bach”). ح boğazın ortasından gelir ve hırıltısızdır.", p: [["خَال", "حَال"]] },
+  { id: "uzun", a: "ـَ", b: "ـَا", tt: "Kısa ve uzun ünlü", t: "Kısa ve uzun ünlü", tip: "Arapçada ünlünün uzunluğu anlamı değiştirir. Üstün, esre, ötre kısa okunur; ardından ا، ي، و gelince ünlü yaklaşık iki kat uzatılır: مَطَر matar (yağmur), مَطَار matâr (havalimanı). Türkçede olduğu gibi uzun ünlüyü kısaltma.", p: [["مَطَر", "مَطَار"], ["جَمَل", "جَمَال"], ["قَدَم", "قَدِيم"], ["شَهِدَ", "شَاهَدَ"]] },
+  { id: "sedde", a: "ـ", b: "ـّ", tt: "Şedde (çift ünsüz)", t: "Şedde (çift ünsüz)", tip: "Şedde (ـّ) harfin iki kez, yani bastırılarak okunduğunu gösterir; Türkçedeki “anne, elli” gibi. Şedde çoğu zaman anlamı da değiştirir: دَرَسَ derese (ders çalıştı), دَرَّسَ derrese (ders verdi).", p: [["دَرَسَ", "دَرَّسَ"], ["عَلِمَ", "عَلَّمَ"], ["كَسَرَ", "كَسَّرَ"], ["جَمَعَ", "جَمَّعَ"]] },
   { id: "gh", a: "غ", b: "خ", t: "غ ile خ", tip: "İkisi de damağın arkasından çıkar. غ sesli, gargaraya benzeyen bir “ğ”dir; خ ise aynı yerden sessiz ve hırıltılı çıkar.", p: [["غَالٍ", "خَالٍ"]] },
 ];
-const pronTitle = c => `<span dir="ltr"><bdi class="ar" lang="ar">${c.a}</bdi> ile <bdi class="ar" lang="ar">${c.b}</bdi></span>`;
+const pronTitle = c => c.tt ? esc(c.tt) : `<span dir="ltr"><bdi class="ar" lang="ar">${c.a}</bdi> ile <bdi class="ar" lang="ar">${c.b}</bdi></span>`;
 const pronWord = ar => { const i = W.findIndex(w => w[0] === ar); return i >= 0 ? { ar, i, tr: W[i][2], tl: W[i][1] } : { ar, i: -1, tr: "", tl: "" }; };
 
 // --- Cihaz içi konuşma tanıma (yalnızca destekleniyorsa) ---
