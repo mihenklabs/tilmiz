@@ -1,0 +1,250 @@
+{"id":10775,"ar":"اشْتَرَتْ أُمِّي فُسْتَانًا صَيْفِيًّا.","tr":"Annem yazlık bir elbise aldı.","alt":[]}
+{"id":3048,"ar":"جَارُنَا رَجُلٌ وَدُودٌ.","tr":"Komşumuz sevecen bir adamdır.","alt":["Komşumuz cana yakın bir adam."]}
+{"id":3049,"ar":"تَسْبَحُ الْبَطَّاتُ فِي الْبِرْكَةِ.","tr":"Ördekler gölette yüzüyor.","alt":["Ördekler havuzda yüzüyor."]}
+{"id":10776,"ar":"يُطَابِقُ كَلَامُهُ أَفْعَالَهُ.","tr":"Sözleri davranışlarına uyuyor.","alt":["Sözleri yaptıklarıyla örtüşüyor."]}
+{"id":10778,"ar":"كَسَّرَ الطِّفْلُ الْبَسْكَوِيتَ قِطَعًا صَغِيرَةً.","tr":"Çocuk bisküviyi küçük parçalara böldü.","alt":["Çocuk bisküviyi küçük parçalara kırdı."]}
+{"id":10779,"ar":"الصِّدْقُ خُلُقٌ مَحْمُودٌ.","tr":"Doğruluk övülen bir ahlaktır.","alt":["Dürüstlük övülmüş bir huydur."]}
+{"id":10348,"ar":"وَقَفَ الْمُتَّهَمُ أَمَامَ الْقَاضِي.","tr":"Sanık hâkimin karşısında durdu.","alt":[]}
+{"id":3050,"ar":"يَتَعَاطَى الْمَرِيضُ الدَّوَاءَ ثَلَاثَ مَرَّاتٍ يَوْمِيًّا.","tr":"Hasta ilacı günde üç kez kullanıyor.","alt":["Hasta ilacı günde üç defa alıyor."]}
+{"id":3051,"ar":"نَعُودُ إِلَيْكُمْ بَعْدَ الْفَاصِلِ.","tr":"Aradan sonra tekrar sizinleyiz.","alt":["Reklam arasından sonra döneceğiz."]}
+{"id":3052,"ar":"زَارَ الْأُسْقُفُ الْكَنِيسَةَ الْقَدِيمَةَ.","tr":"Piskopos eski kiliseyi ziyaret etti.","alt":[]}
+{"id":3053,"ar":"شَغِّلِ الْمِرْوَحَةَ، الْجَوُّ حَارٌّ.","tr":"Vantilatörü aç, hava sıcak.","alt":[]}
+{"id":3054,"ar":"كَانَ الْمُعَلِّمُ مُسْتَاءً مِنَ الضَّجِيجِ.","tr":"Öğretmen gürültüden hoşnutsuzdu.","alt":["Öğretmen gürültüye üzülmüştü."]}
+{"id":3055,"ar":"يَحْمِي الْمِينَا الْأَسْنَانَ.","tr":"Mine dişleri korur.","alt":["Diş minesi dişleri korur."]}
+{"id":3056,"ar":"يَجْتَمِعُ الْبَرْلَمَانُ كُلَّ أُسْبُوعٍ.","tr":"Meclis her hafta toplanır.","alt":["Parlamento her hafta toplanır."]}
+{"id":10784,"ar":"اكْتَمَلَ بِنَاءُ الْمَدْرَسَةِ الْجَدِيدَةِ.","tr":"Yeni okulun inşaatı tamamlandı.","alt":[]}
+{"id":3057,"skip":"katliam; 7+ için uygunsuz"}
+{"id":10351,"ar":"رَفَعَ التَّاجِرُ دَعْوَى فِي الْمَحْكَمَةِ.","tr":"Tüccar mahkemede dava açtı.","alt":[]}
+{"id":3058,"ar":"الِابْتِزَازُ جَرِيمَةٌ يُعَاقِبُ عَلَيْهَا الْقَانُونُ.","tr":"Şantaj, kanunun cezalandırdığı bir suçtur.","alt":[]}
+{"id":3059,"ar":"يُمَجِّدُ الشَّاعِرُ جَمَالَ الطَّبِيعَةِ.","tr":"Şair doğanın güzelliğini yüceltiyor.","alt":[]}
+{"id":3060,"ar":"سَاعَدَ الْمُتَطَوِّعُونَ النَّاسَ بِعَمَلٍ إِنْسَانِيٍّ.","tr":"Gönüllüler insani bir çalışmayla insanlara yardım etti.","alt":[]}
+{"id":3061,"ar":"صَافَحَ اللَّاعِبُ مُنَافِسَهُ بَعْدَ الْمُبَارَاةِ.","tr":"Oyuncu maçtan sonra rakibiyle tokalaştı.","alt":[]}
+{"id":3062,"ar":"قَرَضَ الْفَأْرُ قِطْعَةَ الْجُبْنِ.","tr":"Fare peynir parçasını kemirdi.","alt":[]}
+{"id":3063,"ar":"نَهَضْتُ مِنَ النَّوْمِ مُبَكِّرًا.","tr":"Uykudan erken kalktım.","alt":["Erkenden uyanıp kalktım."]}
+{"id":3064,"ar":"ظَهَرَ الْعَفَنُ عَلَى الْخُبْزِ الْقَدِيمِ.","tr":"Bayat ekmeğin üzerinde küf oluştu.","alt":["Eski ekmekte küf belirdi."]}
+{"id":3065,"ar":"اخْتَطَفَ النَّسْرُ سَمَكَةً مِنَ الْمَاءِ.","tr":"Kartal sudan bir balık kaptı.","alt":["Kartal sudan bir balık kapıp kaçırdı."]}
+{"id":3067,"ar":"سَقَطَتِ الْأَوْرَاقُ الْيَابِسَةُ مِنَ الشَّجَرَةِ.","tr":"Kuru yapraklar ağaçtan düştü.","alt":[]}
+{"id":3068,"ar":"يَأْكُلُ الْبَانْدَا الْخَيْزُرَانَ.","tr":"Panda bambu yer.","alt":[]}
+{"id":10352,"ar":"دَمَّرَ الْفَيَضَانُ الْجِسْرَ الْقَدِيمَ.","tr":"Sel eski köprüyü yıktı.","alt":[]}
+{"id":3069,"ar":"تَوَجَّهْنَا إِلَى الْمَسْجِدِ بَعْدَ الْأَذَانِ.","tr":"Ezandan sonra camiye yöneldik.","alt":["Ezandan sonra camiye gittik."]}
+{"id":3070,"ar":"هٰذَا الرَّقْمُ تَخْمِينِيٌّ فَقَطْ.","tr":"Bu sayı yalnızca tahmine dayalı.","alt":["Bu rakam sadece bir tahmin."]}
+{"id":3071,"ar":"أَمَامَ الْبَيْتِ كَوْمَةٌ مِنَ الرَّمْلِ.","tr":"Evin önünde bir kum yığını var.","alt":[]}
+{"id":10354,"ar":"زَادَ عَائِدُ الْمَزْرَعَةِ هٰذَا الْعَامَ.","tr":"Çiftliğin geliri bu yıl arttı.","alt":["Çiftliğin getirisi bu yıl arttı."]}
+{"id":3072,"ar":"التَّيَّارُ قَوِيٌّ فِي هٰذَا النَّهْرِ.","tr":"Bu nehirde akıntı güçlü.","alt":[]}
+{"id":3073,"ar":"بَنَى الْفَرَاعِنَةُ الْأَهْرَامَ فِي مِصْرَ.","tr":"Firavunlar Mısır'da piramitleri inşa etti.","alt":[]}
+{"id":3074,"ar":"تَكَلَّمَ الْمُعَلِّمُ بِنَبْرَةٍ هَادِئَةٍ.","tr":"Öğretmen sakin bir ses tonuyla konuştu.","alt":[]}
+{"id":3075,"ar":"نَصَبَ الْقِطُّ كَمِينًا لِلْفَأْرِ.","tr":"Kedi fareye pusu kurdu.","alt":[]}
+{"id":10793,"ar":"أَسْرَى الْمُسَافِرُونَ تَحْتَ ضَوْءِ الْقَمَرِ.","tr":"Yolcular ay ışığında gece yolculuğu yaptı.","alt":[]}
+{"id":3076,"ar":"يَحْمِلُ الْمُعَلِّمُ أَفْكَارًا تَقَدُّمِيَّةً فِي التَّعْلِيمِ.","tr":"Öğretmenin eğitimde ilerici fikirleri var.","alt":[]}
+{"id":3077,"ar":"لِلْكَلْبِ حَاسَّةُ شَمٍّ قَوِيَّةٌ.","tr":"Köpeğin güçlü bir koku alma duyusu vardır.","alt":[]}
+{"id":3079,"ar":"مَا زَالَ الْبُرْجُ الْقَدِيمُ قَائِمًا.","tr":"Eski kule hâlâ ayakta.","alt":[]}
+{"id":3080,"skip":"kuşatma/abluka; savaş bağlamı"}
+{"id":11324,"ar":"رَسَمَتْ أُخْتِي وَرْدَةً عَلَى كَفِّهَا.","tr":"Kız kardeşim avucunun içine bir gül çizdi.","alt":[]}
+{"id":3081,"ar":"رَكِبَ الصَّيَّادُ مَرْكَبَهُ الصَّغِيرَ.","tr":"Balıkçı küçük teknesine bindi.","alt":[]}
+{"id":3082,"ar":"هٰذِهِ الْأَرْضُ مِلْكِيَّةٌ خَاصَّةٌ.","tr":"Bu arazi özel mülktür.","alt":[]}
+{"id":3083,"ar":"أُحِبُّ اللَّوْنَ الْأَزْرَقَ الْفَاتِحَ.","tr":"Açık mavi rengi severim.","alt":[]}
+{"id":3084,"ar":"سَمِعْنَا صَدَى أَصْوَاتِنَا فِي الْكَهْفِ.","tr":"Mağarada seslerimizin yankısını duyduk.","alt":[]}
+{"id":3085,"ar":"كَتَبَ الْمُعَلِّمُ لِي رِسَالَةَ تَوْصِيَةٍ.","tr":"Öğretmen bana bir tavsiye mektubu yazdı.","alt":[]}
+{"id":3086,"ar":"كَانَ خَطَؤُهُ غَيْرَ مُتَعَمَّدٍ.","tr":"Hatası kasıtlı değildi.","alt":[]}
+{"id":3087,"ar":"جَرَتْ مُبَارَاةٌ وِدِّيَّةٌ بَيْنَ الْمَدْرَسَتَيْنِ.","tr":"İki okul arasında dostluk maçı yapıldı.","alt":[]}
+{"id":3088,"ar":"تَلْبَسُ أُمِّي حِجَابًا أَزْرَقَ.","tr":"Annem mavi bir başörtüsü takıyor.","alt":[]}
+{"id":10794,"ar":"كَانَ الْغُلَامُ يَرْعَى الْغَنَمَ.","tr":"Oğlan koyunları otlatıyordu.","alt":["Delikanlı koyunları güdüyordu."]}
+{"id":3089,"ar":"أَفْسَدَ الْمَطَرُ رِحْلَتَنَا.","tr":"Yağmur gezimizi bozdu.","alt":[]}
+{"id":3090,"ar":"يَلْبَسُ أَخِي كَابًا أَحْمَرَ فِي الْمَطَرِ.","tr":"Erkek kardeşim yağmurda kırmızı bir pelerin giyiyor.","alt":[]}
+{"id":3091,"ar":"الْمَادِّيَّةُ تُنْسِي الْإِنْسَانَ قِيمَةَ الصَّدَاقَةِ.","tr":"Maddecilik insana dostluğun değerini unutturur.","alt":[]}
+{"id":3092,"ar":"وَصَلَتْ شِحْنَةُ الْكُتُبِ إِلَى الْمَدْرَسَةِ.","tr":"Kitap sevkiyatı okula ulaştı.","alt":[]}
+{"id":10360,"ar":"حَلَلْتُ التَّمْرِينَ الْأَوَّلَ بِسُهُولَةٍ.","tr":"İlk alıştırmayı kolayca çözdüm.","alt":[]}
+{"id":3093,"ar":"أَنَا عَلَى يَقِينٍ مِنْ نَجَاحِكَ.","tr":"Başaracağından eminim.","alt":["Başarından kesinlikle eminim."]}
+{"id":3094,"ar":"رَسَمَ الرَّسَّامُ لَوْحَةً لِلْبَحْرِ.","tr":"Ressam denizin bir tablosunu yaptı.","alt":[]}
+{"id":10361,"ar":"دَوَّمَ الطَّائِرُ فَوْقَ الشَّجَرَةِ.","tr":"Kuş ağacın üstünde dönüp durdu.","alt":[]}
+{"id":10800,"ar":"أَدَّتِ الْمُمَثِّلَةُ دَوْرَهَا بِإِتْقَانٍ.","tr":"Kadın oyuncu rolünü ustalıkla oynadı.","alt":[]}
+{"id":3096,"ar":"شَحَنْتُ هَاتِفِي قَبْلَ النَّوْمِ.","tr":"Yatmadan önce telefonumu şarj ettim.","alt":[]}
+{"id":3097,"ar":"رَأَيْنَا يَخْتًا أَبْيَضَ فِي الْمِينَاءِ.","tr":"Limanda beyaz bir yat gördük.","alt":[]}
+{"id":3098,"ar":"وَضَعَ الطَّالِبُ الْمِلْحَ فِي الْمَاءِ فَصَنَعَ مَحْلُولًا.","tr":"Öğrenci tuzu suya koydu ve bir çözelti yaptı.","alt":[]}
+{"id":3099,"ar":"يَنَامُ الْوَطْوَاطُ فِي النَّهَارِ.","tr":"Yarasa gündüz uyur.","alt":[]}
+{"id":10363,"ar":"صُعُودُ الْجَبَلِ مُتْعِبٌ.","tr":"Dağa çıkmak yorucudur.","alt":["Dağa tırmanış yorucudur."]}
+{"id":3100,"ar":"يُنْتِجُ الْمُفَاعِلُ الطَّاقَةَ الْكَهْرَبَائِيَّةَ.","tr":"Reaktör elektrik enerjisi üretir.","alt":[]}
+{"id":3101,"ar":"طَعْمُ هٰذَا التُّفَّاحِ حُلْوٌ.","tr":"Bu elmanın tadı tatlı.","alt":[]}
+{"id":10364,"ar":"تَمُرُّ دَوْرِيَّةُ الشُّرْطَةِ فِي الشَّارِعِ كُلَّ لَيْلَةٍ.","tr":"Polis devriyesi her gece sokaktan geçer.","alt":[]}
+{"id":3102,"ar":"تَأْكُلُ الْغُورِيلَّا الْمَوْزَ.","tr":"Goril muz yer.","alt":[]}
+{"id":3103,"ar":"هَزَّتِ الرِّيحُ الْأَشْجَارَ.","tr":"Rüzgâr ağaçları sarstı.","alt":[]}
+{"id":3105,"ar":"جَلَسَ الشَّيْخُ عَلَى مَقْعَدَةٍ خَشَبِيَّةٍ.","tr":"Yaşlı adam tahta bir oturağa oturdu.","alt":[]}
+{"id":3106,"ar":"نَظَرْتُ إِلَى النَّمْلَةِ بِالْمِنْظَارِ.","tr":"Karıncaya büyüteçle baktım.","alt":[]}
+{"id":10258,"ar":"الْمَاءُ سَائِلٌ شَفَّافٌ.","tr":"Su saydam bir sıvıdır.","alt":[]}
+{"id":3107,"ar":"أَنْتُنَّ طَالِبَاتٌ مُجْتَهِدَاتٌ.","tr":"Sizler çalışkan kız öğrencilersiniz.","alt":["Siz çalışkan öğrencilersiniz."]}
+{"id":3108,"ar":"بَيْنَ الْأَخَوَيْنِ تَوَافُقٌ كَبِيرٌ.","tr":"İki kardeş arasında büyük bir uyum var.","alt":[]}
+{"id":10365,"ar":"تَوَلَّتْ أُخْتِي تَنْظِيمَ الْحَفْلَةِ.","tr":"Kız kardeşim partinin düzenlenmesini üstlendi.","alt":[]}
+{"id":3109,"ar":"تَعَلُّمُ لُغَةٍ جَدِيدَةٍ تَحَدٍّ مُمْتِعٌ.","tr":"Yeni bir dil öğrenmek zevkli bir meydan okumadır.","alt":["Yeni bir dil öğrenmek eğlenceli bir mücadeledir."]}
+{"id":3110,"ar":"أَعَادَ الطَّالِبُ الْكِتَابَ إِلَى الْمَكْتَبَةِ.","tr":"Öğrenci kitabı kütüphaneye iade etti.","alt":["Öğrenci kitabı kütüphaneye geri götürdü."]}
+{"id":3111,"ar":"أَحَلَّ الْمُدِيرُ مُوَظَّفًا جَدِيدًا مَحَلَّ الْقَدِيمِ.","tr":"Müdür eskisinin yerine yeni bir çalışan koydu.","alt":[]}
+{"id":3112,"ar":"يُنَظِّمُ السِّكْرِتِيرُ مَوَاعِيدَ الْمُدِيرِ.","tr":"Sekreter müdürün randevularını düzenliyor.","alt":[]}
+{"id":3113,"ar":"مُدِيرَةُ الْمَدْرَسَةِ لَطِيفَةٌ جِدًّا.","tr":"Okulun müdiresi çok nazik.","alt":["Okul müdürü hanım çok nazik."]}
+{"id":3114,"ar":"لَقِيَ اقْتِرَاحِي مُعَارَضَةً مِنْ أَخِي.","tr":"Önerim kardeşimin karşı çıkmasıyla karşılaştı.","alt":["Kardeşim önerime karşı çıktı."]}
+{"id":3115,"ar":"تَرْعَى الْأَغْنَامُ فِي الْمَرْجِ الْأَخْضَرِ.","tr":"Koyunlar yeşil çayırda otluyor.","alt":[]}
+{"id":3116,"ar":"أُحِبُّ الْمُثَلَّجَاتِ بِالْفُسْتُقِ.","tr":"Fıstıklı dondurmayı severim.","alt":["Antep fıstıklı dondurmayı severim."]}
+{"id":3117,"ar":"مُنَاخُ هٰذِهِ الْمَدِينَةِ مُعْتَدِلٌ.","tr":"Bu şehrin iklimi ılımandır.","alt":[]}
+{"id":3118,"ar":"لَنْ أَكْذِبَ قَطْعًا.","tr":"Asla yalan söylemeyeceğim.","alt":["Kesinlikle yalan söylemeyeceğim."]}
+{"id":3119,"ar":"تَغَيَّرَتْ عَقْلِيَّتُهُ بَعْدَ السَّفَرِ.","tr":"Yolculuktan sonra zihniyeti değişti.","alt":[]}
+{"id":11139,"skip":"siyasi parti; siyaset"}
+{"id":3121,"ar":"التَّلَوُّثُ مُشْكِلَةٌ بِيئِيَّةٌ كَبِيرَةٌ.","tr":"Kirlilik büyük bir çevre sorunudur.","alt":["Kirlilik büyük bir çevresel sorundur."]}
+{"id":3122,"ar":"لِلسَّمَكِ الْفَاسِدِ رَائِحَةٌ كَرِيهَةٌ.","tr":"Bozulmuş balığın iğrenç bir kokusu vardır.","alt":[]}
+{"id":3123,"ar":"غَفَرَ لِي صَدِيقِي خَطَئِي.","tr":"Arkadaşım hatamı affetti.","alt":[]}
+{"id":3124,"ar":"غَطَّى الْفَيَضَانُ الشَّوَارِعَ.","tr":"Sel sokakları kapladı.","alt":[]}
+{"id":5604,"ar":"يَتَقَاضَى أَبِي مُرَتَّبَهُ فِي آخِرِ الشَّهْرِ.","tr":"Babam maaşını ay sonunda alır.","alt":[]}
+{"id":10813,"ar":"لِهٰذَا السُّؤَالِ إِجَابَاتٌ مُتَعَدِّدَةٌ.","tr":"Bu sorunun birden çok cevabı var.","alt":[]}
+{"id":3125,"ar":"نَحَلَ جِسْمُهُ بَعْدَ الْمَرَضِ.","tr":"Hastalıktan sonra zayıfladı.","alt":["Hastalıktan sonra vücudu zayıfladı."]}
+{"id":3126,"skip":"isyancı; siyaset/şiddet bağlamı"}
+{"id":3127,"ar":"أَخِي مُولَعٌ بِكُرَةِ الْقَدَمِ.","tr":"Kardeşim futbol tutkunu.","alt":["Kardeşim futbola düşkündür."]}
+{"id":3128,"ar":"فَتَّ الْوَلَدُ الْخُبْزَ لِلْعَصَافِيرِ.","tr":"Çocuk serçeler için ekmeği ufaladı.","alt":[]}
+{"id":10816,"ar":"هَاتِ الْكُرَةَ يَا عَلِيُّ.","tr":"Topu ver Ali.","alt":["Topu getir Ali."]}
+{"id":3129,"ar":"الْقِطَارُ وَاصِلٌ بَعْدَ قَلِيلٍ.","tr":"Tren birazdan varıyor.","alt":["Tren az sonra ulaşacak."]}
+{"id":3130,"ar":"إِيَّاكِ وَاللَّعِبَ بِالنَّارِ يَا سَلْمَى.","tr":"Sakın ateşle oynama Selma.","alt":[]}
+{"id":3131,"ar":"سَبَّبَ الطَّقْسُ اضْطِرَابًا فِي مَوَاعِيدِ الطَّيَرَانِ.","tr":"Hava durumu uçuş saatlerinde karışıklığa yol açtı.","alt":[]}
+{"id":3132,"ar":"خَفِّفْ صَوْتَ التِّلْفَازِ مِنْ فَضْلِكَ.","tr":"Lütfen televizyonun sesini kıs.","alt":[]}
+{"id":3133,"ar":"خَرَجَ صَائِدُ السَّمَكِ إِلَى الْبَحْرِ فَجْرًا.","tr":"Balık avcısı şafakta denize açıldı.","alt":["Balıkçı sabah erkenden denize çıktı."]}
+{"id":10819,"ar":"فَلَتَ الْعُصْفُورُ مِنَ الْقَفَصِ.","tr":"Serçe kafesten kaçtı.","alt":[]}
+{"id":3134,"ar":"يَنْفُخُ الطِّفْلُ فُقَّاعَاتِ الصَّابُونِ.","tr":"Çocuk sabun köpüğü baloncukları üflüyor.","alt":["Çocuk sabun kabarcıkları üflüyor."]}
+{"id":10820,"ar":"أَثَارَ الْخَبَرُ تَسَاؤُلَاتٍ كَثِيرَةً.","tr":"Haber pek çok soru akla getirdi.","alt":["Haber birçok soruya yol açtı."]}
+{"id":3135,"ar":"يُنْتِجُ نُخَاعُ الْعَظْمِ خَلَايَا الدَّمِ.","tr":"Kemik iliği kan hücreleri üretir.","alt":[]}
+{"id":3136,"skip":"savaş gemisi (muhrip); askerî"}
+{"id":10821,"ar":"لَامَتْنِي أُمِّي عَلَى التَّأْخِيرِ.","tr":"Annem geç kaldığım için beni ayıpladı.","alt":["Annem gecikmem yüzünden beni kınadı."]}
+{"id":10736,"ar":"عَدَدُ الْمَقَاعِدِ مَحْدُودٌ.","tr":"Koltuk sayısı sınırlı.","alt":[]}
+{"id":3137,"ar":"تَجَوَّلْنَا فِي السُّوقِ الْقَدِيمِ.","tr":"Eski çarşıda dolaştık.","alt":["Eski pazarda gezindik."]}
+{"id":3138,"ar":"شَرِبَ جَدِّي رَشْفَةً مِنَ الشَّايِ.","tr":"Dedem çaydan bir yudum içti.","alt":[]}
+{"id":10823,"ar":"يَعْمَلُ عَمِّي فِي مَكْتَبٍ عَقَارِيٍّ.","tr":"Amcam bir emlak bürosunda çalışıyor.","alt":[]}
+{"id":3139,"ar":"نَامَ الطِّفْلُ فِي حِضْنِ أُمِّهِ.","tr":"Çocuk annesinin kucağında uyudu.","alt":[]}
+{"id":3140,"ar":"تَطَوُّرُ التِّكْنُولُوجْيَا سَرِيعٌ.","tr":"Teknolojinin gelişmesi hızlıdır.","alt":["Teknoloji hızla gelişiyor."]}
+{"id":3142,"ar":"صَعِدْنَا إِلَى مُرْتَفَعٍ يُطِلُّ عَلَى الْبَحْرِ.","tr":"Denize bakan yüksek bir yere çıktık.","alt":[]}
+{"id":10824,"ar":"أَكَلْنَا الْفُشَارَ وَنَحْنُ نُشَاهِدُ الْفِيلْمَ.","tr":"Filmi izlerken patlamış mısır yedik.","alt":[]}
+{"id":3143,"ar":"عَجَزْتُ عَنْ حَلِّ الْمَسْأَلَةِ.","tr":"Problemi çözemedim.","alt":["Problemi çözmekten âciz kaldım."]}
+{"id":3144,"ar":"لَا تَكُنْ أَنَانِيًّا، شَارِكْ أَلْعَابَكَ.","tr":"Bencil olma, oyuncaklarını paylaş.","alt":[]}
+{"id":10377,"ar":"كَانَ انْتِقَالُنَا إِلَى الْبَيْتِ الْجَدِيدِ سَهْلًا.","tr":"Yeni eve taşınmamız kolay oldu.","alt":[]}
+{"id":10825,"ar":"حَلَمْتُ أَنِّي أَطِيرُ فِي السَّمَاءِ.","tr":"Rüyamda gökyüzünde uçtuğumu gördüm.","alt":[]}
+{"id":3145,"ar":"ذَهَبَ أَبِي لِتَقْدِيمِ الْعَزَاءِ لِجَارِنَا.","tr":"Babam komşumuza taziyede bulunmaya gitti.","alt":["Babam komşumuza başsağlığı dilemeye gitti."]}
+{"id":3146,"ar":"عَجَّزَ الشَّيْخُ وَضَعُفَ بَصَرُهُ.","tr":"İhtiyar yaşlandı ve gözleri zayıfladı.","alt":[]}
+{"id":3148,"ar":"مِسَاحَةُ الْحَدِيقَةِ كَبِيرَةٌ.","tr":"Bahçenin alanı büyük.","alt":[]}
+{"id":3149,"ar":"يَجْرِي الْعَدَّاؤُونَ فِي الْمِضْمَارِ.","tr":"Koşucular pistte koşuyor.","alt":[]}
+{"id":3150,"ar":"أَعْطَى الْمُدِيرُ نَائِبَهُ تَفْوِيضًا بِالتَّوْقِيعِ.","tr":"Müdür yardımcısına imza yetkisi devretti.","alt":[]}
+{"id":10827,"ar":"يَحْتَاجُ الْهَاتِفُ إِلَى تَحْدِيثٍ جَدِيدٍ.","tr":"Telefonun yeni bir güncellemeye ihtiyacı var.","alt":[]}
+{"id":10828,"ar":"التَّنَفُّسُ الْعَمِيقُ يُرِيحُ الْجِسْمَ.","tr":"Derin nefes almak vücudu rahatlatır.","alt":[]}
+{"id":3151,"ar":"طَارَ الْبَالُونُ الْأَحْمَرُ عَالِيًا.","tr":"Kırmızı balon yükseklere uçtu.","alt":[]}
+{"id":3152,"ar":"يَحْرُسُ الْكَلْبُ الْبَيْتَ لَيْلًا.","tr":"Köpek geceleri evi bekler.","alt":["Köpek geceleri evi korur."]}
+{"id":3153,"ar":"وَجَدَ الْعُلَمَاءُ حَلًّا لِهٰذِهِ الْمُعْضِلَةِ.","tr":"Bilim insanları bu çıkmaza bir çözüm buldu.","alt":["Bilim insanları bu soruna bir çözüm buldu."]}
+{"id":3154,"ar":"اشْتَرَتْ أُخْتِي تَنُّورَةً طَوِيلَةً.","tr":"Kız kardeşim uzun bir etek aldı.","alt":[]}
+{"id":10830,"ar":"صَدِيقِي طَالِبٌ لِيبِيٌّ.","tr":"Arkadaşım Libyalı bir öğrenci.","alt":[]}
+{"id":3155,"ar":"كَانَتْ فِي الْقِصَّةِ أَمِيرَةٌ حَسْنَاءُ.","tr":"Hikâyede güzel bir prenses vardı.","alt":[]}
+{"id":3156,"skip":"kürtaj; 7+ için uygunsuz"}
+{"id":3157,"skip":"intihar; 7+ için uygunsuz"}
+{"id":3158,"ar":"أَجْبَرَنَا الْمَطَرُ عَلَى الْبَقَاءِ فِي الْبَيْتِ.","tr":"Yağmur bizi evde kalmaya zorladı.","alt":[]}
+{"id":3159,"ar":"فِي وَسَطِ الْحَدِيقَةِ نَافُورَةٌ جَمِيلَةٌ.","tr":"Bahçenin ortasında güzel bir çeşme var.","alt":["Parkın ortasında güzel bir fıskiye var."]}
+{"id":3160,"ar":"تَتَعَلَّمُ أُخْتِي الْبَرْمَجَةَ فِي الْمَدْرَسَةِ.","tr":"Kız kardeşim okulda programlama öğreniyor.","alt":[]}
+{"id":3161,"ar":"يَجِبُ اسْتِغْلَالُ الْوَقْتِ فِي الْمُفِيدِ.","tr":"Zamanı faydalı işlerde değerlendirmek gerekir.","alt":[]}
+{"id":10380,"skip":"hakaret içeren kelime"}
+{"id":3162,"ar":"نَصِبَ الْفَلَّاحُ فِي حَقْلِهِ طَوَالَ النَّهَارِ.","tr":"Çiftçi bütün gün tarlasında yoruldu.","alt":[]}
+{"id":3163,"ar":"جَلَسْنَا عَلَى ضِفَّةِ النَّهْرِ.","tr":"Nehir kıyısında oturduk.","alt":[]}
+{"id":3164,"ar":"يَحْمِلُ الْكَنْغَرُ صَغِيرَهُ فِي جِرَابِهِ.","tr":"Kanguru yavrusunu kesesinde taşır.","alt":[]}
+{"id":10567,"ar":"يَلْبَسُ أَبِي بَدْلَةً أَنِيقَةً.","tr":"Babam şık bir takım elbise giyiyor.","alt":[]}
+{"id":11357,"ar":"قَدَّمَ الْعَامِلُ مَظْلِمَتَهُ إِلَى الْمُدِيرِ.","tr":"İşçi şikâyetini müdüre iletti.","alt":[]}
+{"id":3165,"ar":"تُسَاعِدُ الرِّيَاضَةُ عَلَى مُقَاوَمَةِ الِاكْتِئَابِ.","tr":"Spor depresyonla mücadeleye yardımcı olur.","alt":[]}
+{"id":10469,"ar":"نَزَفَ أَنْفُهُ قَلِيلًا.","tr":"Burnu biraz kanadı.","alt":[]}
+{"id":3166,"ar":"لَا تُبَالِغْ فِي وَصْفِ الْقِصَّةِ.","tr":"Hikâyeyi anlatırken abartma.","alt":[]}
+{"id":3167,"ar":"لَا يَهُمُّنِي اسْمُ الْمَارْكَةِ.","tr":"Markanın adı benim için önemli değil.","alt":[]}
+{"id":3168,"ar":"كَانَ التَّاجِرُ فِي الْقِصَّةِ جَشِعًا.","tr":"Hikâyedeki tüccar açgözlüydü.","alt":[]}
+{"id":10383,"ar":"اثْنَانِ وَاثْنَانِ يُسَاوِيَانِ أَرْبَعَةً.","tr":"İki artı iki dört eder.","alt":["İki ile ikinin toplamı dörde eşittir."]}
+{"id":3170,"ar":"يَهْتَمُّ الْعُلَمَاءُ بِرَصْدِ النُّجُومِ.","tr":"Bilim insanları yıldızları gözlemekle ilgilenir.","alt":[]}
+{"id":3172,"ar":"جَاءَتْ إِلَى ذِهْنِي فِكْرَةٌ جَمِيلَةٌ.","tr":"Aklıma güzel bir fikir geldi.","alt":["Zihnime güzel bir fikir geldi."]}
+{"id":3173,"ar":"عِنْدِي أَمْرٌ مُسْتَعْجَلٌ.","tr":"Acil bir işim var.","alt":[]}
+{"id":3174,"ar":"رَائِحَةُ الْيَاسَمِينِ زَكِيَّةٌ.","tr":"Yaseminin kokusu hoştur.","alt":[]}
+{"id":10832,"ar":"السَّنَةُ الضَّوْئِيَّةُ وَحْدَةٌ لِقِيَاسِ الْمَسَافَاتِ.","tr":"Işık yılı mesafe ölçme birimidir.","alt":[]}
+{"id":10833,"ar":"لَا تَأْكُلِ الطَّعَامَ الْفَاسِدَ حَتَّى لَا تَتَسَمَّمَ.","tr":"Zehirlenmemek için bozuk yemek yeme.","alt":[]}
+{"id":3175,"ar":"لَبِسَتِ الْعَرُوسَةُ ثَوْبًا أَبْيَضَ.","tr":"Gelin beyaz bir elbise giydi.","alt":[]}
+{"id":3176,"ar":"تَسَلَّلَ الْقِطُّ إِلَى الْمَطْبَخِ.","tr":"Kedi mutfağa gizlice girdi.","alt":["Kedi mutfağa sızdı."]}
+{"id":3177,"ar":"لِجَدَّتِي قَلْبٌ صَفِيٌّ.","tr":"Ninemin saf bir kalbi var.","alt":["Ninemin tertemiz bir kalbi var."]}
+{"id":3178,"ar":"رَأَيْنَا وَمِيضَ الْبَرْقِ فِي السَّمَاءِ.","tr":"Gökyüzünde şimşeğin çakmasını gördük.","alt":["Gökte şimşeğin parıltısını gördük."]}
+{"id":11573,"ar":"الْكَلْبُ صَدِيقٌ مُخْلِصٌ.","tr":"Köpek sadık bir dosttur.","alt":[]}
+{"id":10386,"ar":"كَانَ فِي قَصْرِ الْمَلِكِ خَادِمٌ أَمِينٌ.","tr":"Kralın sarayında güvenilir bir hizmetçi vardı.","alt":[]}
+{"id":3179,"ar":"اصْطَدَمَتِ الْكُرَةُ بِالْبَابِ.","tr":"Top kapıya çarptı.","alt":[]}
+{"id":10387,"ar":"ارْتِفَاعُ هٰذَا الْبُرْجِ مِئَةُ مِتْرٍ.","tr":"Bu kulenin yüksekliği yüz metredir.","alt":[]}
+{"id":10388,"ar":"الْعَصَبِيَّةُ تُفَرِّقُ بَيْنَ النَّاسِ.","tr":"Kabilecilik insanları birbirinden ayırır.","alt":[]}
+{"id":10389,"ar":"حَمَّلْتُ تَطْبِيقًا لِتَعَلُّمِ الْعَرَبِيَّةِ.","tr":"Arapça öğrenmek için bir uygulama indirdim.","alt":[]}
+{"id":3180,"ar":"انْقَطَعَ إِمْدَادُ الْمَاءِ عَنِ الْحَيِّ.","tr":"Mahallenin su temini kesildi.","alt":[]}
+{"id":3181,"ar":"ذَهَبْنَا إِلَى مَدِينَةِ الْمَلَاهِي يَوْمَ الْعُطْلَةِ.","tr":"Tatil günü lunaparka gittik.","alt":[]}
+{"id":10391,"ar":"شَجَّعَنِي الْمُعَلِّمُ عَلَى مُوَاصَلَةِ الدِّرَاسَةِ.","tr":"Öğretmen beni okumaya devam etmem için yüreklendirdi.","alt":[]}
+{"id":3182,"ar":"دَامَ الْمَطَرُ ثَلَاثَةَ أَيَّامٍ.","tr":"Yağmur üç gün sürdü.","alt":[]}
+{"id":3183,"ar":"الصَّدَأُ أُكْسِيدُ الْحَدِيدِ.","tr":"Pas, demir oksittir.","alt":[]}
+{"id":10392,"ar":"نَضَعُ النُّفَايَاتِ فِي السَّلَّةِ.","tr":"Çöpleri sepete atarız.","alt":["Atıkları çöp kutusuna koyarız."]}
+{"id":3184,"ar":"كَشَفَ الْمُحَقِّقُ الْمُؤَامَرَةَ فِي نِهَايَةِ الْقِصَّةِ.","tr":"Dedektif hikâyenin sonunda komployu ortaya çıkardı.","alt":[]}
+{"id":3185,"ar":"الْتَهَمَ الْجَائِعُ الطَّعَامَ بِسُرْعَةٍ.","tr":"Aç adam yemeği hızla silip süpürdü.","alt":[]}
+{"id":10394,"ar":"لَاحَظْتُ أَنَّ الْبَابَ مَفْتُوحٌ.","tr":"Kapının açık olduğunu fark ettim.","alt":[]}
+{"id":3186,"ar":"أُخْتِي رَسَّامَةٌ مُبْدِعَةٌ.","tr":"Kız kardeşim yaratıcı bir ressam.","alt":[]}
+{"id":3188,"ar":"عَمِّي عَاطِلٌ عَنِ الْعَمَلِ مُنْذُ شَهْرٍ.","tr":"Amcam bir aydır işsiz.","alt":[]}
+{"id":3189,"ar":"كَانَ الْفَرَحُ جَلِيًّا عَلَى وَجْهِهِ.","tr":"Sevinç yüzünden açıkça belliydi.","alt":[]}
+{"id":3190,"ar":"مَنْ مُدَبِّرُ هٰذِهِ الْحَفْلَةِ الرَّائِعَةِ؟","tr":"Bu harika partiyi kim düzenledi?","alt":["Bu harika partinin düzenleyicisi kim?"]}
+{"id":3191,"ar":"دَرَسَ اللِّسَانِيُّ لَهَجَاتِ الْقُرَى.","tr":"Dilbilimci köylerin lehçelerini inceledi.","alt":[]}
+{"id":3192,"ar":"دَمَجَ الْمُعَلِّمُ الصَّفَّيْنِ فِي صَفٍّ وَاحِدٍ.","tr":"Öğretmen iki sınıfı tek sınıfta birleştirdi.","alt":[]}
+{"id":3193,"ar":"تُشِيرُ الْبُوصُلَةُ إِلَى الشَّمَالِ.","tr":"Pusula kuzeyi gösterir.","alt":[]}
+{"id":3194,"ar":"مَرَّ كُوَيْكِبٌ صَغِيرٌ قُرْبَ الْأَرْضِ.","tr":"Küçük bir asteroit Dünya'nın yakınından geçti.","alt":[]}
+{"id":10838,"ar":"تَجَهَّزَ الطُّلَّابُ لِلرِّحْلَةِ.","tr":"Öğrenciler geziye hazırlandı.","alt":[]}
+{"id":10459,"ar":"يَنْقُلُ الْعَصَبُ الْإِحْسَاسَ إِلَى الدِّمَاغِ.","tr":"Sinir duyuyu beyne iletir.","alt":[]}
+{"id":10839,"ar":"سَبَّبَ الثَّلْجُ تَعْطِيلَ الدِّرَاسَةِ.","tr":"Kar, derslerin durmasına yol açtı.","alt":["Kar yüzünden okullar tatil edildi."]}
+{"id":3195,"skip":"silah tetiği; 7+ kuralı"}
+{"id":3196,"ar":"لَبِسَ جَدِّي صَدْرِيَّةً صُوفِيَّةً.","tr":"Dedem yün bir yelek giydi.","alt":[]}
+{"id":3197,"ar":"صَنَعَ الْحِرَفِيُّ هٰذَا الصُّنْدُوقَ بِيَدِهِ.","tr":"Zanaatkâr bu sandığı kendi eliyle yaptı.","alt":[]}
+{"id":10841,"ar":"اشْتَرَتْ أُخْتِي حَقِيبَةً فِضِّيَّةً.","tr":"Kız kardeşim gümüş renkli bir çanta aldı.","alt":[]}
+{"id":11634,"ar":"فِي الْقِصَّةِ كَنْزٌ خَفِيٌّ.","tr":"Hikâyede gizli bir hazine var.","alt":[]}
+{"id":3198,"ar":"تَبْحَثُ الْأُسْرَةُ عَنِ الِاسْتِقْرَارِ فِي مَدِينَةٍ هَادِئَةٍ.","tr":"Aile sakin bir şehirde istikrar arıyor.","alt":[]}
+{"id":3199,"ar":"اسْوَدَّتِ السَّمَاءُ قَبْلَ الْمَطَرِ.","tr":"Yağmurdan önce gökyüzü karardı.","alt":[]}
+{"id":3200,"ar":"تَجَمَّعَ مَاءُ الْمَطَرِ فِي نُقْرَةٍ صَغِيرَةٍ.","tr":"Yağmur suyu küçük bir oyukta toplandı.","alt":[]}
+{"id":3201,"ar":"دِيكُورُ الْغُرْفَةِ بَسِيطٌ وَجَمِيلٌ.","tr":"Odanın dekoru sade ve güzel.","alt":[]}
+{"id":3202,"ar":"لَمْ أَسْتَطِعْ حَمْلَ الْحَقِيبَةِ لِثِقْلِهَا.","tr":"Ağırlığından dolayı çantayı taşıyamadım.","alt":["Çanta ağır olduğu için taşıyamadım."]}
+{"id":3203,"ar":"وَجَدَتِ الْعَصَافِيرُ مَأْمَنًا مِنَ الْمَطَرِ تَحْتَ السَّقْفِ.","tr":"Serçeler çatının altında yağmurdan bir sığınak buldu.","alt":[]}
+{"id":3204,"ar":"تَدْرُسُ أُخْتِي الْمُحَاسَبَةَ فِي الْجَامِعَةِ.","tr":"Ablam üniversitede muhasebe okuyor.","alt":["Kız kardeşim üniversitede muhasebe okuyor."]}
+{"id":3205,"ar":"صَدَرَ حُكْمٌ غِيَابِيٌّ عَلَى الْمُتَّهَمِ.","tr":"Sanık hakkında gıyabi bir karar verildi.","alt":[]}
+{"id":3206,"ar":"تُصَدِّرُ بَعْضُ الدُّوَلِ النِّفْطَ.","tr":"Bazı ülkeler petrol ihraç eder.","alt":[]}
+{"id":11228,"ar":"صَمَتَ الطُّلَّابُ عِنْدَمَا دَخَلَ الْمُعَلِّمُ.","tr":"Öğretmen girince öğrenciler sustu.","alt":[]}
+{"id":3207,"ar":"الْجَوُّ صَافٍ الْيَوْمَ.","tr":"Bugün hava berrak.","alt":["Bugün hava açık."]}
+{"id":3209,"ar":"تَمَتَّعْنَا بِالْعُطْلَةِ عَلَى الشَّاطِئِ.","tr":"Sahilde tatilin tadını çıkardık.","alt":[]}
+{"id":3210,"ar":"النَّمِيمَةُ عَادَةٌ سَيِّئَةٌ.","tr":"Dedikodu kötü bir alışkanlıktır.","alt":[]}
+{"id":3211,"ar":"يَعِيشُ الرَّاعِي فِي بَيْتٍ مُنْعَزِلٍ.","tr":"Çoban ıssız bir evde yaşıyor.","alt":["Çoban yalnız başına duran bir evde yaşıyor."]}
+{"id":3212,"ar":"جَلَسْنَا تَحْتَ السَّقِيفَةِ فِي الْحَدِيقَةِ.","tr":"Bahçede çardağın altında oturduk.","alt":[]}
+{"id":3213,"ar":"شَرِبْنَا مِنْ مَاءٍ عَذْبٍ.","tr":"Tatlı sudan içtik.","alt":[]}
+{"id":3214,"ar":"اكْتُبِ الْفِعْلَ بِصِيغَةِ الْمَاضِي.","tr":"Fiili geçmiş zaman kalıbında yaz.","alt":["Fiili geçmiş zaman biçiminde yaz."]}
+{"id":3215,"ar":"يَحْوِي هٰذَا الْكِتَابُ قِصَصًا كَثِيرَةً.","tr":"Bu kitap birçok hikâye içeriyor.","alt":[]}
+{"id":10849,"ar":"انْقَطَعَتِ الْكَهْرَبَاءُ لَيْلَةَ أَمْسِ.","tr":"Dün gece elektrik kesildi.","alt":[]}
+{"id":10399,"ar":"ادَّعَى الْوَلَدُ أَنَّهُ مَرِيضٌ.","tr":"Çocuk hasta olduğunu iddia etti.","alt":[]}
+{"id":3218,"ar":"يَنَامُ أَخِي فِي وَقْتٍ مُنْتَظِمٍ.","tr":"Kardeşim düzenli bir saatte uyur.","alt":[]}
+{"id":3219,"ar":"عَادَ أَخِي مِنَ الْمَطَرِ بِثِيَابٍ مُبَلَّلَةٍ.","tr":"Kardeşim yağmurdan ıslak elbiselerle döndü.","alt":[]}
+{"id":3220,"ar":"قَرَأْنَا قِصَّةَ النَّبِيِّ يُونُسَ.","tr":"Yunus peygamberin kıssasını okuduk.","alt":["Hz. Yunus'un kıssasını okuduk."]}
+{"id":3221,"ar":"لَعِقَ الطِّفْلُ الْمُثَلَّجَاتِ.","tr":"Çocuk dondurmayı yaladı.","alt":[]}
+{"id":3222,"ar":"الْجَنَّةُ دَارُ النَّعِيمِ.","tr":"Cennet nimetler yurdudur.","alt":[]}
+{"id":3223,"ar":"قَصَّتْ أُمِّي الْوَرَقَ بِالْمِقَصِّ.","tr":"Annem kâğıdı makasla kesti.","alt":[]}
+{"id":3224,"ar":"لَا تُسَبِّبِ الْأَذَى لِلْحَيَوَانَاتِ.","tr":"Hayvanlara zarar verme.","alt":["Hayvanlara eziyet etme."]}
+{"id":3225,"ar":"بَعْدَ مَسِيرَةِ سَاعَةٍ وَصَلْنَا إِلَى الْقَرْيَةِ.","tr":"Bir saatlik yürüyüşten sonra köye vardık.","alt":[]}
+{"id":3226,"ar":"نَجَحَ بَعْدَ سَنَوَاتٍ مِنَ الْكِفَاحِ.","tr":"Yıllarca süren mücadeleden sonra başardı.","alt":[]}
+{"id":10853,"ar":"أُصِيبَ جَدِّي بِالْتِهَابٍ رِئَوِيٍّ.","tr":"Dedem zatürreye yakalandı.","alt":["Dedem akciğer iltihabına yakalandı."]}
+{"id":11273,"ar":"غَسَلْتُ الْوَسَخَ عَنْ يَدَيَّ.","tr":"Ellerimdeki kiri yıkadım.","alt":[]}
+{"id":3227,"ar":"تَقَبَّضَتْ يَدُهُ مِنَ الْبَرْدِ.","tr":"Eli soğuktan kasıldı.","alt":[]}
+{"id":3228,"ar":"الْتَقَطَ أَبِي صُورَةً لَنَا.","tr":"Babam bizim bir fotoğrafımızı çekti.","alt":[]}
+{"id":3229,"ar":"أُفَضِّلُ الشَّايَ عَلَى الْقَهْوَةِ.","tr":"Çayı kahveye tercih ederim.","alt":[]}
+{"id":10857,"ar":"أَلْهَتْهُ اللُّعْبَةُ عَنْ وَاجِبَاتِهِ.","tr":"Oyun onu ödevlerinden alıkoydu.","alt":["Oyun yüzünden ödevlerini unuttu."]}
+{"id":10600,"ar":"نَزَّلَ الْعَامِلُ الصَّنَادِيقَ مِنَ الشَّاحِنَةِ.","tr":"İşçi kutuları kamyondan indirdi.","alt":[]}
+{"id":3231,"ar":"كَانَ الْكِتَابُ سَمِيرِي فِي السَّفَرِ.","tr":"Kitap yolculukta sohbet arkadaşımdı.","alt":["Yolculukta kitap bana arkadaşlık etti."]}
+{"id":3232,"ar":"اصْطَادَ جَدِّي سَمَكَةً كَبِيرَةً.","tr":"Dedem büyük bir balık tuttu.","alt":["Dedem büyük bir balık avladı."]}
+{"id":3233,"ar":"تَغَلَّبْتُ عَلَى خَوْفِي مِنَ الْمَاءِ.","tr":"Su korkumu yendim.","alt":["Su korkumun üstesinden geldim."]}
+{"id":10858,"ar":"أَخِي طَوِيلُ الْقَامَةِ.","tr":"Ağabeyim uzun boyludur.","alt":["Kardeşim uzun boylu."]}
+{"id":10859,"ar":"لَمْ يَتَمَالَكِ الطِّفْلُ نَفْسَهُ مِنَ الضَّحِكِ.","tr":"Çocuk gülmekten kendini tutamadı.","alt":[]}
+{"id":3234,"ar":"قَدْ تُسَبِّبُ الْحُمَّى الشَّدِيدَةُ الْهَلْوَسَةَ.","tr":"Yüksek ateş halüsinasyona yol açabilir.","alt":[]}
+{"id":3235,"skip":"konuşma dili; fasih doğal bağlam yok"}
+{"id":3236,"ar":"رَمَى الْوَلَدُ نَوَاةَ التَّمْرِ.","tr":"Çocuk hurmanın çekirdeğini attı.","alt":[]}
+{"id":3237,"ar":"يَعْمَلُ السَّاعَاتِيُّ بِدِقَّةٍ.","tr":"Saatçi hassasiyetle çalışır.","alt":["Saatçi titizlikle çalışır."]}
+{"id":3238,"ar":"دَعَا الْجَدُّ لِذُرِّيَّتِهِ بِالْخَيْرِ.","tr":"Dede evlatları için hayır duası etti.","alt":["Dede soyu için hayır diledi."]}
+{"id":3239,"ar":"الْفَهْدُ أَسْرَعُ الْحَيَوَانَاتِ.","tr":"Çita hayvanların en hızlısıdır.","alt":[]}
+{"id":3240,"ar":"صَبَرَ الرَّجُلُ عَلَى الْبَلَاءِ.","tr":"Adam belaya sabretti.","alt":["Adam başına gelen sıkıntıya sabretti."]}
+{"id":10863,"ar":"دَفَعَ أَبِي ثَمَنَ الْكِتَابِ نَقْدًا.","tr":"Babam kitabın parasını nakit ödedi.","alt":[]}
+{"id":10583,"ar":"هٰذَا الْمَوْزُ نَاضِجٌ.","tr":"Bu muz olgun.","alt":[]}
+{"id":3241,"ar":"لِكُلِّ قَاعِدَةٍ اسْتِثْنَاءٌ.","tr":"Her kuralın bir istisnası vardır.","alt":[]}
+{"id":3242,"ar":"حَفِظَ الْجَارُ الْوَدِيعَةَ حَتَّى عَادَ صَاحِبُهَا.","tr":"Komşu, emaneti sahibi dönene kadar korudu.","alt":[]}
+{"id":3243,"ar":"اتَّجَهَتِ السَّفِينَةُ نَحْوَ الْمِينَاءِ.","tr":"Gemi limana doğru yöneldi.","alt":[]}
+{"id":3244,"ar":"رَكِبْنَا زَوْرَقًا صَغِيرًا فِي الْبُحَيْرَةِ.","tr":"Gölde küçük bir kayığa bindik.","alt":["Gölde küçük bir bota bindik."]}
+{"id":10866,"ar":"الْبَرْدُ عَكْسُ الْحَرِّ.","tr":"Soğuk, sıcağın zıttıdır.","alt":["Soğuk sıcağın tersidir."]}
+{"id":10867,"ar":"نَقْرَأُ التَّشَهُّدَ فِي الصَّلَاةِ.","tr":"Namazda teşehhüdü okuruz.","alt":[]}
