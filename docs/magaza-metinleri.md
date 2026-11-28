@@ -21,7 +21,7 @@ PRATİK
 • Dil bilgisi ve cümle alıştırmalarında yalnızca öğrendiğin kelimeler kullanılır.
 • Fiil çekimi alıştırmaları ve tam çekim tabloları.
 • Harf dizme, üçlü çeviri (Arapça–Türkçe–İngilizce).
-• 71 ayet ve hadis kelime kelime anlamlarıyla, 12 günlük diyalog.
+• 70 ayet ve hadis kelime kelime anlamlarıyla; mealler QuranEnc ve HadeethEnc kaynaklı. 12 günlük diyalog ve sesli pratik.
 
 GELİŞİM
 • Seviyen (A1–C2), film altyazılarının ve Kur'an'ın ne kadarını anladığın.
@@ -30,7 +30,7 @@ GELİŞİM
 GİZLİLİK
 • Reklam yok, abonelik yok, hesap açmak gerekmez.
 • Hiçbir kişisel veri toplanmaz; ilerlemen yalnızca telefonunda saklanır, istersen yedek dosyası alırsın.
-• İnternetsiz çalışır.
+• İnternetsiz çalışır. İstersen kişisel çalışma saatine göre hatırlatma bildirimi.
 
 Uygulama 7 yaş ve üzeri için uygundur. Tamamen ücretsizdir: reklam, abonelik ya da uygulama içi satın alma yoktur.
 
