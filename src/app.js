@@ -273,7 +273,7 @@ function study() {
   if (viewing !== null) return review();
   if (!cur) cur = pick();
   const fresh = !S.welcomed && !Object.keys(S.p).length;
-  let h = header() + (fresh ? `<section class="welcome"><b>Hoş geldin!</b><p>Her gün birkaç yeni kelime öğrenirsin; bilemediklerin sık, bildiklerin seyrek sorulur. Dil bilgisi, cümle ve ayet-hadis alıştırmaları Pratik sekmesinde, gelişimin Gelişim sekmesinde.</p><p>Arap harflerini henüz okuyamıyorsan önce Elifbâ bölümünden başla. Biraz Arapça biliyorsan seviye tespit sınavıyla uygun yerden başlayabilirsin.</p><div class="row"><button class="btn" id="wAlf">Harfleri öğren</button><button class="btn" id="wTest">Seviye sınavı</button></div><div class="row"><button class="btn primary" id="wStart">Kelimelerle başla</button></div></section>` : planCard(false)) + (hist.length ? `<div class="backrow"><button class="linkbtn" id="back">← Önceki kart</button></div>` : "");
+  let h = header() + (fresh ? `<section class="welcome"><b>Hoş geldin!</b><p>Her gün birkaç yeni kelime öğrenirsin; bilemediklerin sık, bildiklerin seyrek sorulur. Dil bilgisi, cümle ve ayet-hadis alıştırmaları Pratik sekmesinde, gelişimin Gelişim sekmesinde.</p><p>Arap harflerini henüz okuyamıyorsan önce Elifbâ bölümünden başla. Biraz Arapça biliyorsan seviye tespit sınavıyla uygun yerden başlayabilirsin.</p><div class="row"><button class="btn" id="wAlf">Harfleri öğren</button><button class="btn" id="wTest">Seviye sınavı</button></div><div class="row"><button class="btn primary" id="wStart">Kelimelerle başla</button></div></section>` : planCard(false) + unlockCard()) + (hist.length ? `<div class="backrow"><button class="linkbtn" id="back">← Önceki kart</button></div>` : "");
   if (cur.type === "intro") {
     const w = W[cur.id];
     h += `<section class="tile card">
@@ -317,7 +317,7 @@ function study() {
     <div class="row">${more ? `<button class="btn primary" id="more5">5 yeni kelime daha</button>` : ""}<button class="btn" id="early">Erken tekrar yap</button></div>`;
   }
   app.innerHTML = h;
-  bindPlan();
+  bindPlan(); bindUnlock();
   // events
   const bk = $("#back"); if (bk) bk.onclick = () => { if (cur && cur.picked !== null && cur.picked !== undefined) cur.paused = true; viewing = hist.length - 1; render(); };
   app.querySelectorAll("[data-list]").forEach(a => a.addEventListener("click", () => { listTab = a.dataset.list; }));
@@ -687,13 +687,14 @@ function practice() {
   if (pv.mode === "text") return textPage(pv.k);
   if (pv.mode === "voice") return vp ? voicePage() : voiceStart();
   const pool = verbPool(), st = S.cj;
+  const txReady = TXV.filter(k => textReady(TX[k]).ready).length, lesReady = LESSONS.filter(L => S.gr[L.id] === undefined && lessonReady(L)).length;
   app.innerHTML = `<h2>Pratik</h2>
   <p class="sub">Bu alıştırmalarda yalnızca öğrendiğin kelimeler kullanılır: üst üste en az iki kez doğru bildiğin kelimeler.</p>
-  <button class="hub" id="goLes"><span class="ar" lang="ar">قَوَاعِد</span><div><strong>Dil bilgisi dersleri</strong><span>${LESSONS.length} kısa ders, her birinde 8 soruluk alıştırma · ${Object.keys(S.gr).length} ders çalışıldı</span></div></button>
+  <button class="hub" id="goLes"><span class="ar" lang="ar">قَوَاعِد</span><div><strong>Dil bilgisi dersleri</strong><span>${LESSONS.length} kısa ders, her birinde 8 soruluk alıştırma · ${Object.keys(S.gr).length} ders çalışıldı${lesReady ? ` · <b class="okt">${lesReady} yeni ders hazır</b>` : ""}</span></div></button>
   <button class="hub" id="goAlf"><span class="ar" lang="ar">أ ب ت</span><div><strong>Elifbâ: Arap harfleri</strong><span>Harfler, harekeler ve okuma alıştırmaları; Arapça okumayı bilmiyorsan buradan başla</span></div></button>
   <button class="hub" id="goDlg"><span class="ar" lang="ar">حِوَار</span><div><strong>Konuşma pratiği</strong><span>${DLG.length} günlük diyalog, dinle ve doğru cevabı seç</span></div></button>
   ${VOICE_OK ? `<button class="hub" id="goVoice"><span class="ar" lang="ar">نُطْق</span><div><strong>Sesli pratik</strong><span>Örneği dinle, kendin söyle, kaydını karşılaştır</span></div></button>` : ""}
-  <button class="hub" id="goTx"><span class="ar" lang="ar">آيَة · حَدِيث</span><div><strong>Ayet ve hadisler</strong><span>${TXV.length} seçme metin, kelime kelime anlamlarıyla</span></div></button>
+  <button class="hub" id="goTx"><span class="ar" lang="ar">آيَة · حَدِيث</span><div><strong>Ayet ve hadisler</strong><span>${TXV.length} seçme metin, kelime kelime anlamlarıyla${txReady ? ` · <b class="okt">${txReady} metin okumaya hazır</b>` : ""}</span></div></button>
   <button class="hub" id="goSent"><span class="ar" lang="ar">جُمْلَة</span><div><strong>Cümle pratiği</strong><span>Öğrendiğin kelimelerle kurulmuş cümleler: anlamını bul, cümleyi kur</span></div></button>
   <button class="hub" id="goTri"><span class="ar" lang="ar">ع · T · E</span><div><strong>Üçlü çeviri</strong><span>Arapça, Türkçe ve İngilizce arasında</span></div></button>
   <button class="hub" id="goConj"><span class="ar" lang="ar">فَعَلَ</span><div><strong>Fiil çekimi</strong><span>Mazi ve muzari, ${fmt(pool.length)} öğrenilmiş fiille${st.r + st.w ? ` · başarı %${Math.round(100 * st.r / (st.r + st.w))}` : ""}</span></div></button>
@@ -1279,8 +1280,9 @@ function bindExtra() { app.querySelectorAll("[data-tm]").forEach(b => b.onclick 
 // --- DERS LİSTESİ VE DERS SAYFASI ---
 function lessonList() {
   app.innerHTML = `<div class="top"><button class="linkbtn" id="backHub">← Pratik</button></div><h2>Dil bilgisi dersleri</h2>
-  <p class="sub">Her ders kısa bir konu anlatımı ve 8 soruluk alıştırmadan oluşur. Alıştırmalarda yalnızca öğrendiğin kelimeler kullanılır.</p>
-  <div class="list">${LESSONS.map((L, k) => `<button class="vrow" data-l="${k}"><div><div class="m">${k + 1}. ${esc(L.t)} <span class="lvtag">${L.lv || ""}</span></div><div class="t">${S.gr[L.id] !== undefined ? "En iyi skor: " + S.gr[L.id] + "/8" : "Başlanmadı"}</div></div><span class="ar" lang="ar">${L.ar}</span></button>`).join("")}</div>`;
+  <p class="sub">Her ders kısa bir konu anlatımı ve 8 soruluk alıştırmadan oluşur. Alıştırmalarda yalnızca öğrendiğin kelimeler kullanılır; konu anlatımını her zaman okuyabilirsin.</p>
+  <div class="list">${LESSONS.map((L, k) => { const ok = lessonReady(L), sc = S.gr[L.id];
+    return `<button class="vrow${ok ? "" : " dim"}" data-l="${k}"><div><div class="m">${k + 1}. ${esc(L.t)} <span class="lvtag">${L.lv || ""}</span>${ok && sc === undefined ? ' <span class="pill ok">Hazır</span>' : ""}</div><div class="t">${sc !== undefined ? "En iyi skor: " + sc + "/8" : ok ? "Alıştırma için kelimelerin yeterli" : "Alıştırma için daha fazla kelime öğren"}</div></div><span class="ar" lang="ar">${L.ar}</span></button>`; }).join("")}</div>`;
   $("#backHub").onclick = () => { pv = { mode: "hub" }; practice(); };
   app.querySelectorAll("[data-l]").forEach(b => b.onclick = () => { pv = { mode: "lesson", k: +b.dataset.l }; practice(); window.scrollTo(0, 0); });
 }
@@ -1556,12 +1558,47 @@ function placement() {
 
 // --- Ayet ve hadisler ---
 function textKnown(o) { let t = 0, k = 0; for (const [, it] of o.v) for (const [, , id] of it) { t++; if (id >= 0 && learned(id)) k++; } return [k, t]; }
+// Okumaya hazır mı: sözlükte karşılığı olan (id ≥ 0, gizli değil) kelimelerin en az %80'i öğrenilmişse.
+// Karşılığı olmayan ekli biçimler (لِلَّهِ, ٱهْدِنَا...) hesaba katılmaz; onlar metin sayfasında anlamıyla gösterilir.
+const READY = 0.8;
+function textReady(o) {
+  let t = 0, k = 0; const miss = [];
+  for (const [, it] of o.v) for (const [, , id] of it) { if (id < 0 || OFF(id)) continue; t++; if (learned(id)) k++; else if (!miss.includes(id)) miss.push(id); }
+  return { k, t, pct: t ? k / t : 0, ready: t > 0 && k / t >= READY, miss };
+}
+function prioWords(ids) { // öğrenilmemiş kelimeleri Çalış'ta sıradaki yeni kelimeler yap; başlanmış olanlar zaten tekrarda gelir
+  const add = ids.filter(i => !S.p[i] && !OFF(i));
+  S.prio = add.concat((S.prio || []).filter(x => !add.includes(x))); save(); cur = null;
+  return add.length;
+}
+const readyBadge = (r, label) => r.ready ? `<span class="pill ok">${label}</span>` : `<span class="mini" title="%${Math.round(r.pct * 100)}"><i style="width:${Math.round(r.pct * 100)}%"></i></span>`;
+// Dil bilgisi alıştırması öğrenilen kelimelerle kurulabiliyor mu (birkaç deneme; soru üreticileri rastgele)
+function lessonReady(L) { for (let n = 0; n < 4; n++) { try { if (L.q()) return true; } catch (e) {} } return false; }
+// Ana ekranda "yeni açıldı" kartı: hazır hâle gelen ama henüz duyurulmamış ilk metin ya da ders
+function unlockNext() {
+  const ann = S.ann = S.ann || { t: [], l: [] };
+  for (const k of TXV) if (!ann.t.includes(k) && S.tb[k] === undefined) { const r = textReady(TX[k]); if (r.ready) return { kind: "t", k, title: TX[k].t, msg: `“${TX[k].t}” metnindeki kelimelerin %${Math.round(r.pct * 100)}’ini biliyorsun. Artık kendin okuyabilirsin.` }; }
+  for (let k = 0; k < LESSONS.length; k++) { const L = LESSONS[k]; if (ann.l.includes(L.id) || S.gr[L.id] !== undefined) continue; if (lessonReady(L)) return { kind: "l", k, title: L.t, msg: `Öğrendiğin kelimeler “${L.t}” dersi için yeterli. Kısa anlatımı oku, 8 soruluk alıştırmayı çöz.` }; break; }
+  return null;
+}
+function unlockCard() {
+  const u = unlockNext(); if (!u) return "";
+  return `<section class="unlock"><b>🔓 Yeni açıldı: ${esc(u.title)}</b><p>${esc(u.msg)}</p><div class="row"><button class="btn primary" id="unGo" data-kind="${u.kind}" data-k="${u.k}">${u.kind === "t" ? "Metni aç" : "Derse başla"}</button><button class="btn" id="unLater" data-kind="${u.kind}" data-k="${u.k}">Sonra</button></div></section>`;
+}
+function bindUnlock() {
+  const mark = b => { const ann = S.ann = S.ann || { t: [], l: [] }; const k = +b.dataset.k; if (b.dataset.kind === "t") ann.t.push(k); else ann.l.push(LESSONS[k].id); save(); return k; };
+  const g = $("#unGo"); if (g) g.onclick = () => { const k = mark(g); pv = g.dataset.kind === "t" ? { mode: "text", k, hide: false } : { mode: "lesson", k }; location.hash = "#pratik"; if (view === "pratik") practice(); window.scrollTo(0, 0); };
+  const l = $("#unLater"); if (l) l.onclick = () => { mark(l); render(); };
+}
 function textList() {
-  const row = (o, k) => { const [kn, t] = textKnown(o); return `<button class="vrow" data-x="${k}"><div><div class="m">${esc(o.t)}</div><div class="t">${esc(o.ref)} · ${t} kelime · bildiğin ${kn}${S.tb && S.tb[k] !== undefined ? " · en iyi " + S.tb[k] : ""}</div></div><span class="ar" lang="ar" style="font-size:1.25rem">${o.v[0][1].slice(0, 2).map(x => x[0]).join(" ")}…</span></button>`; };
+  let nReady = 0;
+  const row = (o, k) => { const r = textReady(o); if (r.ready) nReady++; return `<button class="vrow" data-x="${k}"><div><div class="m">${esc(o.t)} ${readyBadge(r, "Okumaya hazır")}</div><div class="t">${esc(o.ref)} · ${r.t ? `bildiğin ${r.k}/${r.t} kelime` : "kelime kelime"}${S.tb && S.tb[k] !== undefined ? " · en iyi " + S.tb[k] : ""}</div></div><span class="ar" lang="ar" style="font-size:1.25rem">${o.v[0][1].slice(0, 2).map(x => x[0]).join(" ")}…</span></button>`; };
+  const ayet = TXV.map(k => TX[k].k === "a" ? row(TX[k], k) : "").join(""), hadis = TXV.map(k => TX[k].k === "h" ? row(TX[k], k) : "").join("");
   app.innerHTML = `<div class="top"><button class="linkbtn" id="backHub">← Pratik</button></div><h2>Ayet ve hadisler</h2>
   <p class="sub">Meşhur ayet ve hadislerden seçmeler, kelime kelime anlamlarıyla. Metne dokunarak anlamları gör, sonra alıştırmayla pekiştir. Türkçe meal ve çeviriler QuranEnc.com ve HadeethEnc.com’dan aynen alınmıştır; yanında sadeleştirilmiş anlatım da vardır.</p>
-  <h3 class="sec">Ayetler</h3><div class="list">${TXV.map(k => TX[k].k === "a" ? row(TX[k], k) : "").join("")}</div>
-  <h3 class="sec">Hadisler</h3><div class="list">${TXV.map(k => TX[k].k === "h" ? row(TX[k], k) : "").join("")}</div>`;
+  <p class="note">${nReady ? `<b>${nReady} metin okumaya hazır</b>: kelimelerinin çoğunu biliyorsun.` : "Henüz okumaya hazır metin yok."} Diğerlerini de açıp okuyabilirsin; metin sayfasındaki düğmeyle eksik kelimeleri Çalış’ta öne alırsın.</p>
+  <h3 class="sec">Ayetler</h3><div class="list">${ayet}</div>
+  <h3 class="sec">Hadisler</h3><div class="list">${hadis}</div>`;
   $("#backHub").onclick = () => { pv = { mode: "hub" }; practice(); };
   app.querySelectorAll("[data-x]").forEach(b => b.onclick = () => { pv = { mode: "text", k: +b.dataset.x, hide: false }; practice(); window.scrollTo(0, 0); });
 }
@@ -1575,15 +1612,20 @@ function mealBlock(o, k) {
   <details class="meal"><summary>Sadeleştirilmiş anlatım</summary>${own}<p class="src">{{APP_NAME}} çevirisi</p></details>`;
 }
 function textPage(k) {
-  const o = TX[k], [kn, t] = textKnown(o), full = o.v.map(([, it]) => it.map(x => x[0]).join(" ")).join(" ");
+  const o = TX[k], [kn, t] = textKnown(o), full = o.v.map(([, it]) => it.map(x => x[0]).join(" ")).join(" "), rd = textReady(o);
+  const newMiss = rd.miss.filter(i => !S.p[i]);
+  const readyBox = rd.ready ? `<p class="note ok">✓ Bu metindeki kelimelerin %${Math.round(rd.pct * 100)}’ini biliyorsun: anlamları gizleyip kendin okumayı dene.</p>`
+    : rd.t ? `<div class="readybox"><div><b>Okumaya hazırlık: %${Math.round(rd.pct * 100)}</b><span class="mini wide"><i style="width:${Math.round(rd.pct * 100)}%"></i></span><span>${rd.miss.length} kelime eksik${newMiss.length < rd.miss.length ? ` (${rd.miss.length - newMiss.length} tanesini öğreniyorsun)` : ""}. %${Math.round(READY * 100)}’e ulaşınca metni kendin okuyabilirsin.</span></div>${newMiss.length ? `<button class="btn sm primary" id="txPrio">Eksik ${newMiss.length} kelimeyi öne al</button>` : ""}</div>` : "";
   app.innerHTML = `<div class="top"><button class="linkbtn" id="backX">← Ayet ve hadisler</button><div class="streak">bildiğin ${kn}/${t}</div></div>
   <section class="tile card" style="min-height:0;padding:16px"><div class="mean">${esc(o.t)}</div><div class="tl">${esc(o.ref)}</div>${listenBtn(full, "Tamamını dinle")}</section>
   <div class="pills small" style="margin-top:12px"><button data-h="0" aria-pressed="${!pv.hide}">Anlamları göster</button><button data-h="1" aria-pressed="${!!pv.hide}">Gizle, dokununca göster</button></div>
   <div class="interlin">${o.v.map(([vn, it]) => it.map((x, j) => `<button class="wchip${x[2] >= 0 && learned(x[2]) ? " known" : ""}${pv.hide ? " hid" : ""}" data-w="${esc(x[0])}"><span class="ar" lang="ar">${x[0]}</span><small>${esc(x[1])}</small></button>`).join("") + (o.k === "a" ? `<span class="vend ar" lang="ar">﴿${String(vn).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d])}﴾</span>` : "")).join("")}</div>
   <p class="note mut" style="margin:6px 2px">Yeşil çerçeveli kelimeleri zaten öğrendin.</p>
+  ${readyBox}
   ${mealBlock(o, k)}
   <div class="row"><button class="btn primary" id="txQ">Kelime alıştırması</button></div>`;
   $("#backX").onclick = () => { pv = { mode: "texts" }; practice(); };
+  const tp = $("#txPrio"); if (tp) tp.onclick = () => { const n = prioWords(newMiss); toast(`${n} kelime öne alındı. Çalış sekmesinde sıradaki yeni kelimeler bunlar.`); practice(); };
   app.querySelectorAll("[data-h]").forEach(b => b.onclick = () => { pv.hide = b.dataset.h === "1"; practice(); });
   app.querySelectorAll(".wchip").forEach(b => b.onclick = () => { b.classList.remove("hid"); speak(b.dataset.w); });
   $("#txQ").onclick = () => {
@@ -1758,6 +1800,7 @@ function suggest() {
   if (c.due > 0) return { why: `${c.due} kelime tekrar bekliyor; önce onları bitirmek hafızayı en çok güçlendirir.`, go: () => { location.hash = "#calis"; } };
   if (S.day.n < limit && nextNewId() !== null) return { why: "Bugünkü yeni kelimelerin tamamlanmadı.", go: () => { location.hash = "#calis"; } };
   for (let k = 0; k < LESSONS.length; k++) { const L = LESSONS[k]; if ((S.gr[L.id] || 0) >= 6) continue; let q = null; try { q = L.q(); } catch (e) { q = null; } if (q) return { why: `Sıradaki dil bilgisi konun: “${L.t}”. Öğrendiğin kelimeler bu ders için yeterli.`, go: () => { pv = { mode: "lesson", k }; location.hash = "#pratik"; if (view === "pratik") practice(); } }; break; }
+  for (const k of TXV) if (S.tb[k] === undefined && textReady(TX[k]).ready) return { why: `“${TX[k].t}” metnindeki kelimelerin çoğunu artık biliyorsun; okumayı ve alıştırmasını dene.`, go: () => { pv = { mode: "text", k, hide: false }; location.hash = "#pratik"; if (view === "pratik") practice(); } };
   const mods = [["Cümle pratiği", S.md.sent, () => startQuiz({ mod: "sent", gen: sentQ, need: "birkaç öğrenilmiş isim, sıfat ve fiil", backLabel: "Pratik", back: () => { pv = { mode: "hub" }; practice(); } }), () => sentGen().length > 0],
     ["Fiil çekimi", S.cj, () => { pv = { mode: "conj" }; cq = null; practice(); }, () => verbPool().length >= 3],
     ["Harf dizme", S.sp, () => { pv = { mode: "spell" }; sq = null; practice(); }, () => spellPool().length >= 3],

@@ -273,3 +273,16 @@ nav.tabs a[aria-current="page"]{color:var(--tile)}
 .vcard .note,.vcard .vres .tl{color:inherit;opacity:.85}
 .vres{border-top-color:rgba(255,255,255,.25)}
 .vwave rect{fill:currentColor}
+/* Hazırlık göstergeleri ve "yeni açıldı" kartı */
+.pill.ok{display:inline-block;font-size:.72rem;font-weight:600;padding:1px 8px;border-radius:999px;background:var(--tile);color:var(--tile-ink);vertical-align:middle}
+.mini{display:inline-block;width:46px;height:6px;border-radius:3px;background:var(--soft);vertical-align:middle;overflow:hidden;margin-left:4px}
+.mini.wide{display:block;width:100%;margin:6px 0}
+.mini i{display:block;height:100%;background:var(--tile)}
+.okt{color:var(--tile);font-weight:600}
+.vrow.dim .m{opacity:.75}
+.readybox{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0}
+.readybox>div{flex:1 1 220px;display:flex;flex-direction:column;font-size:.92rem}
+.readybox span{color:var(--muted)}
+.note.ok{color:var(--tile)}
+.unlock{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tile);border-radius:16px;padding:14px 16px;margin:12px 0}
+.unlock p{margin:6px 0 10px;color:var(--muted)}
