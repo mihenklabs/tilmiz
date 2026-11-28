@@ -1,73 +1,20 @@
-# Çevrimdışı konuşma tanıma denemesi (Whisper)
+# Çevrimdışı konuşma tanıma değerlendirmesi (28 Kasım 2026)
 
-Girdi: TTS ile üretilmiş temiz sesler (gerçek öğrenci sesi değil). Doğru = kelimelerin hepsi aynı (harekesiz karşılaştırma).
+Amaç: telefona bağlı olmadan (web, masaüstü, Android) çevrimdışı çalışan Arapça konuşma tanıma; sözlükte sesle arama ve telaffuz kontrolü.
 
+## Denenenler (bilgisayarda, CPU)
+| Model | Boyut (int8 tahmini) | ClArTTS kısa cümle CER | Tek kelime birebir | Ses çifti ayırt etme |
+|---|---|---|---|---|
+| openai/whisper-tiny | ~40 MB | %24 | 5/40 | serbest 1/20, aday puanlama 11/20 |
+| openai/whisper-base | ~80 MB | %15 | 3/40 | serbest 1/20, aday puanlama 11/20 |
+| openai/whisper-small | ~250 MB | %6 | – | – (klip başı 5,5 sn) |
+| facebook/wav2vec2-xlsr-53-espeak-cv-ft (fonem) | ~320 MB | – | – | 8/20 |
 
-## openai/whisper-tiny (38M parametre, int8 ≈ 38 MB)
+Test sesleri: ClArTTS kısa klipleri ve Piper ar_JO-kareem sesiyle üretilmiş tek kelimeler (yalnızca test için, uygulamaya girmez).
+Betikler: scratchpad (asr_eval.py, asr_words.py, phon_eval.py) – gerekirse yeniden yazılabilir.
 
-| Ses | Hedef | Tanınan | Doğru |
-|---|---|---|---|
-| Piper | كِتَابٌ | تتفهم | ✗ |
-| Piper | مَدْرَسَةٌ | لسأطلق | ✗ |
-| Piper | يَكْتُبُ | يحطو | ✗ |
-| Piper | السَّلَامُ عَلَيْكُمْ. كَيْفَ حَالُكَ؟ | السلام وعليكو كيف حالك | ✗ |
-| Piper | بِخَيْرٍ، الْحَمْدُ لِلَّهِ. وَأَنْتَ؟ | بخيرا الحمد للله وانطه | ✗ |
-| Piper | بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ | بسم الله الرحمن الرحيم | ✓ |
-| Piper | الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ | الحمد لله رب العالمين | ✓ |
-| Piper | إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ | إنما العمل بالنية | ✗ |
-| Meta | كِتَابٌ | اتلدو | ✗ |
-| Meta | مَدْرَسَةٌ | لرسن | ✗ |
-| Meta | يَكْتُبُ | لتم | ✗ |
-| Meta | السَّلَامُ عَلَيْكُمْ. كَيْفَ حَالُكَ؟ | السلام عليكم كيف حاجن | ✗ |
-| Meta | بِخَيْرٍ، الْحَمْدُ لِلَّهِ. وَأَنْتَ؟ | إثاري الحمد للله وأن | ✗ |
-| Meta | بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ | إسم الله رحمان الرحيم | ✗ |
-| Meta | الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ | حمد للله رب العالمي | ✗ |
-| Meta | إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ | إنما الأعمالي بالنيةي | ✗ |
-
-**2/16 tam doğru**, örnek başı 0.39 sn (masaüstü CPU)
-
-## openai/whisper-base (73M parametre, int8 ≈ 73 MB)
-
-| Ses | Hedef | Tanınan | Doğru |
-|---|---|---|---|
-| Piper | كِتَابٌ | تتب | ✗ |
-| Piper | مَدْرَسَةٌ | لسابت | ✗ |
-| Piper | يَكْتُبُ | افتول | ✗ |
-| Piper | السَّلَامُ عَلَيْكُمْ. كَيْفَ حَالُكَ؟ | السلام عليكم كيف حالك | ✓ |
-| Piper | بِخَيْرٍ، الْحَمْدُ لِلَّهِ. وَأَنْتَ؟ | بخير الحمد لله وانته | ✗ |
-| Piper | بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ | بسم الله الرحمن الرحيم | ✓ |
-| Piper | الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ | الحمد لله رب العالمين | ✓ |
-| Piper | إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ | إنما الأعمال بنية | ✗ |
-| Meta | كِتَابٌ | ويتالبو | ✗ |
-| Meta | مَدْرَسَةٌ | لرسن | ✗ |
-| Meta | يَكْتُبُ | لتوم | ✗ |
-| Meta | السَّلَامُ عَلَيْكُمْ. كَيْفَ حَالُكَ؟ | السلام عليكم كيف حاكن | ✗ |
-| Meta | بِخَيْرٍ، الْحَمْدُ لِلَّهِ. وَأَنْتَ؟ | إفار الحمد لله وان | ✗ |
-| Meta | بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ | إسم الله رحمان الرحين | ✗ |
-| Meta | الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ | همد لله رب العالمي | ✗ |
-| Meta | إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ | إن مل أعمال بالنياتي | ✗ |
-
-**3/16 tam doğru**, örnek başı 0.68 sn (masaüstü CPU)
-
-## openai/whisper-small (242M parametre, int8 ≈ 242 MB)
-
-| Ses | Hedef | Tanınan | Doğru |
-|---|---|---|---|
-| Piper | كِتَابٌ | تتبعي | ✗ |
-| Piper | مَدْرَسَةٌ | لا سأطلق | ✗ |
-| Piper | يَكْتُبُ | يفتول | ✗ |
-| Piper | السَّلَامُ عَلَيْكُمْ. كَيْفَ حَالُكَ؟ | السلام عليكم كيف حالك | ✓ |
-| Piper | بِخَيْرٍ، الْحَمْدُ لِلَّهِ. وَأَنْتَ؟ | بخير الحمد لله وانت | ✓ |
-| Piper | بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ | بسم الله الرحمن الرحيم | ✓ |
-| Piper | الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ | الحمد لله رب العالمين | ✓ |
-| Piper | إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ | إنما الأعمال بالنية | ✗ |
-| Meta | كِتَابٌ | ويطلدوه | ✗ |
-| Meta | مَدْرَسَةٌ | لرسن | ✗ |
-| Meta | يَكْتُبُ | لتم | ✗ |
-| Meta | السَّلَامُ عَلَيْكُمْ. كَيْفَ حَالُكَ؟ | السلام عليكم كيف حاكن | ✗ |
-| Meta | بِخَيْرٍ، الْحَمْدُ لِلَّهِ. وَأَنْتَ؟ | إيفير الحمد لله وأن | ✗ |
-| Meta | بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ | إسم الله رحمان الرحيم | ✗ |
-| Meta | الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ | الحمد لله رب العالمي | ✗ |
-| Meta | إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ | إنما الأعمال بالنياتي | ✗ |
-
-**4/16 tam doğru**, örnek başı 2.87 sn (masaüstü CPU)
+## Sonuç
+- Hazır Whisper modelleri cümlede kabul edilebilir (small), tek kelimede ve ق/ك gibi çiftlerde yazı-tura düzeyinde. Dil modeli yanlış telaffuzu “düzelttiği” için telaffuz kontrolüne uygun değil.
+- Hazır çok dilli fonem modeli de Arapça vurgulu (mufahham) harflerde başarısız.
+- Güvenilir telaffuz kontrolü için Arapça konuşmayla eğitilmiş bir fonem (CTC) modeli gerekir: veri Common Voice Arapça (CC0, Hugging Face’te koşulları kabul etmek gerekir) + ClArTTS; xlsr-53 ya da wav2vec2-base üzerinden ince ayar, sonra int8 ONNX (~100–300 MB), tarayıcıda onnxruntime-web ile. Kalitesi önceden bilinemez; T4’te 10–20 saat.
+- Şimdilik: Chrome’un cihaz içi tanıması varsa kullanılıyor (src/pron.js); yoksa telaffuz bölümü dinle-ayırt et ve sesli pratikte kendi sesini karşılaştırma ile çalışıyor.
