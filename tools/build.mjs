@@ -89,8 +89,19 @@ if ("serviceWorker" in navigator) { window.addEventListener("load", function () 
 `;
   const preload = Object.entries(dataUrls).filter(([k]) => !LAZY.includes(k)).map(([, u]) => u).map(u => `<link rel="preload" href="${u}" as="fetch" crossorigin="anonymous">\n`).join("")
     + `<link rel="preload" href="${jsName}" as="script">\n`;
+  // Arama motorları ve paylaşım önizlemeleri için (Open Graph, yapılandırılmış veri)
+  const siteUrl = `https://${cfg.githubUser}.github.io/${cfg.repo}/`;
+  emit("og.png", fs.readFileSync(r("store/feature-graphic-1024x500.png")));
+  const seoDesc = "Türkçe konuşanlar için ücretsiz, reklamsız Arapça öğrenme: 11.700+ kelime, aralıklı tekrar, Elifbâ, dil bilgisi dersleri, Kur’an ayetleri ve hadisler kelime kelime.";
+  const ld = { "@context": "https://schema.org", "@type": "WebApplication", name: cfg.name, url: siteUrl, applicationCategory: "EducationalApplication", operatingSystem: "Android, Web", inLanguage: "tr", description: seoDesc, isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "TRY" }, author: { "@type": "Organization", name: cfg.developer, url: `https://${cfg.githubUser}.github.io/` } };
   const pwaHead = `<meta name="theme-color" content="${cfg.themeColor}">
-<meta name="description" content="${cfg.name}: ${cfg.tagline}">
+<meta name="description" content="${seoDesc}">
+<link rel="canonical" href="${siteUrl}">
+<meta property="og:type" content="website"><meta property="og:locale" content="tr_TR"><meta property="og:site_name" content="${cfg.name}">
+<meta property="og:title" content="${cfg.name} – ücretsiz Arapça öğren"><meta property="og:description" content="${seoDesc}">
+<meta property="og:url" content="${siteUrl}"><meta property="og:image" content="${siteUrl}og.png"><meta property="og:image:width" content="1024"><meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">${JSON.stringify(ld)}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
@@ -116,7 +127,24 @@ export function buildRoot(out = r("dist/root")) {
   fs.writeFileSync(path.join(out, ".well-known/assetlinks.json"), names(read("src/pwa/.well-known/assetlinks.json")));
   // Tanıtım sayfası. Bağış bölümü yalnızca app.config.json donateUrl doluysa görünür (https bağlantısı).
   const donate = /^https:\/\//.test(cfg.donateUrl || "");
+  const home = `https://${cfg.githubUser}.github.io/`, app = home + cfg.repo + "/";
+  const FAQ = [
+    ["Tilmiz gerçekten ücretsiz mi?", "Evet. Reklam, abonelik ya da kilitli içerik yok; bütün bölümler herkese açık."],
+    ["Hesap açmam gerekiyor mu?", "Hayır. İlerlemen yalnızca kendi cihazında saklanır. Telefon değiştirirken Ayarlar’dan yedek dosyası alıp yeni cihazda geri yükleyebilirsin."],
+    ["Arap harflerini hiç bilmiyorum, kullanabilir miyim?", "Evet. Pratik bölümündeki Elifbâ kısmı harfleri, harekeleri ve okumayı adım adım öğretir; kelimelerin okunuşu Latin harfleriyle de yazılıdır."],
+    ["Kur’an Arapçası mı, günlük Arapça mı?", "İkisi de. Kelimeler sık kullanılandan seyreğe sıralı; günlük dil, klasik Arapça ve Kur’an’da geçen kelimeler bir arada. Gelişim ekranı Kur’an’ın ve film altyazılarının ne kadarını anladığını gösterir."],
+    ["Mealler ve hadis çevirileri nereden alındı?", "Ayet mealleri QuranEnc.com’daki Rowwad Tercüme Merkezi Türkçe mealinden, hadis çevirileri HadeethEnc.com’dan değiştirilmeden alındı ve kaynağı her metinde belirtildi."],
+    ["Çocuklar kullanabilir mi?", "Uygulama 7 yaş ve üzeri için uygundur: kişisel veri toplamaz, reklam göstermez, çocuklara uygun olmayan kelimeler gösterilmez."],
+    ["İnternetsiz çalışır mı?", "Evet. Bir kez açıldıktan sonra internet olmadan da kullanılabilir."],
+  ];
+  const faqHtml = FAQ.map(([q, a]) => `<details class="q"><summary>${q}</summary><p>${a}</p></details>`).join("\n      ");
+  const ld = [
+    { "@context": "https://schema.org", "@type": "Organization", name: cfg.developer, url: home, email: cfg.contactEmail || undefined, sameAs: [`https://github.com/${cfg.githubUser}`] },
+    { "@context": "https://schema.org", "@type": "MobileApplication", name: cfg.name, url: app, operatingSystem: "Android, Web", applicationCategory: "EducationalApplication", inLanguage: "tr", isAccessibleForFree: true, offers: { "@type": "Offer", price: "0", priceCurrency: "TRY" }, author: { "@type": "Organization", name: cfg.developer }, ...(cfg.playUrl ? { installUrl: cfg.playUrl } : {}) },
+    { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+  ];
   const html = names(read("src/root/index.html"))
+    .replace("{{FAQ_HTML}}", faqHtml).replace("{{LD_JSON}}", JSON.stringify(ld).replace(/</g, "\\u003c"))
     .replace(/<!--donate-->([\s\S]*?)<!--\/donate-->/g, (m, x) => donate ? x : "")
     .replaceAll("{{DONATE_URL}}", donate ? cfg.donateUrl : "")
     .replaceAll("{{PLAY_LINK}}", cfg.playUrl ? `href="${cfg.playUrl}"` : 'aria-disabled="true"')
@@ -125,6 +153,11 @@ export function buildRoot(out = r("dist/root")) {
   fs.writeFileSync(path.join(out, "index.html"), html);
   fs.mkdirSync(path.join(out, "img"), { recursive: true });
   for (const f of fs.readdirSync(r("src/root/img"))) fs.copyFileSync(r("src/root/img/" + f), path.join(out, "img", f));
+  fs.copyFileSync(r("store/feature-graphic-1024x500.png"), path.join(out, "img/og.png"));
+  // Arama motorları: kök alan adı tüm Pages sitelerini (/tilmiz/ dahil) kapsar
+  const day = new Date().toISOString().slice(0, 10);
+  fs.writeFileSync(path.join(out, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${home}sitemap.xml\n`);
+  fs.writeFileSync(path.join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[home, app, app + "privacy.html"].map((u, i) => `  <url><loc>${u}</loc><lastmod>${day}</lastmod><priority>${["1.0", "0.9", "0.3"][i]}</priority></url>`).join("\n")}\n</urlset>\n`);
   return out;
 }
 

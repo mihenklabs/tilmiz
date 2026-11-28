@@ -7,9 +7,16 @@
 <meta name="description" content="{{APP_NAME}}: Türkçe konuşanlar için ücretsiz, reklamsız Arapça öğrenme uygulaması. Kelime, dil bilgisi, ayet ve hadis okuma pratiği.">
 <meta name="google" content="notranslate">
 <meta name="theme-color" content="#1F3A68">
+<link rel="canonical" href="https://{{GITHUB_USER}}.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://{{GITHUB_USER}}.github.io/">
 <meta property="og:title" content="{{APP_NAME}} – ücretsiz Arapça öğrenme">
 <meta property="og:description" content="Kelime, dil bilgisi, ayet ve hadis okuma pratiği. Reklam yok, abonelik yok, veri toplanmaz.">
-<meta property="og:image" content="https://{{GITHUB_USER}}.github.io/img/1-calis.webp">
+<meta property="og:image" content="https://{{GITHUB_USER}}.github.io/img/og.png">
+<meta property="og:image:width" content="1024"><meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{{LD_JSON}}</script>
 <link rel="icon" href="/{{REPO}}/icons/icon-192.png">
 <style>
 @font-face{font-family:Rubik;font-weight:400;font-display:swap;src:url(/{{REPO}}/fonts/rubik-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
@@ -55,6 +62,8 @@ section p.sub{color:var(--muted);margin:0 0 26px;max-width:40em}
 .shots img{width:220px;height:440px;object-fit:cover;border-radius:20px;border:1px solid var(--line);display:block;background:var(--soft)}
 .shots figcaption{text-align:center;color:var(--muted);font-size:.9rem;margin-top:8px}
 .trust{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.steps{margin:0;padding-left:22px}.steps li{margin:0 0 10px;color:var(--muted)}.steps b{color:var(--ink)}
+details.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:0 0 10px}details.q summary{cursor:pointer;font-weight:700}details.q p{margin:8px 0 0;color:var(--muted)}
 .donate{background:var(--brand);color:var(--on-brand);border-radius:22px;padding:28px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
 .donate h2{margin:0 0 6px}
 .donate p{margin:0;opacity:.85;max-width:36em}
@@ -70,7 +79,7 @@ footer .links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:12px}
 <div class="wrap">
   <header class="top">
     <a class="brand" href="/"><img src="/{{REPO}}/icons/icon-192.png" alt="" width="34" height="34">{{DEV_NAME}}</a>
-    <nav aria-label="Sayfa içi"><a href="#ozellikler">Özellikler</a><a href="#ekranlar">Ekranlar</a><a href="#ilkeler">İlkeler</a><!--donate--><a href="#destek">Destek ol</a><!--/donate--></nav>
+    <nav aria-label="Sayfa içi"><a href="#ozellikler">Özellikler</a><a href="#ekranlar">Ekranlar</a><a href="#ilkeler">İlkeler</a><a href="#sss">SSS</a><!--donate--><a href="#destek">Destek ol</a><!--/donate--></nav>
   </header>
 
   <main>
@@ -121,6 +130,21 @@ footer .links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:12px}
         <div class="card"><h3>Açık kaynak</h3><p>Kaynak kodu GPL-3.0 lisansıyla <a href="https://github.com/{{GITHUB_USER}}/{{REPO}}">GitHub’da</a>. Hata bulursan bildirebilir, katkı verebilirsin.</p></div>
         <div class="card"><h3>Kaynakları belli</h3><p>Kelime verileri Vikisözlük, Kur’an verisi Quranic Arabic Corpus, mealler QuranEnc ve HadeethEnc’ten; hepsi uygulamada belirtilir.</p></div>
       </div>
+    </section>
+    <section id="nasil">
+      <h2>Nasıl başlarım?</h2>
+      <p class="sub">Kurulum ya da hesap gerekmez; telefonda ya da bilgisayarda tarayıcıdan açman yeter.</p>
+      <ol class="steps">
+        <li><b>Harfleri tanımıyorsan</b> Pratik → Elifbâ bölümünden başla: harfler, harekeler ve kısa okuma alıştırmaları.</li>
+        <li><b>Her gün birkaç yeni kelime</b> öğren. Uygulama bilemediklerini sık, bildiklerini seyrek sorar; günde 10–15 dakika yeterli.</li>
+        <li><b>Kelimeler biriktikçe</b> dil bilgisi dersleri ve ayet-hadis metinleri “hazır” olur. Kelimelerinin çoğunu bildiğin metinleri kendin okursun.</li>
+        <li><b>Telefonda uygulama gibi</b> kullanmak için tarayıcı menüsünden “Ana ekrana ekle”yi seç; internet olmadan da çalışır.</li>
+      </ol>
+    </section>
+
+    <section id="sss">
+      <h2>Sık sorulan sorular</h2>
+      {{FAQ_HTML}}
     </section>
 <!--donate-->
     <section id="destek">

@@ -111,3 +111,15 @@ test("tanıtım sitesi: bağlantılar ve görseller var, yer tutucu kalmamış, 
   if (/^https:\/\//.test(cfg.donateUrl || "")) assert.match(html, /id="destek"/);
   else assert.doesNotMatch(html, /id="destek"|Destek ol/);
 });
+
+test("SEO: yapılandırılmış veri geçerli JSON, site haritası ve robots.txt var", () => {
+  const ldOf = f => JSON.parse(fs.readFileSync(f, "utf8").match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const rootLd = ldOf(path.join(root, "dist/root/index.html"));
+  assert.deepEqual(rootLd.map(x => x["@type"]), ["Organization", "MobileApplication", "FAQPage"]);
+  assert.ok(rootLd[2].mainEntity.length >= 5);
+  assert.equal(ldOf(path.join(root, "dist/site/index.html"))["@type"], "WebApplication");
+  const sm = fs.readFileSync(path.join(root, "dist/root/sitemap.xml"), "utf8");
+  assert.match(sm, /<loc>https:\/\/[a-z]+\.github\.io\/tilmiz\/<\/loc>/);
+  assert.match(fs.readFileSync(path.join(root, "dist/root/robots.txt"), "utf8"), /Sitemap: https:\/\/.+sitemap\.xml/);
+  assert.ok(fs.existsSync(path.join(root, "dist/site/og.png")) && fs.existsSync(path.join(root, "dist/root/img/og.png")));
+});
