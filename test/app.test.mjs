@@ -133,7 +133,7 @@ test("26 dil bilgisi dersi açılır, 8 soruluk alıştırmaları çözülür", 
 test("ayet/hadis ve diyalog sayfaları", () => {
   const a = openApp({ state: learnedState(LEARNED), hash: "pratik" });
   const nt = a.ev("TX.length"), nd = a.ev("DLG.length");
-  assert.equal(nt, 71); assert.equal(nd, 12);
+  assert.equal(nt, 71); assert.equal(nd, 40);
   for (let k = 0; k < nt; k++) { a.ev(`pv = { mode: "text", k: ${k} }; practice();`); }
   for (let k = 0; k < nd; k++) { a.ev(`pv = { mode: "dlg", k: ${k} }; practice();`); playQuiz(a, 10); }
   noErrors(a); a.close();

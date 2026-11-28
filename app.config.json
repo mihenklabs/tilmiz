@@ -18,5 +18,6 @@
       "sha256": "9E:45:DC:7D:18:F3:66:8C:0E:12:9D:B0:57:CF:5F:C6:FA:2A:31:C8:E1:D0:74:BA:9D:53:95:B9:72:44:E4:E9"
     }
   ],
-  "playBilling": false
+  "playBilling": false,
+  "sesUrl": "https://mihenklabs.github.io/tilmiz-ses/"
 }

@@ -295,3 +295,7 @@ nav.tabs a[aria-current="page"]{color:var(--tile)}
 .pw .cf{width:auto;font-size:1.7rem;padding:4px 14px}
 .pw small{color:var(--muted);font-size:.8rem}
 #dqMic{margin:6px 0 0}
+/* Ses paketleri */
+.sesrow{display:flex;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding:10px 0}
+.sesrow>div{display:flex;flex-direction:column;flex:1}
+.sesrow span{color:var(--muted);font-size:.85rem}

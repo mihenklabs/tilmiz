@@ -6,6 +6,7 @@ import path from "node:path";
 import readline from "node:readline";
 import { fileURLToPath } from "node:url";
 import { fmtJSON } from "./jsonfmt.mjs";
+import { mergeOwn } from "./sentences-own/merge.mjs";
 import { applySentenceFixes } from "./sentences-apply.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -71,6 +72,6 @@ S.forEach((s, k) => { for (const id of wordsIn(s[0])) (idx[id] = idx[id] || []).
 for (const k in idx) idx[k] = idx[k].slice(0, 6); // kısa cümleler önce
 // kendi çeviri düzeltmelerimiz ve alternatiflerimiz (data/sentences-tr.json), çıkarılanlar
 const OUT = applySentenceFixes({ src: "Tatoeba (tatoeba.org), CC BY 2.0 FR", s: S, w: idx }, { blocked });
-fs.writeFileSync(path.join(root, "data/sentences.json"), fmtJSON(OUT));
+fs.writeFileSync(path.join(root, "data/sentences.json"), fmtJSON(mergeOwn(OUT).out)); // + kendi cümlelerimiz (tools/sentences-own)
 const covered = Object.keys(OUT.w).length;
 console.log(`${OUT.s.length} cümle çifti, ${covered} kelimede en az bir örnek`);

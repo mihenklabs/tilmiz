@@ -160,6 +160,7 @@ function speak(text, force) {
     });
     return;
   }
+  if (src !== "claude" && typeof sesSpeak === "function" && sesSpeak(text)) return;
   if (src === "claude" && !ttsCap) { toast("Claude sesi bu ekranda kullanılamıyor (Chrome’da açınca çalışır). Telefonun sesi kullanılıyor."); }
   deviceSpeak(t);
 }
@@ -491,7 +492,7 @@ function dictCard(i) {
 }
 function exampleBlock(i) {
   const ks = SENT && SENT.w[i]; if (!ks) return "";
-  return `<div class="ex"><div class="dmeta">Örnek cümleler</div>${ks.slice(0, 3).map(k => { const [ar, tr, , , alt] = SENT.s[k]; return `<div class="exs"><span class="ar" lang="ar" dir="rtl">${esc(ar)}</span><button class="saybtn" data-say="${esc(ar)}" aria-label="Dinle">🔊</button><div>${esc(tr)}</div>${altLine(alt)}</div>`; }).join("")}<div class="src">Tatoeba · CC BY 2.0 FR${ks.slice(0, 3).some(k => SENT.s[k][3] === 0) ? " · bazı çeviriler {{APP_NAME}} tarafından düzeltildi" : ""}</div></div>`;
+  return `<div class="ex"><div class="dmeta">Örnek cümleler</div>${ks.slice(0, 3).map(k => { const [ar, tr, , , alt] = SENT.s[k]; return `<div class="exs"><span class="ar" lang="ar" dir="rtl">${esc(ar)}</span><button class="saybtn" data-say="${esc(ar)}" aria-label="Dinle">🔊</button><div>${esc(tr)}</div>${altLine(alt)}</div>`; }).join("")}<div class="src">${(() => { const sh = ks.slice(0, 3), own = sh.filter(k => SENT.s[k][2] === 0).length, tat = sh.length - own; return [tat ? "Tatoeba · CC BY 2.0 FR" + (sh.some(k => SENT.s[k][2] !== 0 && SENT.s[k][3] === 0) ? " (bazı çeviriler düzeltildi)" : "") : "", own ? "{{APP_NAME}} örnek cümlesi" : ""].filter(Boolean).join(" · "); })()}</div></div>`;
 }
 function dictView(seg) {
   const ids = dictSearch(dictQ);
@@ -560,6 +561,7 @@ function settings() {
     <p style="margin:0 0 6px;color:var(--ink)">Doğru / yanlış sesleri</p><div class="pills" style="margin-bottom:10px">${pill("fx", true, "Açık")}${pill("fx", false, "Kapalı")}</div>
     <p style="margin:0 0 6px;color:var(--ink)">Hız</p><div class="pills" style="margin-bottom:10px">${pill("vrate", 0.7, "Yavaş")}${pill("vrate", 0.85, "Orta")}${pill("vrate", 1, "Normal")}</div>
     <div class="row" style="margin-top:4px">${IN_CLAUDE ? `<button class="btn" id="vtC">Claude sesini dene</button>` : ""}<button class="btn" id="vtD">${IN_CLAUDE ? "Telefonun sesini dene" : "Sesi dene"}</button></div></div>
+  ${sesBox()}
   <div class="set"><h3>Otomatik geçiş</h3><p>Cevabı gösterdikten sonra sonraki karta kendiliğinden geçer. “Devam”a basarak beklemeden de geçebilirsin.</p>
     <p style="margin:0 0 6px;color:var(--ink)">Doğru cevapta</p><div class="pills" style="margin-bottom:12px">${[0, 1.5, 2, 3].map(n => pill("okSec", n, n ? String(n).replace(".", ",") + " sn" : "Kapalı")).join("")}</div>
     <p style="margin:0 0 6px;color:var(--ink)">Yanlış cevapta</p><div class="pills">${[0, 3, 4, 6].map(n => pill("badSec", n, n ? n + " sn" : "Kapalı")).join("")}</div></div>
@@ -592,6 +594,7 @@ function settings() {
   const SAMPLE = "كَتَبَ الطَّالِبُ الدَّرْسَ";
   if ($("#vtC")) $("#vtC").onclick = () => { if (!ttsCap) { toast("Claude sesi bu ekranda kullanılamıyor."); return; } speak(SAMPLE, "claude"); };
   $("#vtD").onclick = () => deviceSpeak(spk(SAMPLE));
+  sesBind();
   app.querySelectorAll("[data-tip]").forEach(b => b.onclick = () => { gate = { sku: b.dataset.tip, a: 6 + Math.floor(Math.random() * 4), b: 6 + Math.floor(Math.random() * 4) }; settings(); const g = $("#gIn"); if (g) g.focus(); });
   const gOk = $("#gOk"); if (gOk) gOk.onclick = () => { const v = +($("#gIn").value || "").trim(); if (v === gate.a * gate.b) { const sku = gate.sku; gate = null; settings(); buyTip(sku); } else toast("Cevap yanlış."); };
   const gNo = $("#gNo"); if (gNo) gNo.onclick = () => { gate = null; settings(); };

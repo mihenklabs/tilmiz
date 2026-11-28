@@ -21,7 +21,7 @@ PRATİK
 • Dil bilgisi ve cümle alıştırmalarında yalnızca öğrendiğin kelimeler kullanılır.
 • Fiil çekimi alıştırmaları ve tam çekim tabloları.
 • Harf dizme, üçlü çeviri (Arapça–Türkçe–İngilizce).
-• 70 ayet ve hadis kelime kelime anlamlarıyla; mealler QuranEnc ve HadeethEnc kaynaklı. 12 günlük diyalog ve sesli pratik.
+• 70 ayet ve hadis kelime kelime anlamlarıyla; mealler QuranEnc ve HadeethEnc kaynaklı. 40 günlük diyalog, telaffuz dersleri ve sesli pratik.
 
 GELİŞİM
 • Seviyen (A1–C2), film altyazılarının ve Kur'an'ın ne kadarını anladığın.

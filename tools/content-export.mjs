@@ -68,7 +68,7 @@ sheet("Diyaloglar", [["Kimlik", "id", 9], ["Diyalog", "title", 18], ["Arapça", 
 // Tatoeba örnek cümleleri: 7+ yaşa uygun olmayan ya da hatalı olanlar işaretlenir
 const SN = read("sentences"), Wd = read("words"), used = {};
 for (const [id, ks] of Object.entries(SN.w)) for (const k of ks) (used[k] = used[k] || []).push(Wd[id][0]);
-const sRows = SN.s.map((s, k) => ({ id: "sn:" + s[2], ar: s[0], tr: s[1], alt: (s[4] || []).join(" | "), words: (used[k] || []).join("، "), del: "", note: "" })).filter((r, k) => used[k]);
+const sRows = SN.s.map((s, k) => ({ id: s[2] === 0 ? "so:" + k : "sn:" + s[2], ar: s[0], tr: s[1], alt: (s[4] || []).join(" | "), words: (used[k] || []).join("، "), del: "", note: "" })).filter((r, k) => used[k]);
 sheet("Örnek cümleler", [["Kimlik", "id", 12], ["Arapça", "ar", 45], ["Türkçe", "tr", 45], ["Diğer doğru çeviriler", "alt", 36], ["Hangi kelimelerde", "words", 22], ["Kaldır (x)", "del", 10], ["Not", "note", 30]], sRows, ["ar", "words"], ["del", "note"]);
 
 // Dersler: uygulamada gösterilen metin (jsdom ile)

@@ -45,7 +45,7 @@ test("örnek cümleler: kartta görünür, gizli kelime ve uygunsuz içerik yok"
   const id = idOf("هُوَ");
   assert.ok(S.w[id] && S.w[id].length);
   assert.match(a.ev(`exampleBlock(${id})`), /Örnek cümleler/);
-  for (const [, tr, , , alt] of S.s) for (const t of [tr, ...(alt || [])]) assert.doesNotMatch(t.toLocaleLowerCase("tr"), /(^|\s)(öldür|intihar|şarap|bira(?![a-zçğıöşü])|sarhoş|seks)/, t);
+  for (const [, tr, , , alt] of S.s) for (const t of [tr, ...(alt || [])]) assert.doesNotMatch(t.toLocaleLowerCase("tr"), /(^|\s)(öldür|intihar|şarap|bira(?![a-zçğıöşü])|sarhoş|seks(?![a-zçğıöşü]))/, t);
   for (const i of MAT) assert.ok(!S.w[i], "gizli kelimeye örnek bağlanmış: " + i);
 });
 

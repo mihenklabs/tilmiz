@@ -17,8 +17,9 @@ const pkgVersion = JSON.parse(read("package.json")).version;
 export function loadParts() {
   const tpl = read("src/index.html");
   const css = read("src/style.css");
-  // src/notify.js (hatırlatmalar), src/voice.js (sesli pratik) ve src/pron.js (telaffuz) yönlendiriciden hemen önce eklenir
-  const js = read("src/app.js").replace("// ---------- router ----------\n", read("src/notify.js") + "\n" + read("src/voice.js") + "\n" + read("src/pron.js") + "\n// ---------- router ----------\n");
+  // src/notify.js (hatırlatmalar), voice.js (sesli pratik), pron.js (telaffuz), sespack.js (ses paketleri) yönlendiriciden hemen önce eklenir
+  const mods = ["notify", "voice", "pron", "sespack"].map(m => read(`src/${m}.js`)).join("\n");
+  const js = read("src/app.js").replace("// ---------- router ----------\n", mods + "\n// ---------- router ----------\n");
   const order = JSON.parse(read("data/_order.json"));
   const data = {};
   for (const k of order) data[k] = JSON.stringify(JSON.parse(read("data/" + k + ".json")));
@@ -32,6 +33,7 @@ const names = s => s.replaceAll("{{APP_NAME}}", cfg.name).replaceAll("{{APP_SHOR
   .replaceAll("{{PLAY_BILLING}}", cfg.playBilling ? "1" : "0")
   .replace(/<!--billing-->([\s\S]*?)<!--\/billing-->/g, (m, x) => cfg.playBilling ? x : "")
   .replace(/<!--nobilling-->([\s\S]*?)<!--\/nobilling-->/g, (m, x) => cfg.playBilling ? "" : x)
+  .replaceAll("{{SES_URL}}", cfg.sesUrl || "")
   .replaceAll("{{CONTACT_EMAIL}}", cfg.contactEmail || "").replaceAll("{{VERSION}}", pkgVersion);
 
 // JSON'u <script> içine güvenle koy
