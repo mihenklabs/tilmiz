@@ -1,0 +1,17 @@
+3824 | أَقْسَى | tr "daha sert, en sert" (ism-i tafdil) ile en "to harden", tur verb ve ek يُقْسِي (fiil) çelişiyor | ya tur adj, tr "daha sert", ek boş; ya da tr "katılaştırmak, sertleştirmek"
+3840 | ديزِل | hareke eksik, okunuş yok ("trensliteretion needed") | دِيزِل, okunuş "dîzil"
+11177 | سْوِيسْرِيّ | kelime sükûnla başlıyor | سُوِيسْرِيّ
+11182 | صَلْب | "sert" anlamı صُلْب (ötreli) kelimesine ait; صَلْب yalnızca çarmıha germe | tr "çarmıha germe"; "sert" için صُلْب
+3908 | فَنَاء | "avlu" anlamı فِنَاء (esreli) kelimesine ait | tr "yok olma, fânilik"; avlu için ayrı kayıt فِنَاء
+3909 | مُسَلِّي | belirsiz nakıs isim yazımı | مُسَلٍّ
+3910 | مَهْر | "tay" anlamı مُهْر (ötreli) kelimesine ait | tr "mehir"; tay için مُهْر (çoğ. أَمْهَار، مِهَار)
+3921 | سُدىً | tenvin yazımı | سُدًى
+10962 | مُلْحُوظ | ism-i meful mim'i fethalı olmalı | مَلْحُوظ (okunuş melhûz)
+10730 | صَعَّدَ | "yükselmek / to ascend" anlamı geçişsiz صَعِدَ fiiline ait; صَعَّدَ geçişli | tr "yükseltmek, tırmandırmak", en "to raise, to escalate"
+3980 | خَلُقَ | en "to be suitable" ile tr "eskimek" çelişiyor | en "to become worn out"
+11201 | قَارَنَ | en "to become associated with" ile tr "karşılaştırmak" uyuşmuyor | en "to compare"
+11209 | طُعْم | "tat" anlamı طَعْم (fethalı) kelimesine ait | tr "yem"; tat için طَعْم
+3956 | مَطَرَة | çoğul أَمْطَار, مَطَر kelimesinin çoğulu | ek مَطَرَات
+10623 | قِشْرَة | çoğul قُشُر alışılmış değil | ek قُشُور (veya قِشَر)
+3954 | عَصْر | çoğul أَعْصَار nadir | ek عُصُور
+10628 | طَائِفَة | yaygın çoğul eksik | ek طَوَائِف

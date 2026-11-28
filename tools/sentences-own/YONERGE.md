@@ -25,3 +25,6 @@ Tilmiz, Türkçe konuşanlara Arapça öğreten, 7 yaş ve üzeri herkes için u
 - Her satır geçerli JSON mı, `id`ler girdiyle aynı ve sırada mı?
 - Her cümlede kelime var mı, harekeler tam mı, çeviri anlamı karşılıyor mu?
 - Emin olmadığın satırları düzelt ya da `skip` yap.
+
+## Sözlük hataları
+Girdideki kelime kaydında hata görürsen (yanlış hareke/yazım, Türkçe ile İngilizce anlamın çelişmesi, yanlış çoğul/muzari) cümleyi doğru biçimle yaz ve hatayı `out/NN.notlar.txt` dosyasına bir satır olarak not et: `id | kelime | sorun | önerilen düzeltme`.

@@ -1,0 +1,23 @@
+3999 | مَيْسَم | çoğul yanlış: مَوَاسِم (bu مَوْسِم'in çoğulu) | ek: مَيَاسِم
+4001 | سَنَد | İngilizce anlam (dağ yamacı, duvar) Türkçe anlamla uyuşmuyor | en: support, prop; bond, deed
+4018 | هَضَمَ | İngilizce anlam (to break, to cut into) Türkçe "sindirmek" ile uyuşmuyor | en: to digest
+11248 | فَجَّرَ | Türkçe "patlatmak", İngilizce "su için çıkış açmak"; ikisi de geçerli ama eksik | tr: patlatmak; (su) fışkırtmak
+4030 | شَابَ | "ağarmak (saç)" anlamı ayrı kökten: شَابَ يَشِيبُ (ش ي ب); bu kayıt شَابَ يَشُوبُ (karışmak) | tr: karışmak (ağarmak anlamını çıkar)
+4035 | حَمِيم | tür noun ama "samimi, yakın" sıfat anlamı; çoğul أَحِمَّاء yalnızca "yakın dost" için | tür: adj/noun; tr: yakın dost, samimi; kaynar su
+4044 | وَجَنَ | "dövmek" belirsiz; İngilizce anlam kumaş dövmek/tokmaklamak | tr: (kumaşı) dövmek, tokmaklamak (seyrek kullanılır)
+4071 | مَلّة | "bıkkınlık" için yaygın biçimler مَلَل / مَلَالَة; مَلَّة sözlüklerde daha çok "kızgın kül" | kelime: مَلَل (çoğul yok) ya da kaydı kaldır
+11275 | اِفْتَقَرَ | İngilizce anlam yanlış (to be perforated) | en: to lack, to be in need of (with إلى)
+11518 | أَمَدَّ | İngilizce anlam (grant a delay of payment) Türkçe ile uyuşmuyor | en: to supply, to provide, to reinforce (with بِـ)
+10684 | كُشْك | çoğul كِشَاك yaygın değil | ek: أَكْشَاك
+4081 | حَمَّالَة | ilk Türkçe anlam "askı (sütyen)", İngilizce sedye; 7+ için sıralama | tr: sedye; askı
+4087 | قَسْط | "pay, taksit" anlamı قِسْط kelimesine ait (قَسْط = haksızlık, İngilizce bunu veriyor); cümle قِسْط ile yazıldı | ar: قِسْط, okunuş kist, ek: أَقْسَاط, en: share, installment
+4097 | جَذَع | "kütük/trunk" anlamı جِذْع kelimesine ait; جَذَع = genç hayvan | tr: genç (hayvan); en: young animal
+4105 | حِسْبَان | "في الحسبان" deyiminde yaygın okunuş الحُسْبَان | not: deyim için حُسْبَان biçimi eklenebilir
+4145 | لَعْل | Türkçe "belki" yanlış (o لَعَلَّ); لَعْل = la'l, kırmızı değerli taş | tr: la'l (kırmızı değerli taş) (seyrek kullanılır)
+4148 | قَارّ | "kıta (karaya ait)" anlamı قَارِّيّ kelimesine ait; قَارّ = yerleşik, sabit, kalıcı | tr: yerleşik, kalıcı, sabit; en: settled, stable
+4170 | ثَبَت | Türkçe "sağlam, güvenilir" = ثَبْت (sıfat); ثَبَت = delil, kaynak listesi (İngilizce proof) | tr: delil; kaynakça, fihrist (ya da ar: ثَبْت, en: reliable)
+4171 | عِبْرَة | çoğul عِبْرَات yanlış (عَبَرَات = gözyaşları) | ek: عِبَر
+4173 | شَفَق | "şafak kızıllığı" yanıltıcı; şafak sabahtır, شَفَق gün batımından sonraki kızıllıktır | tr: akşam kızıllığı; şefkat
+4156 | زَوَى | İngilizce "to hide" Türkçe ile tam uyuşmuyor | en: to draw together, to contract; to put aside
+10732 | مُحَاكَاة | okunuş "muhâkâh" | okunuş: muhâkât
+4092 | رَابّ | MSA'da nadir; "üvey baba" için yaygın ifade زَوْجُ الْأُمِّ | not: "(seyrek kullanılır)" eklenebilir

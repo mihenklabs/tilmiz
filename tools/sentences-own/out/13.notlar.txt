@@ -1,0 +1,15 @@
+10514 | نِصَاب | İngilizce anlam (begin, source) Türkçe "nisap; yeter sayı" ile çelişiyor; çoğul نُصُب yanlış (o نُصْب'un çoğulu) | en: quorum; minimum taxable amount (nisab); ek: أَنْصِبَة
+3444 | قَرِعَ | İngilizce anlam (to ring, to jingle) Türkçe "kel olmak" ile çelişiyor (ring anlamı قَرَعَ'ye ait) | en: to become bald
+3457 | خَفَضَ | İngilizce anlam (to remain, abide, stay) yanlış; ayrıca kelime seyrek değil (خَفَضَ صَوْتَهُ yaygın) | en: to lower; tr: alçaltmak, indirmek ("seyrek kullanılır" kaldırılmalı)
+3454 | حَاجِب | çoğul yalnızca "kapıcı" anlamı için verilmiş; "kaş" anlamının çoğulu eksik | ek: حَوَاجِب (kaş), حُجَّاب/حَاجِبُون (kapıcı)
+3470 | جَلّ | "çoğu, büyük kısmı" anlamındaki kelime ötreli: جُلّ | ar: جُلّ, okunuş: cull, en: most, greater part
+3472 | سَوْء | yaygın biçim ötreli سُوء (kötülük) | ar: سُوء, okunuş: sû’
+10477 | رَدْهَة | çoğul رَدْه şüpheli | ek: رَدَهَات (ya da رِدَاه)
+3517 | حَيَوانِيّ | vav harekesiz | ar: حَيَوَانِيّ
+3576 | بَسّ | çoğulda sin harekesiz | ek: بِسَاس
+3595 | بُرْكَة | "havuz, gölet" anlamı esreli بِرْكَة; بُرْكَة bir su kuşu adıdır | ar: بِرْكَة (havuz), okunuş: birke; "ördek" anlamı ayrı kayıt olmalı
+3604 | قَارِيّ | "kıtasal" sıfatı قَارَّة'den şeddeli | ar: قَارِّيّ, okunuş: kârriyy
+10472 | أَحَقَّ | İngilizce anlam (to tell the truth, to be right) Türkçeyle uyuşmuyor; asıl anlam "hakkı ortaya koymak, gerçekleştirmek" | tr: hakkı ortaya koymak; en: to establish (the truth/right)
+11037 | بْلَاسْتِيكِيّ | ilk harf sükûnlu yazım alışılmadık; yaygın harekeleme بِلَاسْتِيكِيّ | ar: بِلَاسْتِيكِيّ (cümlede kayıttaki biçim kullanıldı)
+3574 | ثَالُوث | çoğul sonunda gereksiz ötre | ek: ثَوَالِيث
+3578 | شَيَّمَ | "kınına sokmak" anlamında bu kalıp şüpheli (klasik sözlüklerde شَامَ السَّيْفَ geçer) | kayıt kontrol edilmeli

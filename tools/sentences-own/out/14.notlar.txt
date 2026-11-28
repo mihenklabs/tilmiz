@@ -1,0 +1,23 @@
+3625 | ثَمَلَ | tr "sarhoş olmak" ile en "to stay, remain staying" çelişiyor | en: to become drunk (ya da tr'yi en'e göre düzelt)
+11054 | يافِع | ي harfinde hareke eksik | يَافِع
+3657 | ثَمَّلَ | tr "artakalmak" (geçişsiz) ile en "to leave (water, etc.)" (geçişli) çelişiyor | tr: artırmak, geride bırakmak (su vb.)
+11063 | اِسْتَهْدَفَ | en "to be exposed, to be open" tr ile uyuşmuyor | en: to target, to aim at
+3678 | رِوَاق | en yalnızca klasik anlam (çadır perdesi); tr revak/galeri | en: portico, gallery, arcade; pavilion
+3683 | بُرْغِيّ | çoğulda yanlış şedde | بَرَاغِي (ya da بَرَاغٍ)
+3702 | كَوَّسَ | tr "yığmak" ile en "to throw head over heels" çelişiyor | tr: tepetaklak etmek, yere sermek
+3715 | هِيدْرُوجِين | okunuşta ž harfi | hîdrûcîn
+3719 | عِدَاد | en "number, amount" tr "sayaç" ile uyuşmuyor | en: meter, counter (elektrik/su sayacı)
+10837 | غَرِقَ | tr yalnız "boğulmak"; cansız nesneler için batmak anlamı eksik | tr: boğulmak; batmak
+10541 | اِحْتَضَرَ | anlam yanlış: MSA'da "ölüm döşeğinde olmak, can çekişmek" (hazır bulunmak = حَضَرَ) | tr: can çekişmek, ölüm döşeğinde olmak; en: to be dying
+3739 | مُثَار | MSA'da çoğunlukla "ortaya atılan, gündeme getirilen (soru, konu); kışkırtılmış"; "heyecanlanmış" anlamı zayıf (doğrusu مُتَحَمِّس) | tr: ortaya atılmış, kışkırtılmış; heyecanlanmış
+11110 | مِدْفَعِيّة | ي harfinde şedde eksik | مِدْفَعِيَّة
+3742 | قُنْصُلِيَّة | çoğulda şedde eksik | قُنْصُلِيَّات
+3752 | دَرَّكَ | tr "yetiştirmek" ile en "to last, to continue (of periodic rains)" çelişiyor | tr: (yağmur) aralıklarla sürmek
+10549 | أَدَانَ | en "to lend on credit" tr "suçlu bulmak, mahkûm etmek" ile çelişiyor (MSA'da yaygın anlam tr'deki) | en: to condemn, to convict
+3759 | فَعَالِيَة | MSA'da yaygın ve doğru yazım şeddeli | فَعَّالِيَّة, çoğul فَعَّالِيَّات
+3770 | نَهْي | tr'de yazım hatası "kadağan" | yasak, yasaklama
+3783 | تَعَرَّقَ | en "to take root" tr "terlemek" ile çelişiyor | en: to sweat, to perspire (take root anlamı ayrıca not edilebilir)
+3786 | بَصِرَ | "görmek" anlamında yaygın biçim بَصُرَ (بِـ) يَبْصُرُ | بَصُرَ / يَبْصُرُ (bakılmalı)
+3792 | تِلْقَائِي | nispet yâsında şedde eksik | تِلْقَائِيّ
+3794 | بَاسْتَا | okunuş "bâste" yanlış | bâstâ
+3796 | ضَارَبَ | en "to fight" tr "vurmak; borsada spekülasyon" ile tam örtüşmüyor | tr: dövüşmek; (borsada) spekülasyon yapmak
