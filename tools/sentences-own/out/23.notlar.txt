@@ -1,0 +1,42 @@
+11559 | اِغْتَصَبَ | UYGUNSUZ: modern Arapçada baskın anlamı "tecavüz etmek" (cinsel); 7+ uygulamada gizlenmeli ya da mat işaretlenmeli | mat (7+ gizli) ya da kaldır
+5268 | تَوْبَة | İngilizce "instance noun of تَابَ" anlam değil | en "repentance"
+5276 | جُمّاع | şeddede hareke eksik; çoğul جُمّاعُون şüpheli | ar جُمَّاع; ek boş
+11569 | قَنِعَ | "ikna olmak" اِقْتَنَعَ'in anlamı; قَنِعَ = yetinmek, kanaat etmek | tr "kanaat etmek, yetinmek"
+5296 | هَزِيل | Türkçe "zayıf, cılız" (beden) İngilizcede yok | en "thin, emaciated; scanty, poor"
+5303 | صَحَّى | daha çok konuşma dili; fasihte أَيْقَظَ | tr'ye "(konuşma dili)" eklenebilir
+5307 | قَصَرَ | "yetersiz kalmak" anlamı قَصُرَ / قَصَّرَ'a ait; قَصَرَ = kısaltmak (namaz), sınırlamak | tr "kısaltmak; sınırlamak (على)"
+5308 | فَرَطَ | "ihmal etmek" فَرَّطَ'in anlamı; فَرَطَ = önüne geçmek, (söz) ağızdan kaçmak | tr "önüne geçmek; ağızdan kaçmak"
+5313 | حِرْص | İngilizce "greed" ağırlıklı; Türkçe "özen" ile tam örtüşmüyor | en "eagerness, care, keenness"
+5331 | سَفْح | İngilizce "bottom" eksik/yanıltıcı | en "foot (of a mountain), slope"
+11681 | مُنْتَخَب | Türkçe "millî takım" İngilizcede yok | en "elected; national team"
+5335 | خَشَّبَ | Türkçe "odunlaşmak" geçişsiz; bu anlam تَخَشَّبَ; خَشَّبَ = tahtayla kaplamak | ar تَخَشَّبَ ya da tr "tahta kaplamak"
+5344 | صَلَبَ | çarmıha germe; 7+ için şiddet/dinî hassasiyet | mat (7+ gizli)
+5350 | كَفْر | Türkçe "köy" ile İngilizce "darkness" çelişiyor; كُفْر ile karışma riski | en "village" ya da kaldır
+5366 | قَرَدَ | çok seyrek; cümle yazılmadı | —
+5383 | زُلَّة | Türkçe "sürçme" ile İngilizce "dyspnoea" çelişiyor; sürçme زَلَّة (ayrı kayıt 5322) | tr "nefes darlığı (seyrek kullanılır)" ya da kaldır
+5397 | قَدَّحَ | Türkçe "çakmak" (قَدَحَ) ile İngilizce "to attenuate" çelişiyor | tr ya da en düzeltilmeli
+5406 | شَنَق | idam anlamı (7+); ayrıca isim شَنْق, İngilizce "rope" uyumsuz | mat; ar شَنْق, en "hanging"
+11427 | عِرْق | İngilizce yalnızca "plant stem"; asıl anlamlar damar, kök, ırk | en "vein; root; race"
+5379 | وَلَايَة | "eyalet" anlamında doğru hareke وِلَايَة; وَلَايَة = velayet | ar وِلَايَة (eyalet), cümlede وِلَايَة kullanıldı
+5376 | تَلَّفَ | seyrek; standart biçim أَتْلَفَ | ar أَتْلَفَ (muzari يُتْلِفُ)
+5382 | مَارّ | çoğulu yaygın olarak مَارَّة | ek مَارَّة
+5400 | زَرْع | İngilizce "seed" eksik | en "sowing, planting; crops"
+5410 | عَصَا | Türkçe "isyan etmek" (عَصَى) ile İngilizce "sopayla vurmak" çelişiyor | tr "sopayla vurmak (seyrek)" ya da kaldır
+5413 | هَدَّرَ | seyrek; standart biçim هَدَرَ (يَهْدِرُ) | ar هَدَرَ
+5419 | سَلّ | kayıt karışık: tr verem (o سُلّ, ayrı kayıt 5367), en tuberculosis, çoğul سِلَال ise "sepet" (سَلَّة) çoğulu | tr "çekme; sepet", en "pulling out; basket", ya da kaldır
+5420 | شُبِر | şüpheli kayıt (mantar meşesi için yaygın bir Arapça biçim değil) | kaldır
+5424 | صَكَّ | "para basmak" anlamı سَكَّ'e ait; صَكَّ = vurmak, çarpmak | tr "vurmak, çarpmak"
+10855 | غَضِب | sıfat olarak yaygın biçim غَاضِب / غَضْبَان; fiil غَضِبَ ile karışır | ar غَاضِب
+11153 | دَرْج | "çekmece" anlamında hareke دُرْج; دَرْج = tomar (en "roll of paper") | ar دُرْج (cümlede دُرْج kullanıldı)
+5430 | قُطْعَة | yaygın biçim قِطْعَة (çoğul قِطَع) | ar قِطْعَة, ek قِطَع (cümlede قِطْعَة kullanıldı)
+5433 | مَرْبَع | "dörtgen" anlamı مُرَبَّع'a ait; مَرْبَع = bahar otlağı | tr "çayır, bahar otlağı (seyrek kullanılır)"
+5438 | شَبْر | seyrek; anlamı şüpheli (شِبْر = karış) | kaldır ya da kontrol
+5443 | صَرْح | İngilizce "explanation" yanlış (o شَرْح) | en "lofty building, edifice"
+5446 | مِنْظَر | Türkçe "dürbün" ile İngilizce "gözlük" çelişiyor | biri düzeltilmeli
+5448 | جَوْز | İngilizce "middle" Türkçe "ceviz" ile çelişiyor | en "walnut(s); pair"
+11718 | تَمَلُّق | İngilizce "suck up" argo/uygun değil | en "flattery, adulation"
+11632 | حَزْم | Türkçe "kararlılık" İngilizcede yok | en "firmness, resolve; packing"
+5457 | كَتَّمَ | seyrek; standart كَتَمَ (5295) ile aynı anlam | birleştirilebilir
+5461 | فَلَّسَ | seyrek; yaygın biçim أَفْلَسَ (iflas etmek) | tr'ye "(seyrek kullanılır)"
+5282 | حُسَام | silah (kılıç); cümle yazılmadı | mat düşünülebilir
+5330 | قَبَرَ | ölü gömme; cümle yazılmadı | —

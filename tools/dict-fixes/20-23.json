@@ -1,0 +1,544 @@
+[
+ {
+  "id": 4743,
+  "from": "فَلّ",
+  "set": {
+   "tr": "gedik, çentik"
+  },
+  "why": "yazım; yasemin فُلّ ayrı kayıt"
+ },
+ {
+  "id": 4796,
+  "from": "إِبْهَام",
+  "set": {
+   "tr": "belirsizlik, muğlaklık"
+  },
+  "why": "yinelenen yazım"
+ },
+ {
+  "id": 6592,
+  "from": "حَامٍ",
+  "set": {
+   "ek": "حُمَاة"
+  },
+  "why": "yaygın çoğul"
+ },
+ {
+  "id": 11188,
+  "from": "مُطْمَئِنّ",
+  "set": {
+   "en": "reassured, calm, at ease"
+  },
+  "why": "en"
+ },
+ {
+  "id": 4767,
+  "from": "صَمَدَ",
+  "set": {
+   "en": "to withstand, to hold out, to resist"
+  },
+  "why": "en çelişkili"
+ },
+ {
+  "id": 11598,
+  "from": "غْرَام",
+  "set": {
+   "ar": "غِرَام",
+   "okunus": "ğirâm",
+   "ek": "غِرَامَات"
+  },
+  "why": "kelime sükûnla başlamaz"
+ },
+ {
+  "id": 4780,
+  "from": "رَصِيد",
+  "set": {
+   "en": "balance (of an account); stock, reserve"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11599,
+  "from": "حِصْن",
+  "set": {
+   "en": "fortress, castle, stronghold"
+  },
+  "why": "en yanlış"
+ },
+ {
+  "id": 4785,
+  "from": "حَرَم",
+  "set": {
+   "tur": "noun"
+  },
+  "why": "isim"
+ },
+ {
+  "id": 11026,
+  "from": "مُتَنَقِّلَ",
+  "set": {
+   "ar": "مُتَنَقِّل"
+  },
+  "why": "sonda fetha"
+ },
+ {
+  "id": 11028,
+  "from": "مَحْصُول",
+  "set": {
+   "en": "crop, harvest, yield; result"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11645,
+  "from": "قِسْط",
+  "set": {
+   "en": "installment; share, portion; justice"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11045,
+  "from": "تَطَرَّقَ",
+  "set": {
+   "en": "to touch on, to broach (a topic)"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11606,
+  "from": "مُصَوَّر",
+  "set": {
+   "tr": "resimli, fotoğraflı",
+   "tur": "adj",
+   "ek": ""
+  },
+  "why": "fotoğrafçı مُصَوِّر ayrı kayıt"
+ },
+ {
+  "id": 4764,
+  "from": "قَصْف",
+  "set": {
+   "en": "bombardment, shelling"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11603,
+  "from": "مَشْرَحَة",
+  "set": {
+   "en": "morgue"
+  },
+  "why": "en bozuk"
+ },
+ {
+  "id": 4816,
+  "from": "وَفْق",
+  "set": {
+   "en": "conformity; (وَفْقَ) according to"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11608,
+  "from": "وِرْد",
+  "set": {
+   "tr": "vird, günlük okunan dua",
+   "en": "daily litany; watering place"
+  },
+  "why": "gül وَرْد"
+ },
+ {
+  "id": 11079,
+  "from": "وَصِيّ",
+  "set": {
+   "en": "guardian, executor, trustee"
+  },
+  "why": "testator yanlış"
+ },
+ {
+  "id": 4826,
+  "from": "اِسْتِئْجَار",
+  "set": {
+   "tr": "kiralama"
+  },
+  "why": "icar eskimiş"
+ },
+ {
+  "id": 4838,
+  "from": "مُشِعَّة",
+  "set": {
+   "tur": "adj",
+   "en": "radioactive (fem.)"
+  },
+  "why": "en çelişkili"
+ },
+ {
+  "id": 4845,
+  "from": "عَمَارَة",
+  "set": {
+   "tr": "büyük kabile, oymak (seyrek kullanılır)"
+  },
+  "why": "bina عِمَارَة ayrı kayıt"
+ },
+ {
+  "id": 4854,
+  "from": "هَابَ",
+  "set": {
+   "ek": "يَهَابُ"
+  },
+  "why": "muzari"
+ },
+ {
+  "id": 11641,
+  "from": "لَحْن",
+  "set": {
+   "en": "melody, tune; mispronunciation"
+  },
+  "why": "en"
+ },
+ {
+  "id": 4856,
+  "from": "عَائِقَة",
+  "set": {
+   "ek": "عَوَائِق"
+  },
+  "why": "hareke"
+ },
+ {
+  "id": 4885,
+  "from": "وَلَعَ",
+  "set": {
+   "ar": "وَلِعَ",
+   "ek": "يَوْلَعُ",
+   "en": "to be fond of, to be passionate about"
+  },
+  "why": "tutkun olmak وَلِعَ"
+ },
+ {
+  "id": 11111,
+  "from": "تَعْرِفَة",
+  "set": {
+   "ek": "تَعْرِفَات"
+  },
+  "why": "çoğul"
+ },
+ {
+  "id": 4887,
+  "from": "خَصْر",
+  "set": {
+   "tr": "bel",
+   "en": "waist"
+  },
+  "why": "kalça وَرِك"
+ },
+ {
+  "id": 4893,
+  "from": "حَدْس",
+  "set": {
+   "tr": "sezgi, tahmin"
+  },
+  "why": "asıl anlam"
+ },
+ {
+  "id": 11150,
+  "from": "أَطْلَعَ",
+  "set": {
+   "en": "to inform, to acquaint (عَلَى), to show"
+  },
+  "why": "en"
+ },
+ {
+  "id": 10407,
+  "from": "أَخْذ",
+  "set": {
+   "en": "taking, receiving"
+  },
+  "why": "en"
+ },
+ {
+  "id": 4749,
+  "from": "شَاش",
+  "set": {
+   "tr": "tülbent; gazlı bez",
+   "en": "muslin; gauze"
+  },
+  "why": "modern anlam"
+ },
+ {
+  "id": 4784,
+  "from": "نَفَّاذ",
+  "set": {
+   "tr": "keskin, nüfuz eden"
+  },
+  "why": "geçerli olan نَافِذ"
+ },
+ {
+  "id": 4861,
+  "from": "خَمَرَ",
+  "set": {
+   "tr": "örtmek; mayalamak"
+  },
+  "why": "sıra"
+ },
+ {
+  "id": 4814,
+  "from": "رَيْث",
+  "set": {
+   "tr": "gecikme (رَيْثَمَا: -e kadar)"
+  },
+  "why": "kullanım"
+ },
+ {
+  "id": 5268,
+  "from": "تَوْبَة",
+  "set": {
+   "en": "repentance"
+  },
+  "why": "en anlam değil"
+ },
+ {
+  "id": 5276,
+  "from": "جُمّاع",
+  "set": {
+   "ar": "جُمَّاع",
+   "ek": ""
+  },
+  "why": "hareke, çoğul"
+ },
+ {
+  "id": 11569,
+  "from": "قَنِعَ",
+  "set": {
+   "tr": "kanaat etmek, yetinmek"
+  },
+  "why": "ikna olmak اِقْتَنَعَ"
+ },
+ {
+  "id": 5296,
+  "from": "هَزِيل",
+  "set": {
+   "en": "thin, emaciated; scanty, poor"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5307,
+  "from": "قَصَرَ",
+  "set": {
+   "tr": "kısaltmak; sınırlamak",
+   "en": "to shorten; to limit, to restrict"
+  },
+  "why": "yetersiz kalmak قَصُرَ/قَصَّرَ"
+ },
+ {
+  "id": 5308,
+  "from": "فَرَطَ",
+  "set": {
+   "tr": "önüne geçmek; ağızdan kaçmak"
+  },
+  "why": "ihmal etmek فَرَّطَ"
+ },
+ {
+  "id": 5313,
+  "from": "حِرْص",
+  "set": {
+   "en": "eagerness, care, keenness"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5331,
+  "from": "سَفْح",
+  "set": {
+   "en": "foot (of a mountain), slope"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11681,
+  "from": "مُنْتَخَب",
+  "set": {
+   "en": "elected; national team"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5335,
+  "from": "خَشَّبَ",
+  "set": {
+   "tr": "tahtayla kaplamak (seyrek kullanılır)",
+   "en": "to panel with wood"
+  },
+  "why": "odunlaşmak تَخَشَّبَ"
+ },
+ {
+  "id": 5350,
+  "from": "كَفْر",
+  "set": {
+   "en": "village"
+  },
+  "why": "en çelişkili"
+ },
+ {
+  "id": 5383,
+  "from": "زُلَّة",
+  "set": {
+   "tr": "nefes darlığı (seyrek kullanılır)"
+  },
+  "why": "sürçme زَلَّة ayrı kayıt"
+ },
+ {
+  "id": 5397,
+  "from": "قَدَّحَ",
+  "set": {
+   "tr": "azaltmak, inceltmek (seyrek kullanılır)"
+  },
+  "why": "çakmak قَدَحَ"
+ },
+ {
+  "id": 5406,
+  "from": "شَنَق",
+  "set": {
+   "ar": "شَنْق",
+   "en": "hanging (execution)"
+  },
+  "why": "hareke, en"
+ },
+ {
+  "id": 11427,
+  "from": "عِرْق",
+  "set": {
+   "en": "vein; root; race"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5379,
+  "from": "وَلَايَة",
+  "set": {
+   "tr": "velayet, yönetim",
+   "en": "guardianship, authority"
+  },
+  "why": "eyalet وِلَايَة ayrı kayıt"
+ },
+ {
+  "id": 5382,
+  "from": "مَارّ",
+  "set": {
+   "ek": "مَارَّة"
+  },
+  "why": "çoğul"
+ },
+ {
+  "id": 5400,
+  "from": "زَرْع",
+  "set": {
+   "en": "sowing, planting; crops"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5410,
+  "from": "عَصَا",
+  "set": {
+   "tr": "sopayla vurmak (seyrek kullanılır)"
+  },
+  "why": "isyan etmek عَصَى"
+ },
+ {
+  "id": 5419,
+  "from": "سَلّ",
+  "set": {
+   "tr": "çekme, sıyırma",
+   "en": "pulling out, drawing",
+   "ek": ""
+  },
+  "why": "verem سُلّ, sepet سَلَّة ayrı kayıt"
+ },
+ {
+  "id": 5424,
+  "from": "صَكَّ",
+  "set": {
+   "tr": "vurmak, çarpmak",
+   "en": "to strike, to hit"
+  },
+  "why": "para basmak سَكَّ"
+ },
+ {
+  "id": 10855,
+  "from": "غَضِب",
+  "set": {
+   "ar": "غَاضِب",
+   "okunus": "ğâdib"
+  },
+  "why": "sıfat biçimi"
+ },
+ {
+  "id": 11153,
+  "from": "دَرْج",
+  "set": {
+   "tr": "tomar, rulo (seyrek kullanılır)"
+  },
+  "why": "çekmece دُرْج ayrı kayıt"
+ },
+ {
+  "id": 5430,
+  "from": "قُطْعَة",
+  "set": {
+   "tr": "toprak parçası (seyrek kullanılır)",
+   "en": "plot, parcel (of land)"
+  },
+  "why": "parça قِطْعَة ayrı kayıt"
+ },
+ {
+  "id": 5433,
+  "from": "مَرْبَع",
+  "set": {
+   "tr": "çayır, bahar otlağı (seyrek kullanılır)"
+  },
+  "why": "dörtgen مُرَبَّع"
+ },
+ {
+  "id": 5443,
+  "from": "صَرْح",
+  "set": {
+   "en": "lofty building, edifice"
+  },
+  "why": "explanation شَرْح"
+ },
+ {
+  "id": 5446,
+  "from": "مِنْظَر",
+  "set": {
+   "en": "telescope, binoculars"
+  },
+  "why": "en çelişkili"
+ },
+ {
+  "id": 5448,
+  "from": "جَوْز",
+  "set": {
+   "tr": "ceviz",
+   "en": "walnut(s)",
+   "ek": ""
+  },
+  "why": "en çelişkili"
+ },
+ {
+  "id": 11718,
+  "from": "تَمَلُّق",
+  "set": {
+   "en": "flattery, adulation"
+  },
+  "why": "argo"
+ },
+ {
+  "id": 11632,
+  "from": "حَزْم",
+  "set": {
+   "en": "firmness, resolve; packing"
+  },
+  "why": "en"
+ }
+]

@@ -78,7 +78,7 @@ test("şıklar tutarlı: doğru cevap dahil 4 farklı, gizli kelime yok", () => 
 test("gizli kelimeler hiçbir zaman yeni kelime olarak gelmez", () => {
   const a = openApp({ state: { v: 1, welcomed: true } });
   const ids = a.ev(`(() => { const out = []; for (let q = 0; q < N; q++) { const i = ORDER[q]; if (!OFF(i)) out.push(i); } return out; })()`);
-  assert.equal(ids.length, 11719 - 57);
+  assert.equal(ids.length, 11719 - 61);
   noErrors(a); a.close();
 });
 

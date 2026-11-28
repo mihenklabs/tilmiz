@@ -54,7 +54,7 @@ test("gizli kelimeler sözlükte yok", () => {
     const r = search(W[i][0]);
     assert.ok(!r.includes(i));
   }
-  assert.equal(a.ev("dictIds().length"), 11719 - 57);
+  assert.equal(a.ev("dictIds().length"), 11719 - 61);
 });
 
 test("sözlük ekranı: ara, kartı aç, öğrenmeye ekle", () => {

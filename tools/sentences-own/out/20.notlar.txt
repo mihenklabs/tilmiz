@@ -1,0 +1,42 @@
+4739 | نَهْد | "göğüs/breast" (cinsel çağrışımlı anlam) 7+ için uygunsuz | mat (7+ gizli) listesine ekle
+4765 | سَفَّاح | "seri katil / murderer" 7+ için uygunsuz | mat (7+ gizli) listesine ekle
+11431 | ثَمِلَ | "sarhoş olmak / to get drunk" 7+ için uygunsuz (alkol) | mat (7+ gizli) listesine ekle
+4831 | غَائِط | "dışkı / feces" çocuk uygulamasında uygunsuz olabilir | mat listesine eklemeyi değerlendir
+4764 | قَصْف | Türkçe "bombardıman", İngilizce "thunder, roar (of cannon)"; savaş bağlamı | en "bombardment, shelling"; mat listesini değerlendir
+11603 | مَشْرَحَة | İngilizce "where dissected deads are inspected" bozuk; ölüm bağlamı | en "morgue"; mat listesini değerlendir
+4743 | فَلّ | Türkçede yazım hatası "gediğ"; yasemin anlamı فُلّ (fulle) ayrı kelimedir | tr "gedik, çentik"
+4796 | إِبْهَام | Türkçede yinelenen/yanlış yazım "muğlâlık"; ayrıca "başparmak" anlamı eksik | tr "belirsizlik, muğlaklık; başparmak"
+6592 | حَامٍ | çoğul حَامُون yerine yaygın çoğul حُمَاة | ek "حُمَاة"
+11188 | مُطْمَئِنّ | İngilizce "remaining quietly" Türkçe ile tam örtüşmüyor | en "reassured, calm, at ease"
+4767 | صَمَدَ | İngilizce "to betake oneself, to go" Türkçe "dayanmak, direnmek" ile çelişiyor | en "to withstand, to hold out, to resist"
+11598 | غْرَام | ilk harfte sükûn (Arapçada kelime sükûnla başlamaz) | ar "غِرَام" (okunuş ğirâm), çoğul "غِرَامَات"
+4780 | رَصِيد | İngilizce yalnızca "stock, inventory"; Türkçe ilk anlam "bakiye" | en "balance (of an account); stock, reserve"
+11599 | حِصْن | İngilizce "armor or weapons" yanlış | en "fortress, castle, stronghold"
+4785 | حَرَم | tür "adj" yanlış, isim | tur "noun"
+11026 | مُتَنَقِّلَ | sonda gereksiz fetha | ar "مُتَنَقِّل"
+11028 | مَحْصُول | İngilizce "result, outcome" Türkçe "ürün, mahsul" ile çelişiyor | en "crop, harvest, yield; result"
+11645 | قِسْط | İngilizce "a vague amount or time of" yanlış/eksik | en "installment; share, portion; justice"
+11045 | تَطَرَّقَ | İngilizce "to try to gain access" Türkçe "değinmek" ile çelişiyor | en "to touch on, to broach (a topic)"
+11606 | مُصَوَّر | "fotoğrafçı" anlamı مُصَوِّر (vav kesreli); çoğul مُصَوَّرُون yanlış; tür sıfat | tr "resimli, fotoğraflı", tur "adj", ek boş
+4812 | نَعَشَ | modern Arapçada "canlandırmak" için yaygın biçim أَنْعَشَ | tr'ye not ya da ar "أَنْعَشَ / يُنْعِشُ" kaydı ekle
+4814 | رَيْث | asıl kullanım رَيْثَمَا "-e kadar, -inceye dek" | tr "gecikme (رَيْثَمَا: -e kadar)"
+4815 | دَهَرَ | Türkçe "başına gelmek", İngilizce "to overcome, to conquer" çelişiyor | anlamı kaynaktan doğrula
+4816 | وَفْق | İngilizce "sufficiency"; yaygın kullanım وَفْقَ "-e göre" | en "conformity; (وَفْقَ) according to"
+11608 | وِرْد | Türkçe "gül" yanlış (gül = وَرْد); İngilizce "watering hole" eksik | tr "vird, günlük okunan dua; suya varma", en "daily litany; watering place"
+11079 | وَصِيّ | İngilizce "testator" yanlış (vasiyet eden مُوصٍ) | en "guardian, executor, trustee"
+4826 | اِسْتِئْجَار | Türkçe "icar" eskimiş/anlaşılmaz | tr "kiralama, kiralayış"
+4838 | مُشِعَّة | Türkçe "radyoaktif", İngilizce "radiator" çelişiyor; tür noun değil sıfat (dişil) | en "radioactive (fem.); radiator", tur "adj"
+4843 | تَقَارَنَ | تقارن "birbirine yaklaşmak/bitişmek" anlamında; "karşılaştırılmak" (en "to compare") şüpheli | anlamı kaynaktan doğrula
+4845 | عَمَارَة | Türkçe "imar; bina" ile İngilizce "tribe, clan" çelişiyor; "bina" anlamı عِمَارَة (kesreli) | tr "büyük kabile, oymak (seyrek kullanılır)"
+4854 | هَابَ | muzari يَهِيبُ yanlış | ek "يَهَابُ"
+11641 | لَحْن | İngilizce yalnızca "mispronunciation"; Türkçe "melodi" | en "melody, tune; mispronunciation"
+4856 | عَائِقَة | yaygın biçim عَائِق; çoğulda hareke eksik (عَوائِق) | ar "عَائِق", ek "عَوَائِق"
+4885 | وَلَعَ | "tutkun olmak" anlamı وَلِعَ (lam kesreli, وَلِعَ بِـ); İngilizce "to lighten, to alleviate" çelişiyor | ar "وَلِعَ", en "to be fond of, to be passionate about"
+11111 | تَعْرِفَة | çoğul تَعَارِف yanlış | ek "تَعْرِفَات / تَعَارِيف"
+4887 | خَصْر | Türkçe "kalça" yanlış (kalça = وَرِك) | tr "bel"; en "waist"
+4893 | حَدْس | Türkçe "varsayım" eksik; asıl anlam sezgi | tr "sezgi, tahmin"
+11150 | أَطْلَعَ | İngilizce "to break forth (of a plant)" Türkçe "bilgi vermek" ile çelişiyor | en "to inform, to acquaint (عَلَى), to show"
+10407 | أَخْذ | İngilizce "acceptance, reception" Türkçe "alma" ile tam örtüşmüyor | en "taking, receiving"
+4749 | شَاش | modern kullanımda "gazlı bez" anlamı eksik | tr "tülbent; gazlı bez", en "muslin; gauze"
+4784 | نَفَّاذ | Türkçe "geçerli olan" anlamı نَافِذ'a aittir | tr "keskin, nüfuz eden"
+4861 | خَمَرَ | ilk anlam "mayalamak" modern dilde تَخْمِير ile ifade edilir; cümlede "örtmek" kullanıldı | tr "örtmek; mayalamak (seyrek)"

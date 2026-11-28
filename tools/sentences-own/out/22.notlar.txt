@@ -1,0 +1,66 @@
+11341 | أُسْوَة | İngilizce "a single action of imitation" yanlış/eksik | en "example, model (to follow)"
+5090 | فَرْج | فَرْج aynı zamanda cinsel organ anlamına gelir (UYGUNSUZ); "ferahlık, kurtuluş" anlamı فَرَج (ferec) biçimindedir | ar فَرَج, okunuş ferec, en "relief, deliverance"; ya da kaydı mat (7+ gizli) yap
+5091 | مَضْيَفَة | Türkçe "hostes" yanlış; مَضْيَفَة misafirhane demek (hostes = مُضِيفَة) | tr "misafirhane"
+5094 | دَوِّيّ | Türkçe "yankılanan" ile İngilizce "desert" çelişiyor (yankı/uğultu دَوِيّ, ayrı kayıt 5166) | tr "çöl (seyrek kullanılır)"
+5099 | عَجَّ | İngilizce Türkçe "dolup taşmak" anlamını içermiyor | en "to teem with (بِ); to be noisy, to shout"
+10689 | تَقَدُّم | İngilizce "preeminence" ikincil; asıl anlam ilerleme | en "progress, advance; preeminence"
+5102 | مُسْتَحْضَر | Türkçe isim (müstahzar), tür adj ve en sıfat | tur noun, en "preparation (medical/cosmetic)"
+11371 | شَتَّى | aynı yazılış "çeşitli, türlü türlü" sıfatıyla karışabilir; kışlamak için yaygın fiil شَتَا يَشْتُو | (bilgi) gerekirse tr'ye not ekle
+5118 | ذَبَّحَ | katliam/öldürme anlamı; 7+ için uygunsuz | mat (gizli) yap
+11385 | اِسْتَقَلَّ | İngilizce "to find small" Türkçe ile çelişiyor | en "to become independent; to board (a vehicle)"
+5120 | ذَنَبَ | çok seyrek, kaynak belirsiz | gözden geçir
+5123 | عُزُل | عُزُل, أَعْزَل'in çoğuludur; silah bağlamı | tr "silahsızlar"; ya da ar أَعْزَل
+5125 | قَلَدَ | Türkçe "taklit etmek" قَلَّدَ'dir; قَلَدَ = bükmek, sarmak (en ile uyumlu) | tr "bükmek, sarmak (seyrek kullanılır)"
+10734 | حَسَّاب | modern dilde muhasebeci مُحَاسِب; حَسَّاب "hesapçı/hesap bilen" | tr "hesapçı, muhasebeci"; ilgili kayıtla karşılaştır
+11394 | جَلَّاد | İngilizce "whipper, lasher" (kırbaçlayan), Türkçe "cellat"; şiddet | en "executioner; flogger"; mat düşün
+11397 | شَارِد | Türkçe "dalgın" ilk anlam ama en yalnız "fugitive" | en "absent-minded; stray, fugitive"
+11400 | اِسْتَحْوَذَ | İngilizce sonu ", " ile bitiyor (kesik) | sondaki virgülü sil
+11404 | مِطْفَأَة | İngilizce "firefighting equipment" | en "fire extinguisher"
+11408 | تَرَاكَمَ | İngilizcede fazladan "¡" karakteri | en sonundaki "¡" sil
+5138 | غَزِلَ | İngilizce "to flirt, amorous gestures" romantik/flört; Türkçe "iltifat etmek" yumuşatılmış ama anlam aynı (UYGUNSUZ) | mat (gizli) yap
+11657 | شَغْف | Yanlış: "tutku" شَغَف (şeğaf); شَغْف "kalp zarına isabet etme" (en de bunu söylüyor) | ar شَغَف, okunuş şeğaf, en "passion, enthusiasm"
+5147 | زَكِيّ | İngilizce kesik ("suffering no bla"); Türkçe "güzel kokulu" ikincil | en "pure; fragrant; thriving"
+5148 | صَفَعَ | şiddet (tokat) | mat düşün
+5150 | مُهَدَّد | İngilizce "menacing" yanlış (o مُهَدِّد) | en "threatened, endangered"
+11438 | نَسَفَ | Türkçe "havaya uçurmak" (şiddet), en "to winnow" | en "to blow up; to winnow"; mat düşün
+5154 | شَرَجَ | çok seyrek; kök (شَرْج = anüs) uygunsuz çağrışım | mat ya da kaldır
+5160 | أَسْحَقَ | Türkçe "uzaklaştırmak" ile en "to wear out" çelişiyor | gözden geçir (tr "yıpratmak (seyrek kullanılır)")
+5161 | قَطْر | Katar ülke adı قَطَر (qaṭar), قَطْر değil; çoğul قُطُورَات şüpheli (أَقْطَار) | tr "çap"; ek أَقْطَار
+11450 | دَجَّال | İngilizce "someone who covers, coats things" yanlış | en "charlatan, impostor; the Antichrist (al-Dajjal)"
+5164 | مُدَاهَمَة | baskın/saldırı (polis) | mat düşün
+5171 | دَبَرَ | Türkçe "planlamak" دَبَّرَ'dir; دَبَرَ = arkadan gelmek (en ile uyumlu) | tr "arkadan gelmek (seyrek kullanılır)"
+5172 | قَافِيَة | İngilizce "nape of the neck" eski anlam; modern anlam kafiye | en "rhyme; nape of the neck"; çoğul قَوَافٍ
+11226 | وَلِيّ | İngilizce yalnız "Allah'ın ismi: Koruyucu"; Türkçe "veli; dost" | en "guardian; friend; saint; (al-Wali) the Protector"
+11460 | مَرْجِع | İngilizce "recourse, retreat" eksik | en "reference, source; authority"
+5174 | طَالِع | İngilizce "omen" (fal/yıldız falı çağrışımı) | en "luck, fortune; horoscope"
+5176 | أَخْطَفَ | zorla kaçırma anlamı, çok seyrek | mat ya da kaldır
+5177 | اِخْضَاع | IV. bab mastarı hemze-i kat'la yazılır | ar إِخْضَاع
+5183 | تَخْصِيص | İngilizce kesik ("purpos") | en "allocation, assignment; specialization"
+5185 | مِحْرَقة | ق harfinin fethası eksik; çoğulda elif harekesi | ar مِحْرَقَة, ek مَحَارِق
+5188 | هُدْر | kayıt karışık: Türkçe "boşa harcama (هدر)", en "fall, downfall" | ar هَدْر, tr "israf, boşa harcama", en "waste"; ya da kaldır
+11472 | اِسْتَهْلَكَ | İngilizce "to exhaust oneself" asıl anlam değil | en "to consume, to use up"
+11491 | تَنْصِيب | İngilizce "setting up, erecting" eksik | en "inauguration, installation (in office); setting up"
+10957 | غَازٍ | istilacı/akıncı; savaş bağlamı | mat düşün
+5215 | صُرْع | Türkçe "sara" صَرَع'dır; en "resin" ayrı kelime | tr düzelt ya da kaydı kaldır
+11497 | طَوَّافَة | İngilizce yalnız "patrol boat"; Türkçe ilk anlam helikopter | en "helicopter; patrol boat"
+5207 | خَرَاج | çoğul أَخْرَاج yaygın değil | ek أَخْرِجَة
+5208 | فَاشِيّ | siyasi kavram | mat düşün
+11506 | مَلْحَمَة | İngilizce "butcher's shop" Türkçe "destan" ile çelişiyor; "kanlı savaş" 7+ uygunsuz | tr "destan", en "epic; butcher's shop"
+5234 | مُسْتَوٍ | Türkçe "seviye (مستوى)" ayrı kelime (مُسْتَوًى) | tr "düz, eşit"
+5235 | مَنْبَع | Türkçe yalnız "köken"; ek'te i'rab harekesi (مَنَابِعُ) | tr "kaynak, pınar; köken", ek مَنَابِع
+5236 | طَلِيعة | ع'nın fethası eksik; ek'te hemze/elif harekesi | ar طَلِيعَة, ek طَلَائِع
+11519 | حائِر | ح'nin fethası eksik | ar حَائِر
+11520 | قَدَّاحَة | İngilizce "flint" eksik | en "lighter; flint"
+11523 | حِرْمَان | İngilizce "deception, thwarted plan" yanlış | en "deprivation"
+5239 | قِشْدَة | İngilizce "ream" yazım hatası | en "cream, clotted cream"
+11527 | مُوَازَنَة | İngilizce bütçe anlamını içermiyor | en "balance; budget"
+11668 | بِكْر | Türkçe "bakire" anlamı 7+ kitle için gereksiz | tr "ilk çocuk; ilk, el değmemiş"
+5243 | وَزَّعَ | Türkçe en yaygın anlam "dağıtmak" eksik | tr "dağıtmak, paylaştırmak"
+5251 | لَبَّ | "lebbeyk demek" لَبَّى fiilidir | tr "kalmak, durmak (seyrek kullanılır)"
+11712 | نَجْل | İngilizce "posterity" yerine | en "son, offspring"
+5257 | نَزْلَة | İngilizce nezle anlamını içermiyor | en "cold (نَزْلَة بَرْد); descent, landing"
+5258 | هَذَيَان | Türkçe "karışıklık, kargaşa" yerine sayıklama | tr "hezeyan, sayıklama"
+5259 | طَلَّعَ | konuşma dili, fasih değil | (bilgi)
+5262 | غُلّ | Türkçe "kin (غِلّ)" ayrı kelime | tr "bukağı, zincir"
+11544 | ثَارَ | İngilizce kesik (", ") | sondaki virgülü sil
+11546 | مُذَاكَرَة | İngilizce "ders çalışma" anlamını içermiyor | en "studying, revision; discussion"
