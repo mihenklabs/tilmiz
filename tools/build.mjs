@@ -17,8 +17,8 @@ const pkgVersion = JSON.parse(read("package.json")).version;
 export function loadParts() {
   const tpl = read("src/index.html");
   const css = read("src/style.css");
-  // src/notify.js (hatırlatmalar) ve src/voice.js (sesli pratik) yönlendiriciden hemen önce eklenir
-  const js = read("src/app.js").replace("// ---------- router ----------\n", read("src/notify.js") + "\n" + read("src/voice.js") + "\n// ---------- router ----------\n");
+  // src/notify.js (hatırlatmalar), src/voice.js (sesli pratik) ve src/pron.js (telaffuz) yönlendiriciden hemen önce eklenir
+  const js = read("src/app.js").replace("// ---------- router ----------\n", read("src/notify.js") + "\n" + read("src/voice.js") + "\n" + read("src/pron.js") + "\n// ---------- router ----------\n");
   const order = JSON.parse(read("data/_order.json"));
   const data = {};
   for (const k of order) data[k] = JSON.stringify(JSON.parse(read("data/" + k + ".json")));

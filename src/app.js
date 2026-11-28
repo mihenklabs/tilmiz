@@ -497,7 +497,7 @@ function dictView(seg) {
   const ids = dictSearch(dictQ);
   app.innerHTML = `<h2>Sözlük</h2>
   ${seg}
-  <input class="search" id="dq" type="search" placeholder="Arapça, Türkçe, okunuş ya da kök (ör. كتب)" value="${esc(dictQ)}" aria-label="Sözlükte ara" autocomplete="off" spellcheck="false">
+  <input class="search" id="dq" type="search" placeholder="Arapça, Türkçe, okunuş ya da kök (ör. كتب)" value="${esc(dictQ)}" aria-label="Sözlükte ara" autocomplete="off" spellcheck="false">${typeof srState !== "undefined" && srState === "available" ? `<button class="btn sm" id="dqMic" aria-label="Sesle ara (cihaz içi)">🎤 Sesle ara</button>` : ""}
   <p class="sub small">${dictQ.trim() ? `${fmt(ids.length)} sonuç` : `${fmt(ids.length)} kelime, sık kullanılandan seyreğe`} · internetsiz çalışır</p>
   <div class="list">${ids.length ? ids.slice(0, dictShown).map(i => {
     const w = W[i];
@@ -506,6 +506,7 @@ function dictView(seg) {
   ${ids.length > dictShown ? `<button class="btn more" id="dmore">Daha fazla göster (${fmt(ids.length - dictShown)} kelime kaldı)</button>` : ""}`;
   app.querySelectorAll(".seg button").forEach(b => b.onclick = () => { listTab = b.dataset.t; listShown = 60; listQ = ""; lists(); });
   const qi = $("#dq");
+  const mic = $("#dqMic"); if (mic) mic.onclick = dictVoice;
   qi.oninput = () => { dictQ = qi.value; dictShown = 40; dictOpen = null; const pos = qi.selectionStart; lists(); const n = $("#dq"); n.focus(); try { n.setSelectionRange(pos, pos); } catch (e) {} };
   const mo = $("#dmore"); if (mo) mo.onclick = () => { dictShown += 100; lists(); };
   const bindCard = (d, i) => {
@@ -686,6 +687,8 @@ function practice() {
   if (pv.mode === "dlg") return dlgPage(pv.k);
   if (pv.mode === "text") return textPage(pv.k);
   if (pv.mode === "voice") return vp ? voicePage() : voiceStart();
+  if (pv.mode === "pron") return pronList();
+  if (pv.mode === "pronx") return pronPage(pv.k);
   const pool = verbPool(), st = S.cj;
   const txReady = TXV.filter(k => textReady(TX[k]).ready).length, lesReady = LESSONS.filter(L => S.gr[L.id] === undefined && lessonReady(L)).length;
   app.innerHTML = `<h2>Pratik</h2>
@@ -693,6 +696,7 @@ function practice() {
   <button class="hub" id="goLes"><span class="ar" lang="ar">قَوَاعِد</span><div><strong>Dil bilgisi dersleri</strong><span>${LESSONS.length} kısa ders, her birinde 8 soruluk alıştırma · ${Object.keys(S.gr).length} ders çalışıldı${lesReady ? ` · <b class="okt">${lesReady} yeni ders hazır</b>` : ""}</span></div></button>
   <button class="hub" id="goAlf"><span class="ar" lang="ar">أ ب ت</span><div><strong>Elifbâ: Arap harfleri</strong><span>Harfler, harekeler ve okuma alıştırmaları; Arapça okumayı bilmiyorsan buradan başla</span></div></button>
   <button class="hub" id="goDlg"><span class="ar" lang="ar">حِوَار</span><div><strong>Konuşma pratiği</strong><span>${DLG.length} günlük diyalog, dinle ve doğru cevabı seç</span></div></button>
+  <button class="hub" id="goPron"><span class="ar" lang="ar">ح · ه</span><div><strong>Telaffuz</strong><span>Türkçede olmayan sesler: farkı dinle, ayırt et${typeof srState !== "undefined" && srState === "available" ? ", söyle ve kontrol et" : ""}</span></div></button>
   ${VOICE_OK ? `<button class="hub" id="goVoice"><span class="ar" lang="ar">نُطْق</span><div><strong>Sesli pratik</strong><span>Örneği dinle, kendin söyle, kaydını karşılaştır</span></div></button>` : ""}
   <button class="hub" id="goTx"><span class="ar" lang="ar">آيَة · حَدِيث</span><div><strong>Ayet ve hadisler</strong><span>${TXV.length} seçme metin, kelime kelime anlamlarıyla${txReady ? ` · <b class="okt">${txReady} metin okumaya hazır</b>` : ""}</span></div></button>
   <button class="hub" id="goSent"><span class="ar" lang="ar">جُمْلَة</span><div><strong>Cümle pratiği</strong><span>Öğrendiğin kelimelerle kurulmuş cümleler: anlamını bul, cümleyi kur</span></div></button>
@@ -704,6 +708,7 @@ function practice() {
   $("#goAlf").onclick = () => { pv = { mode: "alf" }; practice(); window.scrollTo(0, 0); };
   $("#goDlg").onclick = () => { pv = { mode: "dlgs" }; practice(); window.scrollTo(0, 0); };
   if (VOICE_OK) $("#goVoice").onclick = voiceStart;
+  $("#goPron").onclick = () => { pv = { mode: "pron" }; practice(); window.scrollTo(0, 0); };
   $("#goTx").onclick = () => { pv = { mode: "texts" }; practice(); window.scrollTo(0, 0); };
   $("#goLes").onclick = () => { pv = { mode: "lessons" }; practice(); window.scrollTo(0, 0); };
   $("#goRoots").onclick = () => { pv = { mode: "roots" }; practice(); window.scrollTo(0, 0); };
