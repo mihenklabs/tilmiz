@@ -1,0 +1,11 @@
+4382 | مُكَثِّفة | İngilizce anlam tekrar ediyor ("capacitor, condensercapacitor, condenser") | "capacitor, condenser"
+4392 | مُهْر | Arapçada مُهْر "tay (at yavrusu)" demek; "mühür" anlamı Farsçadan, Fasih Arapçada mühür خَتْم | tr: "tay", en: "foal, colt"; (cümle "tay" anlamıyla yazıldı)
+4393 | تَنَاوُل | İngilizce "comprehension, grasp" Türkçe "alma (yemek, ilaç)" ile örtüşmüyor | en: "taking (food, medicine); dealing with"
+4406/4407 | رَأْسَمَالِيّ / رَأْسِمَالِيَّة | aynı kökten iki kayıtta س harekesi tutarsız (fetha / kesra) | ikisinde de aynı yazım (ör. رَأْسْمَالِيّ / رَأْسْمَالِيَّة ya da رَأْسَمَالِيَّة)
+4435 | جِنِّيّة | tür "adj" ve en "demonic" ama Türkçe "dişi cin" (isim) | tur: noun, en: "female jinn; fairy"
+4451 | مُوجَز | çoğul مُوجَزُون yanlış (akıllı varlık çoğulu) | çoğul boş ya da مُوجَزَات
+11654 | شُبَّاك | İngilizce "netting, network" Türkçe "pencere, gişe" ile uyuşmuyor | en: "window; ticket window"
+4523 | تَأَمَّلَ | İngilizce "to hope for, to look forward to" MSA anlamıyla uyuşmuyor | en: "to contemplate, to look closely at"
+4533 | قَمَرَة | İngilizce "crescent" Türkçe "kamara" ile çelişiyor; MSA'da yaygın yazım قُمْرَة | en: "cabin (ship), cockpit"; yazım قُمْرَة
+4524 | هَاءَ | "hazırlanmak" anlamı ve يَهَاءُ muzarisi şüpheli; kaynak doğrulanmalı | kontrol edilmeli ya da kaldırılmalı
+4449 | فَرَجَ | en "to open, to part" Türkçe "ferahlatmak"tan farklı; "ferahlatmak" daha çok فَرَّجَ | tr: "açmak; (sıkıntıyı) gidermek"

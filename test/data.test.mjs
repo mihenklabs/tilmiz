@@ -18,7 +18,7 @@ test("kelime sayısı ve alan yapısı", () => {
 });
 
 test("seyrek ve gizli kelime sayıları", () => {
-  assert.equal(W.filter(w => /seyrek kullanılır/.test(w[2])).length, 834); // sözlük düzeltmeleriyle değişebilir (tools/dict-fixes)
+  assert.equal(W.filter(w => /seyrek kullanılır/.test(w[2])).length, 836); // sözlük düzeltmeleriyle değişebilir (tools/dict-fixes)
   const mat = readData("mat");
   assert.equal(mat.length, 57);
   mat.forEach(i => assert.ok(Number.isInteger(i) && i >= 0 && i < N));

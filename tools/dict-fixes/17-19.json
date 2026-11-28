@@ -1,0 +1,397 @@
+[
+ {
+  "id": 4189,
+  "from": "إِمْتِنَان",
+  "set": {
+   "ar": "اِمْتِنَان"
+  },
+  "why": "hemze-i vasl"
+ },
+ {
+  "id": 4190,
+  "from": "نَالَ",
+  "set": {
+   "ek": "يَنَالُ"
+  },
+  "why": "elde etmek anlamında muzari"
+ },
+ {
+  "id": 4211,
+  "from": "مُنْتَصِر",
+  "set": {
+   "tr": "galip, muzaffer"
+  },
+  "why": "yazım hatası"
+ },
+ {
+  "id": 4225,
+  "from": "وَصَبَ",
+  "set": {
+   "tr": "sürmek, devam etmek (seyrek kullanılır)"
+  },
+  "why": "tr/en ve kalıp çelişiyordu"
+ },
+ {
+  "id": 4231,
+  "from": "نَسَجَ",
+  "set": {
+   "en": "to weave"
+  },
+  "why": "en yanlış"
+ },
+ {
+  "id": 4238,
+  "from": "فَخَّ",
+  "set": {
+   "tr": "horlamak (seyrek kullanılır)"
+  },
+  "why": "فَخَّ horlamak"
+ },
+ {
+  "id": 11340,
+  "from": "نَهَبَ",
+  "set": {
+   "ek": "يَنْهَبُ"
+  },
+  "why": "muzari"
+ },
+ {
+  "id": 4245,
+  "from": "أَحْفَظَ",
+  "set": {
+   "tr": "kızdırmak, öfkelendirmek"
+  },
+  "why": "ezberletmek حَفَّظَ"
+ },
+ {
+  "id": 4252,
+  "from": "غَوَّاص",
+  "set": {
+   "ek": "غَوَّاصُون"
+  },
+  "why": "غَوَّاصَات denizaltılar"
+ },
+ {
+  "id": 4256,
+  "from": "خَضُوع",
+  "set": {
+   "tr": "boyun eğen, itaatkâr"
+  },
+  "why": "sıfat; masdar خُضُوع ayrı kayıt"
+ },
+ {
+  "id": 4304,
+  "from": "تَعَجَّبَ",
+  "set": {
+   "tr": "şaşırmak, hayret etmek"
+  },
+  "why": "anlam"
+ },
+ {
+  "id": 4306,
+  "from": "مَلَاحَة",
+  "set": {
+   "tr": "güzellik, sevimlilik"
+  },
+  "why": "denizcilik مِلَاحَة ayrı kayıt"
+ },
+ {
+  "id": 10466,
+  "from": "قَسْم",
+  "set": {
+   "tr": "bölme, taksim",
+   "en": "division, dividing"
+  },
+  "why": "bölüm قِسْم ayrı kayıt"
+ },
+ {
+  "id": 4327,
+  "from": "إِرْهَاقْ",
+  "set": {
+   "ar": "إِرْهَاق"
+  },
+  "why": "sonda cezm"
+ },
+ {
+  "id": 4333,
+  "from": "نِفَاق",
+  "set": {
+   "tr": "nifak, ikiyüzlülük"
+  },
+  "why": "riya رِيَاء"
+ },
+ {
+  "id": 4334,
+  "from": "نَوْل",
+  "set": {
+   "tr": "dokuma tezgâhı",
+   "en": "loom"
+  },
+  "why": "çoğul أَنْوَال bu anlama ait"
+ },
+ {
+  "id": 10742,
+  "from": "مَناعة",
+  "set": {
+   "ar": "مَنَاعَة"
+  },
+  "why": "hareke eksik"
+ },
+ {
+  "id": 11373,
+  "from": "عُدْوَى",
+  "set": {
+   "en": "infection, contagion"
+  },
+  "why": "en yanlış"
+ },
+ {
+  "id": 4277,
+  "from": "كَلْم",
+  "set": {
+   "en": "wound"
+  },
+  "why": "en uyumsuz"
+ },
+ {
+  "id": 4353,
+  "from": "نِسْبِيّاً",
+  "set": {
+   "ar": "نِسْبِيًّا"
+  },
+  "why": "tenvin yazımı"
+ },
+ {
+  "id": 4357,
+  "from": "نَصَبَ",
+  "set": {
+   "ek": "يَنْصِبُ"
+  },
+  "why": "muzari"
+ },
+ {
+  "id": 10956,
+  "from": "شَدَّ",
+  "set": {
+   "ek": "يَشُدُّ",
+   "en": "to tighten, to pull; to strengthen"
+  },
+  "why": "sıkmak anlamında muzari"
+ },
+ {
+  "id": 4382,
+  "from": "مُكَثِّفة",
+  "set": {
+   "en": "capacitor, condenser"
+  },
+  "why": "tekrar"
+ },
+ {
+  "id": 4393,
+  "from": "تَنَاوُل",
+  "set": {
+   "en": "taking (food, medicine); dealing with"
+  },
+  "why": "en uyumsuz"
+ },
+ {
+  "id": 4435,
+  "from": "جِنِّيّة",
+  "set": {
+   "tur": "noun",
+   "en": "female jinn; fairy"
+  },
+  "why": "isim"
+ },
+ {
+  "id": 4451,
+  "from": "مُوجَز",
+  "set": {
+   "ek": ""
+  },
+  "why": "akıllı çoğulu yanlış"
+ },
+ {
+  "id": 11654,
+  "from": "شُبَّاك",
+  "set": {
+   "en": "window; ticket window"
+  },
+  "why": "en uyumsuz"
+ },
+ {
+  "id": 4523,
+  "from": "تَأَمَّلَ",
+  "set": {
+   "en": "to contemplate, to look closely at"
+  },
+  "why": "en uyumsuz"
+ },
+ {
+  "id": 4533,
+  "from": "قَمَرَة",
+  "set": {
+   "en": "cabin (ship), cockpit"
+  },
+  "why": "en uyumsuz"
+ },
+ {
+  "id": 4449,
+  "from": "فَرَجَ",
+  "set": {
+   "tr": "açmak; (sıkıntıyı) gidermek"
+  },
+  "why": "anlam"
+ },
+ {
+  "id": 4547,
+  "from": "قُرَّاء",
+  "set": {
+   "ek": "",
+   "en": "readers; Quran reciters"
+  },
+  "why": "zaten çoğul"
+ },
+ {
+  "id": 4549,
+  "from": "سَلِس",
+  "set": {
+   "en": "smooth, fluent; docile"
+  },
+  "why": "en uyumsuz"
+ },
+ {
+  "id": 4550,
+  "from": "أَهْدَفَ",
+  "set": {
+   "tr": "yaklaşmak (seyrek kullanılır)"
+  },
+  "why": "tr/en çelişkisi"
+ },
+ {
+  "id": 4552,
+  "from": "فَتَّة",
+  "set": {
+   "tr": "fette (ekmekli yemek)",
+   "en": "fatteh (bread dish)"
+  },
+  "why": "kırıntı فُتَات ayrı kayıt"
+ },
+ {
+  "id": 4567,
+  "from": "سِيلِيكُون",
+  "set": {
+   "tr": "silisyum, silikon"
+  },
+  "why": "element adı"
+ },
+ {
+  "id": 4570,
+  "from": "جَوَّال",
+  "set": {
+   "ek": "جَوَّالَات"
+  },
+  "why": "cep telefonu çoğulu"
+ },
+ {
+  "id": 4573,
+  "from": "لِثَة",
+  "set": {
+   "tr": "diş eti"
+  },
+  "why": "gum yanlış çevrilmişti"
+ },
+ {
+  "id": 4574,
+  "from": "سُوس",
+  "set": {
+   "en": "weevil, woodworm"
+  },
+  "why": "en uyumsuz"
+ },
+ {
+  "id": 4595,
+  "from": "وَأَبَ",
+  "set": {
+   "tr": "utanmak, büzülmek (seyrek kullanılır)"
+  },
+  "why": "geçişsiz"
+ },
+ {
+  "id": 4597,
+  "from": "رَيْم",
+  "set": {
+   "ar": "رِيم",
+   "okunus": "rîm",
+   "en": "white gazelle"
+  },
+  "why": "ceylan رِيم"
+ },
+ {
+  "id": 4659,
+  "from": "قَابَ",
+  "set": {
+   "tur": "noun",
+   "en": "distance (as in a bow's length)",
+   "ek": ""
+  },
+  "why": "isim"
+ },
+ {
+  "id": 4666,
+  "from": "طِيَارَة",
+  "set": {
+   "tr": "hafiflik, uçarılık (seyrek kullanılır)"
+  },
+  "why": "uçak طَائِرَة ayrı kayıt"
+ },
+ {
+  "id": 4717,
+  "from": "رَنَا",
+  "set": {
+   "en": "to gaze at"
+  },
+  "why": "en yanlış"
+ },
+ {
+  "id": 4718,
+  "from": "زَوَر",
+  "set": {
+   "tr": "eğrilik, meyil (seyrek kullanılır)",
+   "en": "inclination, crookedness"
+  },
+  "why": "yalan زُور ayrı kayıt"
+ },
+ {
+  "id": 10920,
+  "from": "غَسَّالَة",
+  "set": {
+   "en": "washing machine; washerwoman"
+  },
+  "why": "en eksik"
+ },
+ {
+  "id": 4703,
+  "from": "غُرَيْر",
+  "set": {
+   "ek": ""
+  },
+  "why": "çoğul şüpheli"
+ },
+ {
+  "id": 11593,
+  "from": "سَلَبَ",
+  "set": {
+   "en": "to rob, to take away, to seize"
+  },
+  "why": "en yanlış ve uygunsuzdu"
+ },
+ {
+  "id": 7823,
+  "from": "مَسْطُول",
+  "set": {
+   "en": "intoxicated, drugged"
+  },
+  "why": "7+ için sadeleştirildi"
+ }
+]

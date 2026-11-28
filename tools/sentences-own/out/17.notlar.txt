@@ -1,0 +1,22 @@
+4189 | إِمْتِنَان | hemze-i vasl olmalı | اِمْتِنَان
+4190 | نَالَ | 'elde etmek' anlamında muzari يَنَالُ (يَنُولُ 'vermek' anlamındadır) | ek: يَنَالُ
+4211 | مُنْتَصِر | Türkçede yazım hatası 'zaferlü' | galip, muzaffer
+4225 | وَصَبَ | tr 'hastalanmak' = وَصِبَ يَوْصَبُ; en 'to last, to endure' = وَصَبَ يَصِبُ; çelişkili | anlam ya da kalıp birleştirilmeli (ör. sürmek, devam etmek)
+4231 | نَسَجَ | en 'to gather, to collect' yanlış | to weave
+4238 | فَخَّ | فَخَّ يَفِخُّ 'horlamak' demektir (en: to snore); tr 'tuzak kurmak' yanlış | tr: horlamak (seyrek kullanılır)
+11340 | نَهَبَ | muzari يَنْهَبُ olmalı | ek: يَنْهَبُ
+4245 | أَحْفَظَ | 'ezberletmek' حَفَّظَ'dır; أَحْفَظَ 'kızdırmak' (en de öyle) | tr: kızdırmak, öfkelendirmek
+4252 | غَوَّاص | çoğul غَوَّاصَات 'denizaltılar'dır; dalgıçlar غَوَّاصُون | ek: غَوَّاصُون
+4256 | خَضُوع | خَضُوع sıfat (boyun eğen), 'boyun eğme' masdarı خُضُوع'dur; tr/tur çelişkili | tr: boyun eğen, itaatkâr; tur: adj
+4304 | تَعَجَّبَ | 'merak etmek' değil | tr: şaşırmak, hayret etmek
+4306 | مَلَاحَة | 'denizcilik' مِلَاحَة (kesre) ile yazılır; مَلَاحَة güzellik | tr: güzellik, sevimlilik
+10466 | قَسْم | 'bölüm' anlamı قِسْم'dır; قَسْم 'bölme, taksim' | ar: قِسْم (ya da tr: bölme, taksim)
+4327 | إِرْهَاقْ | sonda cezm olmamalı | إِرْهَاق
+4333 | نِفَاق | riya = رِيَاء; نِفَاق ikiyüzlülük | tr: nifak, ikiyüzlülük
+4334 | نَوْل | yaygın anlamı ve أَنْوَال çoğulu 'dokuma tezgâhı'na aittir; 'bağış' anlamı نَوَال | tr: dokuma tezgâhı; (cümle bu anlamda yazıldı)
+10742 | مَناعة | hareke eksik | مَنَاعَة
+11373 | عُدْوَى | harekesi عَدْوَى; en 'hostile action' yanlış | ar: عَدْوَى; en: infection, contagion
+4277 | كَلْم | en 'bite, bitemark' tr 'yara' ile uyuşmuyor | en: wound
+4353 | نِسْبِيّاً | tenvin yazımı | نِسْبِيًّا
+4357 | نَصَبَ | 'dikmek, kurmak' anlamında muzari يَنْصِبُ | ek: يَنْصِبُ
+10956 | شَدَّ | 'sıkmak, çekmek' anlamında muzari يَشُدُّ (يَشِدُّ 'şiddetlenmek') | ek: يَشُدُّ

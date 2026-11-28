@@ -1,0 +1,18 @@
+4547 | قُرَّاء | قُرَّاء zaten قَارِئ'in çoğulu; çoğul alanı قُرَّاؤُون yanlış; İngilizce "bookworm" yanlış | ek boş; en "readers; Quran reciters"
+4549 | سَلِس | İngilizce "docile, obedient, tame" Türkçe "akıcı" ile çelişiyor (modern anlam akıcı) | en "smooth, fluent; docile"
+4550 | أَهْدَفَ | Türkçe "hedef almak", İngilizce "yaklaşmak (لِ)" çelişiyor | tr "yaklaşmak (seyrek kullanılır)"
+4552 | فَتَّة | "kırıntı" anlamında yaygın biçim فُتَات (tekili فُتَاتَة); فَتَّة daha çok bir yemek adı | ar فُتَات ya da tr "fette (yemek)"
+4567 | سِيلِيكُون | element olarak Türkçesi "silisyum" | tr "silisyum, silikon"
+4570 | جَوَّال | cep telefonu anlamında çoğul جَوَّالَات (جَوَّالَة "gezginler") | ek جَوَّالَات
+4573 | لِثَة | "sakız, zamk" İngilizce "gum" kelimesinin yanlış çevirisi | tr "diş eti"
+4574 | سُوس | İngilizce "licorice" Türkçe "güve, kurt" ile çelişiyor | en "weevil, woodworm; (عِرْق السُّوس) licorice"
+4595 | وَأَبَ | Türkçe "utandırmak" (geçişli), İngilizce "büzülmek, utanmak" (geçişsiz) | tr "utanmak, büzülmek (seyrek kullanılır)"
+4597 | رَيْم | ceylan anlamında رِيم / رِئْم; رَيْم "fazlalık" demek (cümlede رِيم kullanıldı) | ar رِيم
+4611 | كَلِيم | daha yaygın anlamı "konuşan, muhatap" (Kelîmullah); "yaralı" ikincil | tr "yaralı; muhatap (seyrek kullanılır)"
+4659 | قَابَ | قَاب isim ("mesafe", قَابَ قَوْسَيْنِ); tür verb ve İngilizce "to dig" yanlış | tur noun, en "distance (as in a bow's length)", ek boş
+4666 | طِيَارَة | "uçak" طَائِرَة / (konuşma dili) طَيَّارَة; طِيَارَة "hafiflik, uçarılık" | ar طَائِرَة ya da kaydı kaldır
+4717 | رَنَا | İngilizce "to listen carefully" yanlış; رَنَا (إِلَى) "dikkatle bakmak" | en "to gaze at"
+4718 | زَوَر | "yalan" زُور; زَوَر "eğrilik, meyil" | ar زُور ya da tr "eğrilik"
+10920 | غَسَّالَة | İngilizce yalnızca "washerwoman"; Türkçe "çamaşır makinesi" | en "washing machine; washerwoman"
+11593 | سَلَبَ | İngilizce "to rape" YANLIŞ ve uygunsuz | en "to rob, to take away, to seize"
+4703 | غُرَيْر | çoğul غَرَائِر (غِرَارَة "çuval" çoğulu) şüpheli | ek kontrol edilmeli (غُرَيْرَات)
