@@ -84,7 +84,7 @@
 {"id":5142,"ar":"وَصَلَتِ الْبَاخِرَةُ إِلَى الْمِينَاءِ.","tr":"Vapur limana ulaştı.","alt":["Buharlı gemi limana vardı."]}
 {"id":11423,"ar":"تَحْتَاجُ الْغُرْفَةُ إِلَى تَنْوِيرٍ أَفْضَلَ.","tr":"Odanın daha iyi aydınlatmaya ihtiyacı var.","alt":[]}
 {"id":5144,"ar":"غَالَبَ الطِّفْلُ النُّعَاسَ لِيُكْمِلَ الْقِصَّةَ.","tr":"Çocuk hikâyeyi bitirmek için uykuyla mücadele etti.","alt":[]}
-{"id":11657,"ar":"لَدَيَّ شَغَفٌ كَبِيرٌ بِالْقِرَاءَةِ.","tr":"Okumaya büyük bir tutkum var.","alt":[]}
+{"id":11657,"skip":"sözlük anlamı düzeltildi; cümle شَغَف kullanıyordu"}
 {"id":5145,"ar":"يُمَرْجِحُ الْأَبُ ابْنَهُ فِي الْحَدِيقَةِ.","tr":"Baba oğlunu parkta sallıyor.","alt":[]}
 {"id":5146,"ar":"مُنَسِّقُ الرِّحْلَةِ رَجُلٌ نَشِيطٌ.","tr":"Gezi koordinatörü enerjik bir adam.","alt":[]}
 {"id":5147,"ar":"رَائِحَةُ الْوَرْدِ زَكِيَّةٌ.","tr":"Gülün kokusu çok güzel.","alt":["Gül güzel kokuludur."]}

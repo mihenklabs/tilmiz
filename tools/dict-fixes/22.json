@@ -1,0 +1,408 @@
+[
+ {
+  "id": 11341,
+  "from": "أُسْوَة",
+  "set": {
+   "en": "example, model (to follow)"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5091,
+  "from": "مَضْيَفَة",
+  "set": {
+   "tr": "misafirhane"
+  },
+  "why": "hostes مُضِيفَة ayrı kayıt"
+ },
+ {
+  "id": 5094,
+  "from": "دَوِّيّ",
+  "set": {
+   "tr": "çöl (seyrek kullanılır)"
+  },
+  "why": "yankı دَوِيّ ayrı kayıt"
+ },
+ {
+  "id": 5099,
+  "from": "عَجَّ",
+  "set": {
+   "en": "to teem with (بِ); to be noisy, to shout"
+  },
+  "why": "en"
+ },
+ {
+  "id": 10689,
+  "from": "تَقَدُّم",
+  "set": {
+   "en": "progress, advance; preeminence"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5102,
+  "from": "مُسْتَحْضَر",
+  "set": {
+   "tur": "noun",
+   "en": "preparation (medical/cosmetic)"
+  },
+  "why": "isim"
+ },
+ {
+  "id": 11385,
+  "from": "اِسْتَقَلَّ",
+  "set": {
+   "en": "to become independent; to board (a vehicle)"
+  },
+  "why": "en çelişkili"
+ },
+ {
+  "id": 5125,
+  "from": "قَلَدَ",
+  "set": {
+   "tr": "bükmek, sarmak (seyrek kullanılır)"
+  },
+  "why": "taklit etmek قَلَّدَ ayrı kayıt"
+ },
+ {
+  "id": 11394,
+  "from": "جَلَّاد",
+  "set": {
+   "en": "executioner; flogger"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11397,
+  "from": "شَارِد",
+  "set": {
+   "en": "absent-minded; stray, fugitive"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11400,
+  "from": "اِسْتَحْوَذَ",
+  "set": {
+   "en": "to capture, to seize, to take possession of"
+  },
+  "why": "kesik"
+ },
+ {
+  "id": 11404,
+  "from": "مِطْفَأَة",
+  "set": {
+   "en": "fire extinguisher"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11408,
+  "from": "تَرَاكَمَ",
+  "set": {
+   "en": "to be piled up, to be heaped up, to accumulate"
+  },
+  "why": "bozuk karakter"
+ },
+ {
+  "id": 11657,
+  "from": "شَغْف",
+  "set": {
+   "tr": "kalp zarına isabet etme (seyrek kullanılır)"
+  },
+  "why": "tutku شَغَف ayrı kayıt"
+ },
+ {
+  "id": 5147,
+  "from": "زَكِيّ",
+  "set": {
+   "en": "pure; fragrant; thriving"
+  },
+  "why": "kesik"
+ },
+ {
+  "id": 5150,
+  "from": "مُهَدَّد",
+  "set": {
+   "en": "threatened, endangered"
+  },
+  "why": "menacing مُهَدِّد"
+ },
+ {
+  "id": 11438,
+  "from": "نَسَفَ",
+  "set": {
+   "en": "to blow up; to winnow"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5160,
+  "from": "أَسْحَقَ",
+  "set": {
+   "tr": "yıpratmak (seyrek kullanılır)"
+  },
+  "why": "tr/en çelişkisi"
+ },
+ {
+  "id": 11450,
+  "from": "دَجَّال",
+  "set": {
+   "en": "charlatan, impostor; the Antichrist (al-Dajjal)"
+  },
+  "why": "en yanlış"
+ },
+ {
+  "id": 5171,
+  "from": "دَبَرَ",
+  "set": {
+   "tr": "arkadan gelmek (seyrek kullanılır)"
+  },
+  "why": "planlamak دَبَّرَ"
+ },
+ {
+  "id": 5172,
+  "from": "قَافِيَة",
+  "set": {
+   "en": "rhyme; nape of the neck",
+   "ek": "قَوَافٍ"
+  },
+  "why": "modern anlam"
+ },
+ {
+  "id": 11226,
+  "from": "وَلِيّ",
+  "set": {
+   "en": "guardian; friend; saint; (al-Wali) the Protector"
+  },
+  "why": "en eksik"
+ },
+ {
+  "id": 11460,
+  "from": "مَرْجِع",
+  "set": {
+   "en": "reference, source; authority"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5174,
+  "from": "طَالِع",
+  "set": {
+   "en": "luck, fortune; rising"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5177,
+  "from": "اِخْضَاع",
+  "set": {
+   "ar": "إِخْضَاع"
+  },
+  "why": "hemze-i kat‘"
+ },
+ {
+  "id": 5183,
+  "from": "تَخْصِيص",
+  "set": {
+   "en": "allocation, assignment; specialization"
+  },
+  "why": "kesik"
+ },
+ {
+  "id": 5185,
+  "from": "مِحْرَقة",
+  "set": {
+   "ar": "مِحْرَقَة",
+   "ek": "مَحَارِق"
+  },
+  "why": "hareke"
+ },
+ {
+  "id": 5188,
+  "from": "هُدْر",
+  "set": {
+   "tr": "düşüş (seyrek kullanılır)"
+  },
+  "why": "israf هَدْر"
+ },
+ {
+  "id": 11472,
+  "from": "اِسْتَهْلَكَ",
+  "set": {
+   "en": "to consume, to use up"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11491,
+  "from": "تَنْصِيب",
+  "set": {
+   "en": "inauguration, installation (in office); setting up"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5215,
+  "from": "صُرْع",
+  "set": {
+   "tr": "reçine (seyrek kullanılır)"
+  },
+  "why": "sara صَرَع"
+ },
+ {
+  "id": 11497,
+  "from": "طَوَّافَة",
+  "set": {
+   "en": "helicopter; patrol boat"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11506,
+  "from": "مَلْحَمَة",
+  "set": {
+   "tr": "destan",
+   "en": "epic; butcher's shop"
+  },
+  "why": "7+"
+ },
+ {
+  "id": 5234,
+  "from": "مُسْتَوٍ",
+  "set": {
+   "tr": "düz, eşit"
+  },
+  "why": "seviye مُسْتَوًى ayrı"
+ },
+ {
+  "id": 5235,
+  "from": "مَنْبَع",
+  "set": {
+   "tr": "kaynak, pınar; köken",
+   "ek": "مَنَابِع"
+  },
+  "why": "i‘rab harekesi"
+ },
+ {
+  "id": 5236,
+  "from": "طَلِيعة",
+  "set": {
+   "ar": "طَلِيعَة",
+   "ek": "طَلَائِع"
+  },
+  "why": "hareke"
+ },
+ {
+  "id": 11519,
+  "from": "حائِر",
+  "set": {
+   "ar": "حَائِر"
+  },
+  "why": "hareke"
+ },
+ {
+  "id": 11520,
+  "from": "قَدَّاحَة",
+  "set": {
+   "en": "lighter; flint"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11523,
+  "from": "حِرْمَان",
+  "set": {
+   "en": "deprivation"
+  },
+  "why": "en yanlış"
+ },
+ {
+  "id": 5239,
+  "from": "قِشْدَة",
+  "set": {
+   "en": "cream, clotted cream"
+  },
+  "why": "yazım"
+ },
+ {
+  "id": 11527,
+  "from": "مُوَازَنَة",
+  "set": {
+   "en": "balance; budget"
+  },
+  "why": "en"
+ },
+ {
+  "id": 11668,
+  "from": "بِكْر",
+  "set": {
+   "tr": "ilk çocuk; ilk, el değmemiş"
+  },
+  "why": "7+"
+ },
+ {
+  "id": 5243,
+  "from": "وَزَّعَ",
+  "set": {
+   "tr": "dağıtmak, paylaştırmak"
+  },
+  "why": "yaygın anlam"
+ },
+ {
+  "id": 5251,
+  "from": "لَبَّ",
+  "set": {
+   "tr": "kalmak, durmak (seyrek kullanılır)"
+  },
+  "why": "lebbeyk لَبَّى"
+ },
+ {
+  "id": 11712,
+  "from": "نَجْل",
+  "set": {
+   "en": "son, offspring"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5257,
+  "from": "نَزْلَة",
+  "set": {
+   "en": "cold (نَزْلَة بَرْد); descent, landing"
+  },
+  "why": "en"
+ },
+ {
+  "id": 5258,
+  "from": "هَذَيَان",
+  "set": {
+   "tr": "hezeyan, sayıklama"
+  },
+  "why": "anlam"
+ },
+ {
+  "id": 5262,
+  "from": "غُلّ",
+  "set": {
+   "tr": "bukağı, zincir"
+  },
+  "why": "kin غِلّ"
+ },
+ {
+  "id": 11544,
+  "from": "ثَارَ",
+  "set": {
+   "en": "to rise up, to revolt; to flare up"
+  },
+  "why": "kesik"
+ },
+ {
+  "id": 11546,
+  "from": "مُذَاكَرَة",
+  "set": {
+   "en": "studying, revision; discussion"
+  },
+  "why": "en"
+ }
+]
