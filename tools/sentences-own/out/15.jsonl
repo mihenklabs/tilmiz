@@ -18,7 +18,7 @@
 {"id":3821,"ar":"رَدَّ الْوَلَدُ الْأَمَانَةَ إِلَى صَاحِبِهَا.","tr":"Çocuk emaneti sahibine geri verdi.","alt":[]}
 {"id":3822,"ar":"الرُّطُوبَةُ عَالِيَةٌ فِي الصَّيْفِ.","tr":"Yazın nem yüksektir.","alt":["Yazın rutubet yüksek olur."]}
 {"id":3823,"ar":"نَبَحَ الْكَلْبُ عِنْدَمَا رَأَى الْقِطَّ.","tr":"Köpek kediyi görünce havladı.","alt":[]}
-{"id":3824,"ar":"الْحَدِيدُ أَقْسَى مِنَ الْخَشَبِ.","tr":"Demir tahtadan daha serttir.","alt":[]}
+{"id":3824,"skip":"kayıt fiile çevrildi; cümle sıfat kullanıyordu"}
 {"id":11152,"ar":"الْإِيدْزُ مَرَضٌ يُضْعِفُ مَنَاعَةَ الْجِسْمِ.","tr":"AIDS vücudun bağışıklığını zayıflatan bir hastalıktır.","alt":[]}
 {"id":3825,"ar":"تَنَاوَلْنَا الْعَشَاءَ فِي مَطْعَمٍ رَاقٍ.","tr":"Akşam yemeğini seçkin bir restoranda yedik.","alt":["Akşam yemeğini kaliteli bir lokantada yedik."]}
 {"id":10580,"ar":"أَغْرَقَ الْمَطَرُ الشَّوَارِعَ.","tr":"Yağmur sokakları su altında bıraktı.","alt":["Yağmur sokakları su bastırdı."]}

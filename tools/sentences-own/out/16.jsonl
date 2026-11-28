@@ -129,7 +129,7 @@
 {"id":11284,"ar":"تَمْتَازُ هٰذِهِ الْأَرْضُ بِالْخُصُوبَةِ.","tr":"Bu toprak verimliliğiyle öne çıkar.","alt":["Bu topraklar çok verimlidir."]}
 {"id":4084,"ar":"لَبِسَ أَبِي حُلَّةً أَنِيقَةً فِي الْعِيدِ.","tr":"Babam bayramda şık bir takım elbise giydi.","alt":[]}
 {"id":4085,"ar":"غَطَسَ الْوَلَدُ فِي الْمَاءِ.","tr":"Çocuk suya daldı.","alt":[]}
-{"id":4087,"ar":"دَفَعَ أَبِي الْقِسْطَ الْأَوَّلَ مِنْ ثَمَنِ السَّيَّارَةِ.","tr":"Babam arabanın bedelinin ilk taksitini ödedi.","alt":["Babam araba için ilk taksiti ödedi."]}
+{"id":4087,"skip":"cümle قِسْط kullanıyordu"}
 {"id":4088,"ar":"قَشَّ الْفَلَّاحُ الْحَطَبَ مِنَ الْحَقْلِ.","tr":"Çiftçi tarladan odun topladı.","alt":[]}
 {"id":10697,"ar":"لِلْغُرْفَةِ مَنْفَذٌ وَاحِدٌ لِلْهَوَاءِ.","tr":"Odanın tek bir hava çıkışı var.","alt":[]}
 {"id":10698,"ar":"اخْتَرَقَ ضَوْءُ الشَّمْسِ السُّحُبَ.","tr":"Güneş ışığı bulutları delip geçti.","alt":[]}
@@ -202,7 +202,7 @@
 {"id":4142,"ar":"شَغَّلْتُ الْهَوَّايَةَ لِأَنَّ الْجَوَّ حَارٌّ.","tr":"Hava sıcak olduğu için vantilatörü açtım.","alt":[]}
 {"id":4143,"ar":"رَسَمَ الطِّفْلُ هَرَمًا عَلَى الْوَرَقَةِ.","tr":"Çocuk kâğıda bir piramit çizdi.","alt":[]}
 {"id":4144,"ar":"يَلْمَعُ بَيَاضُ الثَّلْجِ تَحْتَ الشَّمْسِ.","tr":"Karın beyazlığı güneşin altında parlıyor.","alt":[]}
-{"id":4145,"ar":"فِي خَاتَمِ جَدَّتِي حَجَرٌ مِنَ اللَّعْلِ.","tr":"Büyükannemin yüzüğünde bir la'l taşı var.","alt":["Ninemin yüzüğünde kırmızı değerli bir taş var."]}
+{"id":4145,"ar":"لَعَلَّ الْمَطَرَ يَنْزِلُ غَدًا.","tr":"Belki yarın yağmur yağar.","alt":["Umulur ki yarın yağmur yağar."]}
 {"id":4146,"ar":"جَاءَتْ زُمْرَةٌ مِنَ الطُّلَّابِ لِزِيَارَةِ الْمَتْحَفِ.","tr":"Bir grup öğrenci müzeyi ziyarete geldi.","alt":[]}
 {"id":4147,"ar":"اتَّخَذَ الْمَطَرَ ذَرِيعَةً لِلْبَقَاءِ فِي الْبَيْتِ.","tr":"Yağmuru evde kalmak için bahane etti.","alt":[]}
 {"id":4148,"ar":"يَبْحَثُ أَبِي عَنْ عَمَلٍ قَارٍّ.","tr":"Babam kalıcı bir iş arıyor.","alt":["Babam düzenli bir iş arıyor."]}
